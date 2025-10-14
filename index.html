@@ -41,8 +41,7 @@
     }
     *,*::before,*::after{box-sizing:border-box}
     html,body{margin:0;background:linear-gradient(180deg,#090b12,#0b0f18 24%,#0a0d14);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
     .grad-ink{background:linear-gradient(90deg,#fff,#ffe6c4 40%,#c7f5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
 
     /* Layout */
@@ -64,15 +63,18 @@
     .brand{display:flex;align-items:center;gap:.8rem}
     .logo{width:48px;height:48px;border-radius:14px;background:#0b0f18 url('/media/logo-light.svg') center/70% no-repeat;box-shadow:0 0 0 2px rgba(255,255,255,.04)}
     .brand h1{font:800 16px Orbitron,system-ui;margin:0;letter-spacing:.6px}
+
     .snav{display:flex;flex-direction:column;gap:6px;margin-top:8px}
     .snav a{padding:.75rem .85rem;border-radius:12px;color:var(--muted);font-weight:700;letter-spacing:.2px}
     .snav a.active,.snav a:hover{background:rgba(255,255,255,.06);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+
     .cta-side{display:flex;flex-direction:column;gap:8px;margin-top:6px}
     .btn{display:inline-flex;align-items:center;gap:.55rem;background:linear-gradient(135deg,var(--accent),var(--accent-2));
       color:#0a0c12;padding:.9rem 1rem;border-radius:12px;font-weight:900;box-shadow:0 0 0 2px rgba(255,255,255,.04), var(--shadow);transition:transform .15s ease}
     .btn:hover{transform:translateY(-1px)}
     .btn-outline{background:transparent;border:1px solid var(--border);color:var(--ink);box-shadow:none}
     .chip{display:inline-block;padding:.35rem .7rem;border:1px solid var(--border);border-radius:999px;color:#e8eef6;font-size:.85rem;background:rgba(255,255,255,.05)}
+
     .lang{margin-top:auto;display:flex;gap:6px}
     .lang button{flex:1;background:transparent;border:1px solid var(--border);color:#d7dee9;padding:.55rem;border-radius:10px;font-weight:800;cursor:pointer}
     .lang button.active{border-color:var(--accent);color:#fff;box-shadow:0 0 0 2px rgba(224,123,60,.15) inset}
@@ -110,7 +112,13 @@
     .section-sub{color:var(--muted);margin:0 0 20px}
     .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:14px}
 
-    /* Portfolio Vimeo autoplay + glow sabbia */
+    /* Portfolio Vimeo autoplay + glow sabbia + SFONDO SEZIONE */
+    .portfolio-sec{
+      background:
+        radial-gradient(800px 260px at 80% -10%, rgba(241,217,161,.18), transparent 60%),
+        linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.55)),
+        url('/media/bg-portfolio.webp.jpg') center/cover no-repeat;
+    }
     .portfolio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     @media (max-width:900px){.portfolio-grid{grid-template-columns:1fr}}
     .vid{
@@ -127,8 +135,6 @@
       background:linear-gradient(135deg, rgba(217,182,122,.85), rgba(241,217,161,.85));
       color:#2b1d0f;font-weight:900;font-size:.8rem;box-shadow:0 8px 20px rgba(0,0,0,.25)
     }
-
-    /* Servizi, prezzi, chi sono ecc. proseguono in Parte 2 */
 
     /* Reveal */
     [data-reveal]{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
@@ -160,22 +166,21 @@
         </div>
       </div>
 
-      <!-- Link importanti in cima -->
+      <!-- Link importanti in cima (niente strategia) -->
       <nav class="snav" role="navigation">
-        <a href="#home" class="slink">Home</a>
-        <a href="#portfolio" class="slink">Portfolio</a>
-        <a href="#servizi" class="slink">Servizi</a>
-        <a href="#prezzi" class="slink">Prezzi</a>
-        <a href="#chi-sono" class="slink">Chi sono</a>
-        <a href="#processo" class="slink">Processo</a>
-        <a href="#strategia" class="slink">Strategia</a>
-        <a href="#faq" class="slink">FAQ</a>
-        <a href="#contatti" class="slink">Contatti</a>
+        <a href="#home" class="slink" data-i18n="nav.home">Home</a>
+        <a href="#portfolio" class="slink" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="#servizi" class="slink" data-i18n="nav.services">Servizi</a>
+        <a href="#prezzi" class="slink" data-i18n="nav.pricing">Prezzi</a>
+        <a href="#chi-sono" class="slink" data-i18n="nav.about">Chi sono</a>
+        <a href="#processo" class="slink" data-i18n="nav.process">Processo</a>
+        <a href="#faq" class="slink" data-i18n="nav.faq">FAQ</a>
+        <a href="#contatti" class="slink" data-i18n="nav.contact">Contatti</a>
       </nav>
 
       <div class="cta-side">
-        <a class="btn" href="https://wa.me/393910911719">WhatsApp</a>
-        <a class="btn btn-outline" href="#contatti">Richiedi preventivo</a>
+        <a class="btn" href="https://wa.me/393910911719" data-i18n="cta.whatsapp">WhatsApp</a>
+        <a class="btn btn-outline" href="#contatti" data-i18n="cta.quote">Richiedi preventivo</a>
       </div>
 
       <div class="lang" aria-label="Cambia lingua">
@@ -194,24 +199,24 @@
       <section id="home" class="panel edge-fade hero">
         <div class="wrap">
           <div class="glass" data-reveal>
-            <div class="eyebrow"><span class="dot"></span><span class="chip">Drone 4K certificato • Storytelling</span></div>
-            <h2 class="section-title">
-              <span class="grad-ink">Video</span> che fanno vivere <span style="background:linear-gradient(90deg,#ffd39c,#fff);-webkit-background-clip:text;background-clip:text;color:transparent">Tenerife</span> prima ancora di arrivarci
+            <div class="eyebrow"><span class="dot"></span><span class="chip" data-i18n="hero.ribbon">Drone 4K certificato • Storytelling</span></div>
+            <h2 class="section-title" data-i18n="hero.title">
+              Video che fanno vivere <span style="color:var(--accent)">Tenerife</span> prima ancora di arrivarci
             </h2>
-            <p class="section-sub">Turismo, Boat Charter, Hotel e Real Estate. Produzione agile in loco, montaggi ad alto impatto, ottimizzati per social & ads.</p>
+            <p class="section-sub" data-i18n="hero.subtitle">Turismo, Boat Charter, Hotel e Real Estate. Produzione agile in loco, montaggi ad alto impatto, ottimizzati per social e ads.</p>
             <div class="cta-row">
-              <a href="#portfolio" class="btn">Guarda Portfolio ⟶</a>
-              <a href="#prezzi" class="btn btn-outline">Scopri i pacchetti</a>
+              <a href="#portfolio" class="btn" data-i18n="hero.cta1">Guarda Portfolio ⟶</a>
+              <a href="#prezzi" class="btn btn-outline" data-i18n="hero.cta2">Scopri i pacchetti</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PORTFOLIO (Vimeo autoplay + glow sabbia) -->
-      <section id="portfolio" class="panel edge-fade">
+      <!-- PORTFOLIO con SFONDO + autoplay -->
+      <section id="portfolio" class="panel edge-fade portfolio-sec">
         <div class="wrap">
-          <h3 class="section-title">Portfolio</h3>
-          <p class="section-sub">4 clip selezionate — autoplay, loop, silenziose (tap per audio).</p>
+          <h3 class="section-title" data-i18n="portfolio.title">Portfolio</h3>
+          <p class="section-sub" data-i18n="portfolio.subtitle">4 clip selezionate — autoplay, loop, silenziose (tap per audio).</p>
 
           <div class="portfolio-grid">
             <div class="vid" data-reveal>
@@ -236,8 +241,8 @@
       <!-- SERVIZI -->
       <section id="servizi" class="panel edge-fade bg-stripe">
         <div class="wrap">
-          <h3 class="section-title">Servizi</h3>
-          <p class="section-sub">Soluzioni video su misura per destinazioni, aziende e proprietà.</p>
+          <h3 class="section-title" data-i18n="services.title">Servizi</h3>
+          <p class="section-sub" data-i18n="services.subtitle">Soluzioni video su misura per destinazioni, aziende e proprietà.</p>
 
           <style>
             .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -255,25 +260,37 @@
           <div class="services">
             <article class="svc" data-reveal style="background-image:url('/media/bg-services.webp.jpg')">
               <div class="p">
-                <h4 class="grad-ink" style="font-weight:900">Turismo & Hotel</h4>
-                <p>Spot emozionali, contenuti always-on per stagioni/OTA, UGC guidato, pacchetti reel.</p>
-                <div><span class="tag tag--sea">Storytelling</span><span class="tag tag--mag">Social</span><span class="tag tag--rose">Ads</span></div>
+                <h4 class="grad-ink" style="font-weight:900" data-i18n="services.tourism.title">Turismo & Hotel</h4>
+                <p data-i18n="services.tourism.desc">Spot emozionali e contenuti always-on per stagioni e OTA, UGC guidato, pacchetti reel.</p>
+                <div>
+                  <span class="tag tag--sea" data-i18n="services.tags.story">Storytelling</span>
+                  <span class="tag tag--mag" data-i18n="services.tags.social">Social</span>
+                  <span class="tag tag--rose" data-i18n="services.tags.ads">Ads</span>
+                </div>
               </div>
             </article>
 
             <article class="svc" data-reveal style="background-image:url('/media/bg-deliver.webp.jpg')">
               <div class="p">
-                <h4 class="grad-ink" style="font-weight:900">Boat Charter</h4>
-                <p>Giornate in mare e luxury charter. Drone/FPV, POV e micro-contenuti che convertono.</p>
-                <div><span class="tag tag--sea">Drone 4K</span><span class="tag tag--mag">FPV</span><span class="tag tag--rose">Reel Pack</span></div>
+                <h4 class="grad-ink" style="font-weight:900" data-i18n="services.charter.title">Boat Charter</h4>
+                <p data-i18n="services.charter.desc">Giornate in mare e luxury charter. Drone/FPV, POV e micro-contenuti che convertono.</p>
+                <div>
+                  <span class="tag tag--sea" data-i18n="services.tags.drone">Drone 4K</span>
+                  <span class="tag tag--mag">FPV</span>
+                  <span class="tag tag--rose">Reel Pack</span>
+                </div>
               </div>
             </article>
 
             <article class="svc" data-reveal style="background-image:url('/media/bg-portfolio.webp.jpg')">
               <div class="p">
-                <h4 class="grad-ink" style="font-weight:900">Real Estate</h4>
-                <p>Walkthrough dinamici, aeree cinematiche, versioni per portali e annunci.</p>
-                <div><span class="tag tag--sea">Walkthrough</span><span class="tag tag--mag">Aerial</span><span class="tag tag--rose">Portal-Ready</span></div>
+                <h4 class="grad-ink" style="font-weight:900" data-i18n="services.re.title">Real Estate</h4>
+                <p data-i18n="services.re.desc">Walkthrough dinamici, aeree cinematiche, versioni per portali e annunci.</p>
+                <div>
+                  <span class="tag tag--sea">Walkthrough</span>
+                  <span class="tag tag--mag">Aerial</span>
+                  <span class="tag tag--rose">Portal-Ready</span>
+                </div>
               </div>
             </article>
           </div>
@@ -286,8 +303,8 @@
         linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.65)),
         url('/media/bg-pricing.webp.jpg') center/cover no-repeat;">
         <div class="wrap">
-          <h3 class="section-title">Pacchetti</h3>
-          <p class="section-sub">Indicativi — preventivo su misura in 24–48h. <strong style="color:#ffe6c4">Sconti retainer mensili</strong>.</p>
+          <h3 class="section-title" data-i18n="pricing.title">Pacchetti</h3>
+          <p class="section-sub" data-i18n="pricing.subtitle">Prezzi indicativi — preventivo su misura in 24–48h. <strong style="color:#ffe6c4" data-i18n="pricing.note">Sconti per retainer mensili</strong>.</p>
 
           <style>
             .pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -310,80 +327,80 @@
             <!-- BASIC -->
             <article class="card" data-reveal>
               <div class="p">
-                <h4 style="font-weight:900;color:#ffe0ae">Basic</h4>
-                <div class="price">€400</div>
+                <h4 style="font-weight:900;color:#ffe0ae" data-i18n="pricing.p1.title">Basic</h4>
+                <div class="price" data-i18n="pricing.p1.price">€400</div>
                 <ul style="margin:10px 0 0;padding-left:18px;color:#cbd5e1">
-                  <li>Mezza giornata riprese (max 4h)</li>
-                  <li>1 video 30–45s (verticale)</li>
-                  <li>Color grading essenziale</li>
-                  <li>Consegna in 5 giorni lavorativi</li>
+                  <li data-i18n="pricing.p1.i1">Mezza giornata riprese (max 4h)</li>
+                  <li data-i18n="pricing.p1.i2">1 video 30–45s (verticale)</li>
+                  <li data-i18n="pricing.p1.i3">Color grading essenziale</li>
+                  <li data-i18n="pricing.p1.i4">Consegna in 5 giorni lavorativi</li>
                 </ul>
                 <div class="perks">
-                  <div class="perk">Location singola</div>
-                  <div class="perk">Musica royalty</div>
+                  <div class="perk" data-i18n="pricing.p1.p1">Location singola</div>
+                  <div class="perk" data-i18n="pricing.p1.p2">Musica royalty</div>
                 </div>
-                <div class="price-notes">Ideale per reel singolo o lanci lampo.</div>
-                <div style="margin-top:14px"><a href="#contatti" class="btn btn-outline">Richiedi</a></div>
+                <div class="price-notes" data-i18n="pricing.p1.note">Ideale per reel singolo o lanci lampo.</div>
+                <div style="margin-top:14px"><a href="#contatti" class="btn btn-outline" data-i18n="pricing.ask">Richiedi</a></div>
               </div>
             </article>
 
             <!-- INTRO - PIÙ SCELTO -->
             <article class="card" data-reveal style="outline:1px solid rgba(241,217,161,.25);box-shadow:0 0 32px rgba(241,217,161,.15),var(--shadow)">
-              <div class="badge-hit">Più scelto</div>
+              <div class="badge-hit" data-i18n="pricing.popular">Più scelto</div>
               <div class="p">
-                <h4 style="font-weight:900;color:#fff">Intro</h4>
-                <div class="price" style="color:#fff">€600</div>
+                <h4 style="font-weight:900;color:#fff" data-i18n="pricing.p2.title">Intro</h4>
+                <div class="price" style="color:#fff" data-i18n="pricing.p2.price">€600</div>
                 <ul style="margin:10px 0 0;padding-left:18px;color:#e8edf6">
-                  <li>Giornata intera (8h) + golden hour</li>
-                  <li>1 hero video 60–90s (H o V)</li>
-                  <li>+ 2 reel ottimizzati (9:16)</li>
-                  <li>Drone 4K incluso (permessi standard)</li>
-                  <li>Motion titles + sound design</li>
-                  <li>2 round di revisioni</li>
-                  <li>Consegna in 3–5 giorni</li>
+                  <li data-i18n="pricing.p2.i1">Giornata intera (8h) + golden hour</li>
+                  <li data-i18n="pricing.p2.i2">1 hero video 60–90s (H o V)</li>
+                  <li data-i18n="pricing.p2.i3">+ 2 reel ottimizzati (9:16)</li>
+                  <li data-i18n="pricing.p2.i4">Drone 4K incluso (permessi standard)</li>
+                  <li data-i18n="pricing.p2.i5">Motion titles + sound design</li>
+                  <li data-i18n="pricing.p2.i6">2 round di revisioni</li>
+                  <li data-i18n="pricing.p2.i7">Consegna in 3–5 giorni</li>
                 </ul>
                 <div class="perks">
-                  <div class="perk">Copertura completa</div>
-                  <div class="perk">Versioni social/ads</div>
-                  <div class="perk">Mini storyboard</div>
-                  <div class="perk">Backup 60gg</div>
+                  <div class="perk" data-i18n="pricing.p2.p1">Copertura completa</div>
+                  <div class="perk" data-i18n="pricing.p2.p2">Versioni social/ads</div>
+                  <div class="perk" data-i18n="pricing.p2.p3">Mini storyboard</div>
+                  <div class="perk" data-i18n="pricing.p2.p4">Backup 60gg</div>
                 </div>
-                <div class="price-notes">Perfetto per hotel, charter, property medio-alta.</div>
-                <div style="margin-top:14px"><a href="#contatti" class="btn">Prenota questo</a></div>
+                <div class="price-notes" data-i18n="pricing.p2.note">Perfetto per hotel, charter, property medio-alta.</div>
+                <div style="margin-top:14px"><a href="#contatti" class="btn" data-i18n="pricing.book">Prenota questo</a></div>
               </div>
             </article>
 
             <!-- OFFICIAL -->
             <article class="card" data-reveal>
               <div class="p">
-                <h4 style="font-weight:900;color:#ffd39c">Official</h4>
-                <div class="price">€899</div>
+                <h4 style="font-weight:900;color:#ffd39c" data-i18n="pricing.p3.title">Official</h4>
+                <div class="price" data-i18n="pricing.p3.price">€899</div>
                 <ul style="margin:10px 0 0;padding-left:18px;color:#cbd5e1">
-                  <li>Giornata estesa + blue/golden hour</li>
-                  <li>1 hero video + 4 reel + cut per ads</li>
-                  <li>Script light + storyboard</li>
-                  <li>Drone 4K + FPV quando utile</li>
-                  <li>Color grading avanzato</li>
-                  <li>3 round di revisioni</li>
-                  <li>Consegna in 3–7 giorni</li>
+                  <li data-i18n="pricing.p3.i1">Giornata estesa + blue/golden hour</li>
+                  <li data-i18n="pricing.p3.i2">1 hero video + 4 reel + cut per ads</li>
+                  <li data-i18n="pricing.p3.i3">Script light + storyboard</li>
+                  <li data-i18n="pricing.p3.i4">Drone 4K + FPV quando utile</li>
+                  <li data-i18n="pricing.p3.i5">Color grading avanzato</li>
+                  <li data-i18n="pricing.p3.i6">3 round di revisioni</li>
+                  <li data-i18n="pricing.p3.i7">Consegna in 3–7 giorni</li>
                 </ul>
                 <div class="perks">
-                  <div class="perk">Crew espandibile</div>
-                  <div class="perk">A/B test creatività</div>
-                  <div class="perk">Sottotitoli multilingua</div>
-                  <div class="perk">Backup 90gg</div>
+                  <div class="perk" data-i18n="pricing.p3.p1">Crew espandibile</div>
+                  <div class="perk" data-i18n="pricing.p3.p2">A/B test creatività</div>
+                  <div class="perk" data-i18n="pricing.p3.p3">Sottotitoli multilingua</div>
+                  <div class="perk" data-i18n="pricing.p3.p4">Backup 90gg</div>
                 </div>
-                <div class="price-notes">Ideale per resort, luxury charter e ville top.</div>
-                <div style="margin-top:14px"><a href="#contatti" class="btn btn-outline">Richiedi</a></div>
+                <div class="price-notes" data-i18n="pricing.p3.note">Ideale per resort, luxury charter e ville top.</div>
+                <div style="margin-top:14px"><a href="#contatti" class="btn btn-outline" data-i18n="pricing.ask">Richiedi</a></div>
               </div>
             </article>
           </div>
 
           <!-- Comparativa rapida -->
           <div class="compare" aria-label="Comparativa pacchetti" data-reveal>
-            <div class="cmp"><strong>Basic</strong><p>4h • 1 reel • Grading base • 5gg</p></div>
-            <div class="cmp"><strong>Intro <span style="color:#ffe6c4">★</span></strong><p>8h • 1 hero + 2 reel • Drone • 3–5gg • 2 revisioni</p></div>
-            <div class="cmp"><strong>Official</strong><p>Esteso • 1 hero + 4 reel + ads • Drone/FPV • Pro grading</p></div>
+            <div class="cmp" data-i18n="pricing.cmp1">4h • 1 reel • Grading base • 5gg</div>
+            <div class="cmp" data-i18n="pricing.cmp2">8h • 1 hero + 2 reel • Drone • 3–5gg • 2 revisioni</div>
+            <div class="cmp" data-i18n="pricing.cmp3">Esteso • 1 hero + 4 reel + ads • Drone/FPV • Pro grading</div>
           </div>
         </div>
       </section>
@@ -393,21 +410,21 @@
         linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.55)),
         url('/media/about-1.jpg') center/cover no-repeat;">
         <div class="wrap">
-          <h3 class="section-title">Chi sono</h3>
-          <p class="section-sub">Filmmaker a Tenerife: drone pilot certificato, contenuti che convertono.</p>
+          <h3 class="section-title" data-i18n="about.title">Chi sono</h3>
+          <p class="section-sub" data-i18n="about.subtitle">Filmmaker a Tenerife: drone pilot certificato, contenuti che convertono.</p>
 
           <details style="background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden">
-            <summary style="cursor:pointer;padding:14px 18px;font-weight:800">Apri bio, certificazioni, attrezzatura</summary>
+            <summary style="cursor:pointer;padding:14px 18px;font-weight:800" data-i18n="about.open">Apri bio, certificazioni, attrezzatura</summary>
             <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:18px">
               <div>
-                <p><strong>Andrea Colucci</strong> — storytelling cinematografico, ritmo musicale, montaggi dinamici. Ho aiutato hotel, charter e agenzie a trasformare la percezione in prenotazioni.</p>
+                <p data-i18n="about.bio"><strong>Andrea Colucci</strong> — storytelling cinematografico, ritmo musicale, montaggi dinamici. Ho aiutato hotel, charter e agenzie a trasformare la percezione in prenotazioni.</p>
                 <ul style="line-height:1.9;color:#dfe7f2">
-                  <li>🎓 Certificazioni: <em>UAS A1/A3, A2</em></li>
-                  <li>🚁 Drone: 4K, D-Log, ND set, low-light</li>
-                  <li>🎥 Camera: 4K 10-bit, profili log, gimbal</li>
-                  <li>🎧 Sound: design + royalty music</li>
+                  <li data-i18n="about.c1">🎓 Certificazioni: <em>UAS A1/A3, A2</em></li>
+                  <li data-i18n="about.c2">🚁 Drone: 4K, D-Log, ND set, low-light</li>
+                  <li data-i18n="about.c3">🎥 Camera: 4K 10-bit, profili log, gimbal</li>
+                  <li data-i18n="about.c4">🎧 Sound: design + royalty music</li>
                 </ul>
-                <p class="section-sub">Parlo IT • EN • ES – lavoro in loco e con retainer per brand turistici.</p>
+                <p class="section-sub" data-i18n="about.langs">Parlo IT • EN • ES — lavoro in loco e con retainer per brand turistici.</p>
               </div>
               <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
                 <div style="height:200px;background:url('/media/about-2.jpg') center/cover no-repeat"></div>
@@ -417,7 +434,7 @@
           </details>
 
           <div style="margin-top:14px" class="section-sub">
-            <strong>Rinominare immagini in <code>/media/</code>:</strong> <code>about-1.jpg</code> (sfondo), <code>about-2.jpg</code>, <code>about-3.jpg</code>.
+            <strong data-i18n="about.rename">Rinominare immagini in <code>/media/</code>:</strong> <code>about-1.jpg</code> (sfondo), <code>about-2.jpg</code>, <code>about-3.jpg</code>.
           </div>
         </div>
       </section>
@@ -428,27 +445,27 @@
         linear-gradient(180deg,#0b0f18,#0a0d14),
         url('/media/bg-process.webp.jpg') center/cover no-repeat;">
         <div class="wrap">
-          <h3 class="section-title">Processo di lavoro</h3>
-          <p class="section-sub">Semplice, veloce, focalizzato sui risultati.</p>
+          <h3 class="section-title" data-i18n="process.title">Processo di lavoro</h3>
+          <p class="section-sub" data-i18n="process.subtitle">Semplice, veloce, focalizzato sui risultati.</p>
 
           <div class="timeline" style="position:relative;margin-left:10px;padding-left:22px">
             <div style="content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--sea),var(--accent))"></div>
 
             <div class="tstep" data-reveal style="position:relative;background:linear-gradient(180deg,#0f1420,#0d121e);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0">
-              <strong>01 · Brief & Strategia</strong>
-              <p>Obiettivi, pubblico, messaggio. Scelta formato e deliverable.</p>
+              <strong data-i18n="process.s1.t">01 · Brief & Strategia</strong>
+              <p data-i18n="process.s1.d">Obiettivi, pubblico, messaggio. Scelta formato e deliverable.</p>
             </div>
             <div class="tstep" data-reveal style="position:relative;background:linear-gradient(180deg,#0f1420,#0d121e);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0">
-              <strong>02 · Shooting</strong>
-              <p>On-site a Tenerife. Drone/FPV quando utile. Pianificazione golden hour.</p>
+              <strong data-i18n="process.s2.t">02 · Shooting</strong>
+              <p data-i18n="process.s2.d">On-site a Tenerife. Drone/FPV quando utile. Pianificazione golden hour.</p>
             </div>
             <div class="tstep" data-reveal style="position:relative;background:linear-gradient(180deg,#0f1420,#0d121e);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0">
-              <strong>03 · Editing & Grading</strong>
-              <p>Ritmo musicale, titolazioni pulite, color pro.</p>
+              <strong data-i18n="process.s3.t">03 · Editing & Grading</strong>
+              <p data-i18n="process.s3.d">Ritmo musicale, titolazioni pulite, color pro.</p>
             </div>
             <div class="tstep" data-reveal style="position:relative;background:linear-gradient(180deg,#0f1420,#0d121e);border:1px solid var(--border);border-radius:14px;padding:16px;margin:14px 0">
-              <strong>04 · Consegna & Varianti</strong>
-              <p>Cut per social e ads. A/B test creatività top-performing.</p>
+              <strong data-i18n="process.s4.t">04 · Consegna & Varianti</strong>
+              <p data-i18n="process.s4.d">Cut per social e ads. A/B test creatività top-performing.</p>
             </div>
           </div>
         </div>
@@ -459,38 +476,23 @@
          linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.5)),
          url('/media/bg-reviews.webp.jpg') center/cover no-repeat;">
         <div class="wrap">
-          <h3 class="section-title">Dicono di me</h3>
-          <p class="section-sub">Clienti reali, risultati misurabili.</p>
+          <h3 class="section-title" data-i18n="reviews.title">Dicono di me</h3>
+          <p class="section-sub" data-i18n="reviews.subtitle">Clienti reali, risultati misurabili.</p>
 
           <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
             <div class="card" data-reveal><div class="p">
-              <p>“Prenotazioni dirette ↑ in due settimane. Video emozionale pazzesco.”</p>
-              <div class="chip"><img src="/media/client-1.jpg" alt="" style="height:16px;vertical-align:middle;border-radius:4px;margin-right:6px">Hotel Costa Adeje</div>
+              <p data-i18n="reviews.r1.t">“Prenotazioni dirette ↑ in due settimane. Video emozionale pazzesco.”</p>
+              <div class="chip"><img src="/media/client-1.jpg" alt="" style="height:16px;vertical-align:middle;border-radius:4px;margin-right:6px"><span data-i18n="reviews.r1.w">Hotel Costa Adeje</span></div>
             </div></div>
             <div class="card" data-reveal><div class="p">
-              <p>“Barche al completo nei weekend. I reel brevi funzionano!”</p>
-              <div class="chip"><img src="/media/client-2.jpg" alt="" style="height:16px;vertical-align:middle;border-radius:4px;margin-right:6px">Captain Blue Charter</div>
+              <p data-i18n="reviews.r2.t">“Barche al completo nei weekend. I reel brevi funzionano!”</p>
+              <div class="chip"><img src="/media/client-2.jpg" alt="" style="height:16px;vertical-align:middle;border-radius:4px;margin-right:6px"><span data-i18n="reviews.r2.w">Captain Blue Charter</span></div>
             </div></div>
             <div class="card" data-reveal><div class="p">
-              <p>“Villa venduta in 9 giorni. Il video ha fatto la differenza.”</p>
-              <div class="chip"><img src="/media/client-3.jpg" alt="" style="height:16px;vertical-align:middle;border-radius:4px;margin-right:6px">Agenzia Immobiliare Sur</div>
+              <p data-i18n="reviews.r3.t">“Villa venduta in 9 giorni. Il video ha fatto la differenza.”</p>
+              <div class="chip"><img src="/media/client-3.jpg" alt="" style="height:16px;vertical-align:middle;border-radius:4px;margin-right:6px"><span data-i18n="reviews.r3.w">Agenzia Immobiliare Sur</span></div>
             </div></div>
           </div>
-        </div>
-      </section>
-
-      <!-- STRATEGIA 8K/mese -->
-      <section id="strategia" class="panel edge-fade bg-stripe">
-        <div class="wrap">
-          <h3 class="section-title">Strategia Tenerife 8K/mese</h3>
-          <p class="section-sub">Acquisizione clienti in 3 fasi — focus su pacchetti <strong>Intro</strong> e <strong>Official</strong>.</p>
-
-          <div class="card" data-reveal><div class="p" style="display:grid;gap:12px">
-            <div><strong>1) Vetrina</strong> — sito con 4 clip autoplay + CTA WhatsApp/Preventivo; SEO locale “videomaker tenerife”.</div>
-            <div><strong>2) Outreach</strong> — DM mirati a hotel/charter/agenzie (20/settimana) con link a clip pertinenti.</div>
-            <div><strong>3) Retainer</strong> — proposta mensile (4–6 reel + 1 hero/trimestre), sconti fedeltà.</div>
-            <div class="chip">Target: 6 Intro + 2 Official ≈ <strong>€8.0–9.2k/mese</strong></div>
-          </div></div>
         </div>
       </section>
       <!-- FAQ -->
@@ -524,35 +526,43 @@
 
       <!-- CONTATTI -->
       <section id="contatti" class="panel edge-fade" style="background:
-         radial-gradient(600px 200px at 90% -10%, rgba(224,123,60,.18), transparent 60%),
+         radial-gradient(700px 200px at 85% -10%, rgba(224,123,60,.20), transparent 60%),
          linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.65)),
          url('/media/bg-deliver.webp.jpg') center/cover no-repeat;">
         <div class="wrap">
-          <h3 class="section-title">Contattami</h3>
-          <p class="section-sub">Raccontami il tuo progetto: risposta entro 24–48h.</p>
+          <h3 class="section-title" data-i18n="contact.title">Contattami</h3>
+          <p class="section-sub" data-i18n="contact.subtitle">Raccontami il tuo progetto: risposta entro 24–48h.</p>
 
           <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:18px">
-            <div class="card" data-reveal><div class="p">
-              <form action="https://formspree.io/f/your-id" method="POST">
-                <input type="text" name="nome" placeholder="Nome" required style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:.9rem;border-radius:12px">
-                <input type="email" name="email" placeholder="Email" required style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:.9rem;border-radius:12px">
-                <textarea name="messaggio" placeholder="Parlami di location, target e obiettivi…" required style="background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:.9rem;border-radius:12px;min-height:120px"></textarea>
-                <button class="btn" type="submit" style="margin-top:10px">Invia richiesta</button>
-              </form>
-              <p class="section-sub" style="margin-top:10px">Oppure WhatsApp: <a href="https://wa.me/393910911719" rel="noopener">+39 391 091 1719</a></p>
-            </div></div>
+            <!-- Form migliorato -->
+            <div class="card" data-reveal>
+              <div class="p">
+                <form action="https://formspree.io/f/your-id" method="POST">
+                  <input type="text" name="nome" placeholder="Il tuo nome completo" required style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%">
+                  <input type="email" name="email" placeholder="La tua email" required style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%">
+                  <textarea name="messaggio" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required style="background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;min-height:160px;font-size:1rem;width:100%"></textarea>
+                  <button class="btn" type="submit" style="margin-top:12px;width:100%">Invia richiesta</button>
+                </form>
+                <p class="section-sub" style="margin-top:14px;text-align:center">
+                  Oppure scrivimi su <a href="https://wa.me/393910911719" rel="noopener" style="color:#25D366;font-weight:700">WhatsApp</a>
+                </p>
+              </div>
+            </div>
 
-            <div class="card" data-reveal><div class="p">
-              <strong style="font-weight:900">Dati rapidi</strong>
-              <ul style="list-style:none;padding-left:0;margin:.6rem 0 0;line-height:1.8">
-                <li>📍 Tenerife, Isole Canarie</li>
-                <li>🎥 Film Maker · Drone Pilot · AI Maker</li>
-                <li>🗣️ IT · EN · ES</li>
-                <li>📧 <a href="mailto:andreacolucci@hotmail.it">andreacolucci@hotmail.it</a></li>
-                <li>🎞️ <a href="https://vimeo.com/user189374914" target="_blank" rel="noopener">Portfolio Vimeo</a></li>
-                <li>📸 <a href="https://instagram.com/andrecolu_video" target="_blank" rel="noopener">@andrecolu_video</a></li>
-              </ul>
-            </div></div>
+            <!-- Contatti rapidi -->
+            <div class="card" data-reveal>
+              <div class="p">
+                <strong style="font-weight:900">Dati rapidi</strong>
+                <ul style="list-style:none;padding-left:0;margin:.6rem 0 0;line-height:1.8">
+                  <li>📍 Tenerife, Isole Canarie</li>
+                  <li>🎥 Film Maker · Drone Pilot · AI Maker</li>
+                  <li>🗣️ IT · EN · ES</li>
+                  <li>📧 <a href="mailto:andreacolucci@hotmail.it">andreacolucci@hotmail.it</a></li>
+                  <li>🎞️ <a href="https://vimeo.com/user189374914" target="_blank" rel="noopener">Portfolio Vimeo</a></li>
+                  <li>📸 <a href="https://instagram.com/andrecolu_video" target="_blank" rel="noopener">@andrecolu_video</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -590,12 +600,12 @@
   </script>
 
   <script>
-    // ====== Year
+    // Aggiorna anno
     const Y = new Date().getFullYear();
     document.getElementById('year').textContent = Y;
     document.getElementById('year2').textContent = Y;
 
-    // ====== Scrollspy
+    // Scrollspy
     const sections = [...document.querySelectorAll('main section')];
     const links = [...document.querySelectorAll('.snav .slink')];
     const spy = new IntersectionObserver(entries=>{
@@ -605,95 +615,44 @@
     }, {threshold:.55});
     sections.forEach(s=>spy.observe(s));
 
-    // ====== Reveal
+    // Animazione reveal
     const rev = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); obs.unobserve(e.target); } });
-    }, {threshold:.12});
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('revealed');
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold:.15});
     rev.forEach(el=>obs.observe(el));
 
-    // ====== i18n (IT default) — dizionari principali
-    const DICT = {
-      it: {
-        "nav.home":"Home","nav.services":"Servizi","nav.portfolio":"Portfolio","nav.pricing":"Prezzi","nav.process":"Processo","nav.contact":"Contatti",
-        "cta.whatsapp":"WhatsApp","cta.quote":"Richiedi preventivo",
-        "hero.ribbon":"Drone 4K certificato • Storytelling",
-        "hero.title":"Video che fanno vivere <span style='color:var(--accent)'>Tenerife</span> prima ancora di arrivarci",
-        "hero.subtitle":"Turismo, Boat Charter, Hotel e Real Estate. Produzione agile in loco, montaggi dinamici, ottimizzati per social e ads.",
-        "hero.cta1":"Guarda Portfolio ⟶","hero.cta2":"Richiedi preventivo",
-        "services.title":"Servizi","services.subtitle":"Soluzioni su misura per destinazioni, strutture e proprietà.",
-        "portfolio.title":"Portfolio","portfolio.subtitle":"Selezione lavori — 4 clip su Vimeo.",
-        "pricing.title":"Pacchetti","pricing.subtitle":"Prezzi indicativi — preventivo in 24–48h.",
-        "process.title":"Processo di lavoro","process.subtitle":"Semplice, veloce, focalizzato sui risultati.",
-        "faq.title":"FAQ","faq.subtitle":"Domande frequenti",
-        "contact.title":"Contattami","contact.subtitle":"Rispondo in 24–48h."
-      },
-      en: {
-        "nav.home":"Home","nav.services":"Services","nav.portfolio":"Portfolio","nav.pricing":"Pricing","nav.process":"Process","nav.contact":"Contact",
-        "cta.whatsapp":"WhatsApp","cta.quote":"Get a quote",
-        "hero.ribbon":"Certified 4K Drone • Storytelling",
-        "hero.title":"Videos that make you feel <span style='color:var(--accent)'>Tenerife</span> before you arrive",
-        "hero.subtitle":"Tourism, Boat Charter, Hotels and Real Estate. Agile on-site production, social/ads optimized.",
-        "hero.cta1":"View Portfolio ⟶","hero.cta2":"Get a quote",
-        "services.title":"Services","services.subtitle":"Tailored video solutions for destinations, businesses and properties.",
-        "portfolio.title":"Portfolio","portfolio.subtitle":"Selected works — 4 Vimeo clips.",
-        "pricing.title":"Packages","pricing.subtitle":"Indicative prices — tailored quote in 24–48h.",
-        "process.title":"How I work","process.subtitle":"Simple, fast, results-focused.",
-        "faq.title":"FAQ","faq.subtitle":"Frequently asked questions",
-        "contact.title":"Contact me","contact.subtitle":"I reply within 24–48h."
-      },
-      es: {
-        "nav.home":"Inicio","nav.services":"Servicios","nav.portfolio":"Portfolio","nav.pricing":"Precios","nav.process":"Proceso","nav.contact":"Contacto",
-        "cta.whatsapp":"WhatsApp","cta.quote":"Pide presupuesto",
-        "hero.ribbon":"Dron 4K certificado • Storytelling",
-        "hero.title":"Vídeos que te hacen sentir <span style='color:var(--accent)'>Tenerife</span> antes de llegar",
-        "hero.subtitle":"Turismo, Boat Charter, Hoteles y Real Estate. Producción ágil en destino, optimizada para redes/anuncios.",
-        "hero.cta1":"Ver Portfolio ⟶","hero.cta2":"Pedir presupuesto",
-        "services.title":"Servicios","services.subtitle":"Soluciones de vídeo para destinos, negocios y propiedades.",
-        "portfolio.title":"Portfolio","portfolio.subtitle":"Selección — 4 clips en Vimeo.",
-        "pricing.title":"Paquetes","pricing.subtitle":"Precios orientativos — presupuesto en 24–48h.",
-        "process.title":"Proceso de trabajo","process.subtitle":"Simple, rápido y eficaz.",
-        "faq.title":"FAQ","faq.subtitle":"Preguntas frecuentes",
-        "contact.title":"Contáctame","contact.subtitle":"Respondo en 24–48h."
-      }
+    // Multi-lingua
+    const LANGS = document.querySelectorAll('.lang button');
+    const STRINGS = {
+      it: {contact_title:"Contattami",contact_sub:"Raccontami il tuo progetto: risposta entro 24–48h."},
+      en: {contact_title:"Contact me",contact_sub:"Tell me about your project – reply within 24–48h."},
+      es: {contact_title:"Contáctame",contact_sub:"Cuéntame tu proyecto – respuesta en 24–48h."}
     };
-
-    function applyI18n(lang){
-      const dict = DICT[lang]; if(!dict) return;
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const key = el.getAttribute('data-i18n');
-        if(dict[key]) el.innerHTML = dict[key];
-      });
-      document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
-        const key = el.getAttribute('data-i18n-ph');
-        if(dict[key]) el.setAttribute('placeholder', dict[key]);
-      });
-      // Toggle stato pulsanti lingua
-      document.querySelectorAll('.lang button').forEach(b=>{
-        b.classList.toggle('active', b.getAttribute('data-lang')===lang);
-        b.setAttribute('aria-pressed', b.classList.contains('active'));
-      });
-      document.documentElement.setAttribute('lang', lang);
-      // (Opzionale: aggiornare JSON-LD FAQ alla lingua corrente)
+    function setLang(l){
+      document.documentElement.lang=l;
+      LANGS.forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+      document.querySelector('[data-i18n="contact.title"]').innerText=STRINGS[l].contact_title;
+      document.querySelector('[data-i18n="contact.subtitle"]').innerText=STRINGS[l].contact_sub;
     }
-    document.querySelectorAll('.lang button').forEach(b=> b.addEventListener('click', ()=>applyI18n(b.getAttribute('data-lang'))));
+    LANGS.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
-    // ====== Vimeo autoplay smarter: play in viewport, pausa fuori
+    // Vimeo autoplay/pause al visibile
     const vimeoIframes = [...document.querySelectorAll('#portfolio iframe')];
     const playObs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
-        const ifr = e.target; if(!ifr.contentWindow) return;
-        // Vimeo Player API minimal via postMessage
-        const msg = (m)=> ifr.contentWindow.postMessage({ method: m }, '*');
-        if(e.isIntersecting){ msg('play'); } else { msg('pause'); }
+        const ifr = e.target;
+        if(!ifr.contentWindow) return;
+        const msg = m => ifr.contentWindow.postMessage({method:m},'*');
+        e.isIntersecting ? msg('play') : msg('pause');
       });
-    }, {threshold:.4});
-    vimeoIframes.forEach(ifr=>playObs.observe(ifr));
-
-    // ====== Reduce motion: addolcisce glow
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      document.querySelectorAll('.vid').forEach(v=>v.style.boxShadow='0 0 0 1px rgba(217,182,122,.25) inset');
-    }
+    },{threshold:.4});
+    vimeoIframes.forEach(i=>playObs.observe(i));
   </script>
 </body>
 </html>

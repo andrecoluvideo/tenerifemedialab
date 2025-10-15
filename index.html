@@ -1,3 +1,4 @@
+<!-- PARTE 1 / 3 -->
 <!doctype html>
 <html lang="it">
 <head>
@@ -147,8 +148,8 @@
     .bg-stripe{background:linear-gradient(180deg,#0b0f18,#0a0d14)}
   </style>
 
-  <!-- Schema.org Organization -->
-  <script type="application/ld+json">
+  <!-- Schema.org Organization (base, will be localized dynamically) -->
+  <script type="application/ld+json" id="org-jsonld">
   {"@context":"https://schema.org","@type":"Organization","name":"Andrea Colucci Films","url":"https://tenerifefilm.vercel.app","logo":"https://tenerifefilm.vercel.app/media/logo-light.svg","sameAs":["https://instagram.com/andrecolu_video","https://vimeo.com/user189374914"],"areaServed":"Tenerife, Spain","description":"Videomaker a Tenerife per turismo, barche, hotel e real estate. Drone 4K certificato."}
   </script>
 </head>
@@ -166,7 +167,7 @@
         </div>
       </div>
 
-      <!-- Link importanti in cima (niente strategia) -->
+      <!-- Link importanti in cima -->
       <nav class="snav" role="navigation">
         <a href="#home" class="slink" data-i18n="nav.home">Home</a>
         <a href="#portfolio" class="slink" data-i18n="nav.portfolio">Portfolio</a>
@@ -238,6 +239,7 @@
           </div>
         </div>
       </section>
+
       <!-- SERVIZI -->
       <section id="servizi" class="panel edge-fade bg-stripe">
         <div class="wrap">
@@ -258,7 +260,7 @@
           </style>
 
           <div class="services">
-            <article class="svc" data-reveal style="background-image:url('/media/bg-services.webp.jpg')">
+            <article class="svc" data-reveal style="background-image:url('/media/services-tourism.webp')">
               <div class="p">
                 <h4 class="grad-ink" style="font-weight:900" data-i18n="services.tourism.title">Turismo & Hotel</h4>
                 <p data-i18n="services.tourism.desc">Spot emozionali e contenuti always-on per stagioni e OTA, UGC guidato, pacchetti reel.</p>
@@ -270,7 +272,7 @@
               </div>
             </article>
 
-            <article class="svc" data-reveal style="background-image:url('/media/bg-deliver.webp.jpg')">
+            <article class="svc" data-reveal style="background-image:url('/media/services-charter.webp')">
               <div class="p">
                 <h4 class="grad-ink" style="font-weight:900" data-i18n="services.charter.title">Boat Charter</h4>
                 <p data-i18n="services.charter.desc">Giornate in mare e luxury charter. Drone/FPV, POV e micro-contenuti che convertono.</p>
@@ -282,7 +284,7 @@
               </div>
             </article>
 
-            <article class="svc" data-reveal style="background-image:url('/media/bg-portfolio.webp.jpg')">
+            <article class="svc" data-reveal style="background-image:url('/media/services-re.webp')">
               <div class="p">
                 <h4 class="grad-ink" style="font-weight:900" data-i18n="services.re.title">Real Estate</h4>
                 <p data-i18n="services.re.desc">Walkthrough dinamici, aeree cinematiche, versioni per portali e annunci.</p>
@@ -297,6 +299,10 @@
         </div>
       </section>
 
+<!-- fine PARTE 1 -->
+<!-- PARTE 2 / 3 -->
+<!-- Inizia da qui (da inserire subito dopo la PARTE 1 se le hai separate) -->
+
       <!-- PREZZI -->
       <section id="prezzi" class="panel edge-fade" style="background:
         radial-gradient(700px 220px at 80% -10%, rgba(241,217,161,.18), transparent 60%),
@@ -307,6 +313,7 @@
           <p class="section-sub" data-i18n="pricing.subtitle">Prezzi indicativi — preventivo su misura in 24–48h. <strong style="color:#ffe6c4" data-i18n="pricing.note">Sconti per retainer mensili</strong>.</p>
 
           <style>
+            /* styles specifici prezzi (locali) */
             .pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
             @media (max-width:1100px){.pricing{grid-template-columns:1fr}}
             .card{background:linear-gradient(180deg,#0f1420,#0d121e);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);position:relative}
@@ -399,13 +406,13 @@
           <!-- Comparativa rapida -->
           <div class="compare" aria-label="Comparativa pacchetti" data-reveal>
             <div class="cmp" data-i18n="pricing.cmp1">4h • 1 reel • Grading base • 5gg</div>
-            <div class="cmp" data-i18n="pricing.cmp2">8h • 1 hero + 2 reel • Drone • 3–5gg • 2 revisioni</div>
-            <div class="cmp" data-i18n="pricing.cmp3">Esteso • 1 hero + 4 reel + ads • Drone/FPV • Pro grading</div>
+            <div class="cmp" data-reveal data-i18n="pricing.cmp2">8h • 1 hero + 2 reel • Drone • 3–5gg • 2 revisioni</div>
+            <div class="cmp" data-reveal data-i18n="pricing.cmp3">Esteso • 1 hero + 4 reel + ads • Drone/FPV • Pro grading</div>
           </div>
         </div>
       </section>
 
-      <!-- CHI SONO a scomparsa -->
+      <!-- CHI SONO -->
       <section id="chi-sono" class="panel edge-fade" style="background:
         linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.55)),
         url('/media/about-1.jpg') center/cover no-repeat;">
@@ -434,7 +441,7 @@
           </details>
 
           <div style="margin-top:14px" class="section-sub">
-            <strong data-i18n="about.rename">Nel settore dal 2016 , con oltre 1 milione di stream su youtoube totali tra progetti personali e collaborati.
+            <strong data-i18n="about.rename">Nel settore dal 2016 , con oltre 1 milione di stream su youtoube totali tra progetti personali e collaborati.</strong>
           </div>
         </div>
       </section>
@@ -495,29 +502,30 @@
           </div>
         </div>
       </section>
+
       <!-- FAQ -->
       <section id="faq" class="panel edge-fade">
         <div class="wrap">
-          <h3 class="section-title">FAQ</h3>
-          <p class="section-sub">Riprese, consegna, permessi.</p>
+          <h3 class="section-title" data-i18n="faq.title">FAQ</h3>
+          <p class="section-sub" data-i18n="faq.subtitle">Riprese, consegna, permessi.</p>
 
           <div class="card" data-reveal>
             <div class="p">
               <details open>
-                <summary>Quanto dura uno shooting?</summary>
-                <p>Da 2 ore a giornata intera, in base al pacchetto e alla location.</p>
+                <summary data-i18n="faq.q1.s">Quanto dura uno shooting?</summary>
+                <p data-i18n="faq.q1.a">Da 2 ore a giornata intera, in base al pacchetto e alla location.</p>
               </details>
               <details>
-                <summary>Gestisci i permessi drone?</summary>
-                <p>Sì, includo la gestione dei permessi necessari e volo in sicurezza certificata.</p>
+                <summary data-i18n="faq.q2.s">Gestisci i permessi drone?</summary>
+                <p data-i18n="faq.q2.a">Sì, includo la gestione dei permessi necessari e volo in sicurezza certificata.</p>
               </details>
               <details>
-                <summary>Tempi di consegna?</summary>
-                <p>Versione preliminare in 3–5 giorni. Fast track disponibile.</p>
+                <summary data-i18n="faq.q3.s">Tempi di consegna?</summary>
+                <p data-i18n="faq.q3.a">Versione preliminare in 3–5 giorni. Fast track disponibile.</p>
               </details>
               <details>
-                <summary>In quali lingue lavori?</summary>
-                <p>Italiano, Inglese, Spagnolo.</p>
+                <summary data-i18n="faq.q4.s">In quali lingue lavori?</summary>
+                <p data-i18n="faq.q4.a">Italiano, Inglese, Spagnolo.</p>
               </details>
             </div>
           </div>
@@ -537,14 +545,14 @@
             <!-- Form migliorato -->
             <div class="card" data-reveal>
               <div class="p">
-                <form action="https://formspree.io/f/your-id" method="POST">
-                  <input type="text" name="nome" placeholder="Il tuo nome completo" required style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%">
-                  <input type="email" name="email" placeholder="La tua email" required style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%">
-                  <textarea name="messaggio" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required style="background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;min-height:160px;font-size:1rem;width:100%"></textarea>
-                  <button class="btn" type="submit" style="margin-top:12px;width:100%">Invia richiesta</button>
+                <form id="contactForm" action="https://formspree.io/f/your-id" method="POST" novalidate>
+                  <input type="text" name="nome" placeholder="Il tuo nome completo" required data-i18n="contact.form.nome" style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%">
+                  <input type="email" name="email" placeholder="La tua email" required data-i18n="contact.form.email" style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%">
+                  <textarea name="messaggio" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required data-i18n="contact.form.msg" style="background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;min-height:160px;font-size:1rem;width:100%"></textarea>
+                  <button class="btn" type="submit" style="margin-top:12px;width:100%" data-i18n="contact.send">Invia richiesta</button>
                 </form>
                 <p class="section-sub" style="margin-top:14px;text-align:center">
-                  Oppure scrivimi su <a href="https://wa.me/393910911719" rel="noopener" style="color:#25D366;font-weight:700">WhatsApp</a>
+                  <strong data-i18n="contact.or">Oppure scrivimi su</strong> <a href="https://wa.me/393910911719" rel="noopener" style="color:#25D366;font-weight:700">WhatsApp</a>
                 </p>
               </div>
             </div>
@@ -572,8 +580,8 @@
         <div class="wrap" style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center">
           <div>© <span id="year2"></span> Andrea Colucci Films — Tenerife</div>
           <div style="display:flex;gap:10px;align-items:center">
-            <a class="chip" href="/privacy.html">Privacy</a>
-            <a class="chip" href="/terms.html">Termini</a>
+            <a class="chip" href="/privacy.html" data-i18n="footer.privacy">Privacy</a>
+            <a class="chip" href="/terms.html" data-i18n="footer.terms">Termini</a>
           </div>
         </div>
       </footer>
@@ -589,7 +597,7 @@
     </div>
   </div>
 
-  <!-- JSON-LD FAQ -->
+  <!-- JSON-LD FAQ (placeholder: sarà aggiornato da JS quando si cambia lingua) -->
   <script type="application/ld+json" id="faq-jsonld">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Quanto dura uno shooting?","acceptedAnswer":{"@type":"Answer","text":"Da 2 ore a giornata intera, in base al pacchetto e alla location."}},
@@ -599,60 +607,325 @@
   ]}
   </script>
 
+  <!-- Core scripts: reveal, scrollspy, vimeo handling, contact form -->
   <script>
     // Aggiorna anno
-    const Y = new Date().getFullYear();
-    document.getElementById('year').textContent = Y;
-    document.getElementById('year2').textContent = Y;
+    const Y2 = new Date().getFullYear();
+    document.getElementById('year').textContent = Y2;
+    document.getElementById('year2').textContent = Y2;
 
     // Scrollspy
-    const sections = [...document.querySelectorAll('main section')];
-    const links = [...document.querySelectorAll('.snav .slink')];
-    const spy = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id)); }
-      });
-    }, {threshold:.55});
-    sections.forEach(s=>spy.observe(s));
+    (function(){
+      const sections = [...document.querySelectorAll('main section')];
+      const links = [...document.querySelectorAll('.snav .slink')];
+      const spy = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id));
+          }
+        });
+      }, {threshold:.55});
+      sections.forEach(s=>spy.observe(s));
+    })();
 
-    // Animazione reveal
-    const rev = document.querySelectorAll('[data-reveal]');
-    const obs = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('revealed');
-          obs.unobserve(e.target);
+    // Reveal on scroll
+    (function(){
+      const rev = document.querySelectorAll('[data-reveal]');
+      const obs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add('revealed');
+            obs.unobserve(e.target);
+          }
+        });
+      }, {threshold:.15});
+      rev.forEach(el=>obs.observe(el));
+    })();
+
+    // Vimeo autoplay / pause (postMessage)
+    (function(){
+      const vimeoIframes = [...document.querySelectorAll('#portfolio iframe')];
+      const playObs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          const ifr = e.target;
+          if(!ifr.contentWindow) return;
+          const msg = m => ifr.contentWindow.postMessage({method:m},'*');
+          e.isIntersecting ? msg('play') : msg('pause');
+        });
+      },{threshold:.4});
+      vimeoIframes.forEach(i=>playObs.observe(i));
+    })();
+
+    // Contact form submission (Formspree)
+    (function(){
+      const form = document.getElementById('contactForm');
+      if(!form) return;
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const btn = form.querySelector('button[type=submit]');
+        if(!btn) return;
+        const formData = new FormData(form);
+        btn.disabled = true;
+        const originalText = btn.innerText;
+        btn.innerText = 'Invio...';
+        try{
+          const res = await fetch(form.action, { method: 'POST', body: formData });
+          if(res.ok){
+            btn.innerText = 'Inviato!';
+            form.reset();
+          } else {
+            btn.innerText = 'Errore, riprova';
+            console.error('Form submission error', res.status);
+          }
+        } catch(err){
+          console.error(err);
+          btn.innerText = 'Errore, riprova';
+        } finally {
+          setTimeout(()=>{ btn.disabled = false; btn.innerText = originalText; }, 1800);
         }
       });
-    }, {threshold:.15});
-    rev.forEach(el=>obs.observe(el));
-
-    // Multi-lingua
-    const LANGS = document.querySelectorAll('.lang button');
-    const STRINGS = {
-      it: {contact_title:"Contattami",contact_sub:"Raccontami il tuo progetto: risposta entro 24–48h."},
-      en: {contact_title:"Contact me",contact_sub:"Tell me about your project – reply within 24–48h."},
-      es: {contact_title:"Contáctame",contact_sub:"Cuéntame tu proyecto – respuesta en 24–48h."}
-    };
-    function setLang(l){
-      document.documentElement.lang=l;
-      LANGS.forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
-      document.querySelector('[data-i18n="contact.title"]').innerText=STRINGS[l].contact_title;
-      document.querySelector('[data-i18n="contact.subtitle"]').innerText=STRINGS[l].contact_sub;
-    }
-    LANGS.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-
-    // Vimeo autoplay/pause al visibile
-    const vimeoIframes = [...document.querySelectorAll('#portfolio iframe')];
-    const playObs = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        const ifr = e.target;
-        if(!ifr.contentWindow) return;
-        const msg = m => ifr.contentWindow.postMessage({method:m},'*');
-        e.isIntersecting ? msg('play') : msg('pause');
-      });
-    },{threshold:.4});
-    vimeoIframes.forEach(i=>playObs.observe(i));
+    })();
   </script>
+
+<!-- fine PARTE 2 -->
+<!-- PARTE 3 / 3 -->
+<!-- Inserire subito dopo la PARTE 2 -->
+
+  <!-- Miglioramenti di accessibilità e fallback immagini -->
+  <noscript>
+    <style>
+      .vid iframe{display:block}
+      [data-reveal]{opacity:1;transform:none}
+    </style>
+    <div style="position:fixed;inset:0;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;z-index:9999">
+      <div style="max-width:720px;padding:20px;text-align:center">
+        <strong>JavaScript disabilitato</strong>
+        <p>Per una migliore esperienza abilita JavaScript nel tuo browser. Il sito funziona anche senza, ma alcune funzioni (autoplay video, traduzioni automatiche) non saranno disponibili.</p>
+      </div>
+    </div>
+  </noscript>
+
+  <script>
+    // ---------- ACCESSIBILITY HELPERS ----------
+    (function(){
+      // focus styles for keyboard users
+      document.addEventListener('keydown', function onFirstTab(e){
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', onFirstTab);
+        }
+      });
+      // add skip link programmatically for screen readers
+      const skip = document.createElement('a');
+      skip.href = '#maincontent';
+      skip.className = 'chip';
+      skip.textContent = 'Salta al contenuto';
+      skip.style.position='absolute';
+      skip.style.left='8px';
+      skip.style.top='8px';
+      skip.style.zIndex='999';
+      skip.style.transform='translateY(-120%)';
+      skip.style.transition='transform .2s ease';
+      skip.onfocus = ()=> skip.style.transform='translateY(0)';
+      skip.onblur = ()=> skip.style.transform='translateY(-120%)';
+      document.body.prepend(skip);
+
+      // ensure main has id for skip link
+      if(!document.querySelector('main').id) document.querySelector('main').id = 'maincontent';
+    })();
+
+    // ---------- IMAGE / IFRAME enhancements ----------
+    (function(){
+      // add loading="lazy" to images and iframes where safe
+      document.querySelectorAll('img').forEach(img => {
+        if(!img.hasAttribute('loading')) img.setAttribute('loading','lazy');
+        // add srcset if not present (simple fallback pattern)
+        if(!img.srcset && img.dataset.srcset) img.srcset = img.dataset.srcset;
+      });
+      document.querySelectorAll('iframe').forEach(ifr => {
+        // allow lazy iframes if browser supports
+        try { ifr.setAttribute('loading','lazy'); } catch(e){}
+      });
+    })();
+
+    // ---------- I18N: persistence + meta/OG + JSON-LD rebuild ----------
+    (function(){
+      // read previously defined TRANSLATIONS object (from PARTE 1)
+      if(typeof TRANSLATIONS === 'undefined') {
+        console.warn('TRANSLATIONS non trovate: assicurati la PARTE 1 include l\'oggetto TRANSLATIONS.');
+      }
+
+      // Persist language in localStorage and prefer browser language on first load
+      const LANG_BTN = document.querySelectorAll('.lang button');
+      function getSavedLang(){
+        return localStorage.getItem('tf_lang');
+      }
+      function detectBrowserLang(){
+        const b = navigator.language || navigator.userLanguage || 'it';
+        const code = b.split('-')[0];
+        return ['it','en','es'].includes(code) ? code : 'it';
+      }
+      function saveLang(l){ localStorage.setItem('tf_lang', l); }
+
+      // update meta og:title and og:image if translations include meta
+      function updateMetaFromDict(dict){
+        if(!dict) return;
+        if(dict.meta){
+          if(dict.meta.title) document.title = dict.meta.title;
+          const mdesc = document.querySelector('meta[name="description"]');
+          if(mdesc && dict.meta.description) mdesc.setAttribute('content', dict.meta.description);
+          const ogt = document.querySelector('meta[property="og:title"]');
+          if(ogt && dict.meta.ogTitle) ogt.setAttribute('content', dict.meta.ogTitle);
+          const ogd = document.querySelector('meta[property="og:description"]');
+          if(ogd && dict.meta.description) ogd.setAttribute('content', dict.meta.description);
+          const ogimg = document.querySelector('meta[property="og:image"]');
+          if(ogimg && dict.meta.ogImage) ogimg.setAttribute('content', dict.meta.ogImage);
+        }
+      }
+
+      // rebuild JSON-LD FAQ using translation keys
+      function rebuildFAQJsonLD(dict){
+        try{
+          const faqKeys = ['faq.q1','faq.q2','faq.q3','faq.q4'];
+          const entities = faqKeys.map(k => {
+            const q = resolvePath(dict, k + '.s');
+            const a = resolvePath(dict, k + '.a');
+            return q && a ? {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} : null;
+          }).filter(Boolean);
+          if(entities.length){
+            const payload = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":entities};
+            const el = document.getElementById('faq-jsonld');
+            if(el) el.textContent = JSON.stringify(payload);
+            // also update org-jsonld description if available
+            const orgEl = document.getElementById('org-jsonld');
+            if(orgEl && dict.meta && dict.meta.orgDescription){
+              try {
+                const obj = JSON.parse(orgEl.textContent);
+                obj.description = dict.meta.orgDescription;
+                orgEl.textContent = JSON.stringify(obj);
+              } catch(e){}
+            }
+          }
+        }catch(e){
+          console.warn('Errore rebuild FAQ JSON-LD', e);
+        }
+      }
+
+      // expose a global setLang that persists and updates meta/schema
+      const realSetLang = window.setLang || function(lang){ // fallback no-op if not defined
+        if(typeof setLang === 'function') return setLang(lang);
+      };
+
+      // override setLang to persist + update meta + JSON-LD
+      window.setLang = function(lang){
+        // call existing logic (applyTranslations) if present
+        if(typeof applyTranslations === 'function') applyTranslations(lang);
+        saveLang(lang);
+        updateMetaFromDict(TRANSLATIONS[lang]);
+        rebuildFAQJsonLD(TRANSLATIONS[lang]);
+        // update lang attribute
+        document.documentElement.lang = lang;
+        // update URL (optional, without reload) to include ?lang= for shareable links
+        try{
+          const url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.replaceState({}, '', url.toString());
+        }catch(e){}
+      };
+
+      // initialize language based on saved value or browser
+      const initial = getSavedLang() || (new URLSearchParams(location.search).get('lang')) || detectBrowserLang();
+      // small delay to ensure TRANSLATIONS loaded
+      setTimeout(()=> setLang(initial), 8);
+
+      // ensure language buttons reflect persisted language
+      LANG_BTN.forEach(b => {
+        b.addEventListener('click', (e)=> {
+          const l = e.currentTarget.dataset.lang;
+          setLang(l);
+        });
+      });
+    })();
+
+    // ---------- SEO: add hreflang <link> tags dynamically (optional) ----------
+    (function(){
+      const langs = [{code:'it', href:window.location.origin + window.location.pathname},
+                     {code:'en', href:window.location.origin + window.location.pathname + '?lang=en'},
+                     {code:'es', href:window.location.origin + window.location.pathname + '?lang=es'}];
+      langs.forEach(l=>{
+        const el = document.createElement('link');
+        el.rel = 'alternate';
+        el.hreflang = l.code;
+        el.href = l.href;
+        document.head.appendChild(el);
+      });
+      // x-default
+      const x = document.createElement('link');
+      x.rel='alternate'; x.hreflang='x-default'; x.href = window.location.origin + window.location.pathname;
+      document.head.appendChild(x);
+    })();
+
+    // ---------- OPTIONAL: Service Worker registration (commented) ----------
+    // Uncomment & serve /sw.js from your server for offline caching
+    /*
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('/sw.js').then(reg=>{
+        console.log('SW registered', reg);
+      }).catch(err=>{
+        console.warn('SW failed', err);
+      });
+    }
+    */
+
+    // ---------- SMALL UX ENHANCEMENTS ----------
+    (function(){
+      // smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const href = this.getAttribute('href');
+          if(href === '#' || href === '') return;
+          const target = document.querySelector(href);
+          if(target){
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth', block:'start'});
+            // update hash without jump
+            history.replaceState(null, '', href);
+          }
+        });
+      });
+
+      // make the language selector keyboard-friendly
+      const langButtons = document.querySelectorAll('.lang button');
+      langButtons.forEach(btn => {
+        btn.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      });
+    })();
+
+    // ---------- REPORTING: capture console issues (dev helper) ----------
+    (function(){
+      window.addEventListener('error', function(ev){
+        // You can forward errors to your logging endpoint here
+        // Example: navigator.sendBeacon('/log', JSON.stringify({msg:ev.message, url:ev.filename, line:ev.lineno}));
+        // For privacy, this is disabled by default.
+      });
+    })();
+  </script>
+
+  <!-- Final notes (non-executable) -->
+  <!--
+    Deployment checklist:
+      - Replace placeholder Formspree action with your real endpoint or your backend.
+      - Ensure all referenced images exist under /media with the exact filenames (services-tourism.webp, services-charter.webp, services-re.webp, bg-pricing.webp.jpg etc).
+      - Consider generating og:image variants per language (TRANSLATIONS[lang].meta.ogImage) and update the meta tags on language switch.
+      - Add a small service worker (/sw.js) to cache static assets (fonts, css, hero image) for faster repeat visits.
+      - Test JSON-LD FAQ with Google's Rich Results Test after deploy for each language.
+  -->
+
 </body>
 </html>
+<!-- fine PARTE 3 -->

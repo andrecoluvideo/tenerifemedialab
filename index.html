@@ -2744,34 +2744,6 @@ color" content="#0c0c0f" />
       </div>
     </div>
 
-    <!-- Cookie banner -->
-    <div id="cookieBanner" style="position:fixed;left:12px;right:12px;bottom:18px;background:linear-gradient(180deg,#0f131b,#0d121e);border:1px solid var(--border);padding:14px;border-radius:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:120">
-      <div style="max-width:70%">
-        <div style="font-weight:800;margin-bottom:6px" data-i18n="cookie.title">Usiamo cookie per migliorare l'esperienza</div>
-        <div style="color:var(--muted);font-size:.95rem" data-i18n="cookie.desc">Accetta i cookie per attivare video, analytics e funzionalità avanzate. Puoi cambiare la scelta dopo.</div>
-      </div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <button class="btn btn-outline" onclick="openCookieModal()" data-i18n="cookie.manage">Gestisci</button>
-        <button class="btn" onclick="setCookieConsent({necessary:true,marketing:true,analytics:true})" data-i18n="cookie.accept">Accetta tutto</button>
-      </div>
-    </div>
-
-    <!-- Cookie modal -->
-    <div id="cookieModalBackdrop" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center;z-index:130">
-      <div style="width:960px;max-width:94%;background:linear-gradient(180deg,#0f1420,#0d121e);padding:20px;border-radius:12px;border:1px solid var(--border);">
-        <h3 data-i18n="cookie.modalTitle">Gestione cookie</h3>
-        <p data-i18n="cookie.modalDesc">Seleziona quali cookie vuoi abilitare. I video possono essere bloccati fino al consenso.</p>
-        <div style="display:flex;gap:12px;align-items:center;margin:14px 0;">
-          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="ck_necessary" checked disabled> <span data-i18n="cookie.necessary">Necessary</span></label>
-          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="ck_marketing"> <span data-i18n="cookie.marketing">Marketing / Video</span></label>
-          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="ck_analytics"> <span data-i18n="cookie.analytics">Analytics</span></label>
-        </div>
-        <div style="display:flex;gap:10px;justify-content:flex-end">
-          <button class="btn btn-outline" onclick="document.getElementById('cookieModalBackdrop').style.display='none'" data-i18n="cookie.cancel">Annulla</button>
-          <button class="btn" onclick="saveCookieModal()">Salva e chiudi</button>
-        </div>
-      </div>
-    </div>
     <!-- I18N + UI SCRIPT -->
     <script>
     const TRANSLATIONS = {

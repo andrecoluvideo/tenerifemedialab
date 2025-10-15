@@ -531,38 +531,66 @@
       </section>
 
       <!-- PROCESSO DI LAVORO -->
-      <section id="processo" class="panel edge-fade bg-stripe" role="region" aria-label="Processo" style="background:
-        radial-gradient(600px 220px at 10% -10%, rgba(57,194,255,.20), transparent 60%),
-        linear-gradient(180deg,#0b0f18,#0a0d14),
-        url('/media/bg-process.webp.jpg') center/cover no-repeat;">
-        <div class="wrap">
-          <h3 class="section-title" data-i18n="process.title">Processo di lavoro</h3>
-          <p class="section-sub" data-i18n="process.subtitle">Semplice, veloce, focalizzato sui risultati.</p>
+<section id="process" class="panel edge-fade" role="region" aria-label="Processo di lavoro" style="background:
+  radial-gradient(700px 200px at 85% -10%, rgba(224,123,60,.20), transparent 60%),
+  linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.65)),
+  url('/media/bg-process.webp.jpg') center/cover no-repeat;">
+  <div class="wrap">
+    <h3 class="section-title" data-i18n="process.title">Come lavoro</h3>
+    <p class="section-sub" data-i18n="process.subtitle">
+      Dall’idea al video finale: un percorso fluido, trasparente e creativo.
+    </p>
 
-          <div class="timeline" style="position:relative;margin-left:10px;padding-left:22px">
-            <div style="content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--sea),var(--accent))"></div>
+    <div class="steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:30px">
 
-            <div class="tstep" data-reveal>
-              <strong data-i18n="process.s1.t">01 · Brief & Strategia</strong>
-              <p data-i18n="process.s1.d">Obiettivi, pubblico, messaggio. Scelta formato e deliverable.</p>
-            </div>
+      <!-- Step 1 -->
+      <div class="card" data-reveal>
+        <div class="p">
+          <span class="chip" style="background:rgba(224,123,60,.25);border:1px solid rgba(224,123,60,.5);font-weight:700;">01</span>
+          <h4 data-i18n="process.step1.title">Brief & Strategia</h4>
+          <p data-i18n="process.step1.desc">
+            Analizziamo obiettivi, target e stile. Definiamo moodboard, durata, tono e messaggio per creare una visione chiara del progetto.
+          </p>
+        </div>
+      </div>
 
-            <div class="tstep" data-reveal>
-              <strong data-i18n="process.s2.t">02 · Shooting</strong>
-              <p data-i18n="process.s2.d">On-site a Tenerife. Drone/FPV quando utile. Pianificazione golden hour.</p>
-            </div>
+      <!-- Step 2 -->
+      <div class="card" data-reveal>
+        <div class="p">
+          <span class="chip" style="background:rgba(0,191,255,.25);border:1px solid rgba(0,191,255,.5);font-weight:700;">02</span>
+          <h4 data-i18n="process.step2.title">Riprese sul campo</h4>
+          <p data-i18n="process.step2.desc">
+            Utilizzo di camere 4K e droni certificati per ottenere immagini cinematiche, stabilizzate e pronte per la color.
+          </p>
+        </div>
+      </div>
 
-            <div class="tstep" data-reveal>
-              <strong data-i18n="process.s3.t">03 · Editing & Grading</strong>
-              <p data-i18n="process.s3.d">Ritmo musicale, titolazioni pulite, color pro.</p>
-            </div>
+      <!-- Step 3 -->
+      <div class="card" data-reveal>
+        <div class="p">
+          <span class="chip" style="background:rgba(255,99,132,.25);border:1px solid rgba(255,99,132,.5);font-weight:700;">03</span>
+          <h4 data-i18n="process.step3.title">Montaggio & Sound Design</h4>
+          <p data-i18n="process.step3.desc">
+            Editing dinamico, storytelling fluido, sincronizzazione musicale e color grading cinematografico per dare impatto e ritmo.
+          </p>
+        </div>
+      </div>
 
-            <div class="tstep" data-reveal>
-              <strong data-i18n="process.s4.t">04 · Consegna & Varianti</strong>
-              <p data-i18n="process.s4.d">Cut per social e ads. A/B test creatività top-performing.</p>
-            </div>
+      <!-- Step 4 -->
+      <div class="card" data-reveal>
+        <div class="p">
+          <span class="chip" style="background:rgba(154,205,50,.25);border:1px solid rgba(154,205,50,.5);font-weight:700;">04</span>
+          <h4 data-i18n="process.step4.title">Consegna & Ottimizzazione</h4>
+          <p data-i18n="process.step4.desc">
+            Esportazione per social, web e broadcast. Versioni verticali, orizzontali e loop pronte per campagne e landing page.
+          </p>
+        </div>
+      </div>
 
-          </div>
+    </div>
+  </div>
+</section>
+
 
           <!-- mini CTA -->
           <div class="cta-row" style="margin-top:16px">

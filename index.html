@@ -9,6 +9,227 @@
   <meta name="color-scheme" content="dark light" />
   <meta name="robots" content="index,follow" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+<script>
+/* ---------- FULL I18N: TRANSLATIONS + APPLY ---------- */
+
+const TRANSLATIONS = {
+  it: {
+    meta: {
+      title: "Video Tenerife – Turismo, Barche, Real Estate | Andrea Colucci Films",
+      description: "Videomaker a Tenerife: spot turistici, hotel, boat charter e real estate. Drone 4K certificato.",
+      ogTitle: "Video Tenerife – Turismo, Barche, Real Estate",
+      ogImage: "/media/hero.webp.jpg",
+      orgDescription: "Videomaker a Tenerife per turismo, barche, hotel e real estate. Drone 4K certificato."
+    },
+    "nav.home":"Home","nav.portfolio":"Portfolio","nav.services":"Servizi","nav.pricing":"Prezzi",
+    "nav.about":"Chi sono","nav.process":"Processo","nav.faq":"FAQ","nav.contact":"Contatti",
+    "cta.whatsapp":"WhatsApp","cta.quote":"Richiedi preventivo",
+    "hero.ribbon":"Drone 4K certificato • Storytelling",
+    "hero.title":`Video che fanno vivere <span style="color:var(--accent)">Tenerife</span> prima ancora di arrivarci`,
+    "hero.subtitle":"Turismo, Boat Charter, Hotel e Real Estate. Produzione agile in loco, montaggi ad alto impatto, ottimizzati per social e ads.",
+    "hero.cta1":"Guarda Portfolio ⟶","hero.cta2":"Scopri i pacchetti",
+    "portfolio.title":"Portfolio","portfolio.subtitle":"4 clip selezionate — autoplay, loop, silenziose (tap per audio).",
+    "services.title":"Servizi","services.subtitle":"Soluzioni video su misura per destinazioni, aziende e proprietà.",
+    "services.tourism.title":"Turismo & Hotel","services.tourism.desc":"Spot emozionali e contenuti always-on per stagioni e OTA, UGC guidato, pacchetti reel.",
+    "services.charter.title":"Boat Charter","services.charter.desc":"Giornate in mare e luxury charter. Drone/FPV, POV e micro-contenuti che convertono.",
+    "services.re.title":"Real Estate","services.re.desc":"Walkthrough dinamici, aeree cinematiche, versioni per portali e annunci.",
+    "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
+    "pricing.title":"Pacchetti","pricing.subtitle":"Prezzi indicativi — preventivo su misura in 24–48h.","pricing.note":"Sconti per retainer mensili",
+    /* pacchetti */
+    "pricing.p1.title":"Basic","pricing.p1.price":"€400","pricing.p1.i1":"Mezza giornata riprese (max 4h)","pricing.p1.i2":"1 video 30–45s (verticale)","pricing.p1.i3":"Color grading essenziale","pricing.p1.i4":"Consegna in 5 giorni lavorativi","pricing.p1.p1":"Location singola","pricing.p1.p2":"Musica royalty","pricing.p1.note":"Ideale per reel singolo o lanci lampo.","pricing.ask":"Richiedi",
+    "pricing.popular":"Più scelto","pricing.p2.title":"Intro","pricing.p2.price":"€600","pricing.p2.i1":"Giornata intera (8h) + golden hour","pricing.p2.i2":"1 hero video 60–90s (H o V)","pricing.p2.i3":"+ 2 reel ottimizzati (9:16)","pricing.p2.i4":"Drone 4K incluso (permessi standard)","pricing.p2.i5":"Motion titles + sound design","pricing.p2.i6":"2 round di revisioni","pricing.p2.i7":"Consegna in 3–5 giorni","pricing.p2.p1":"Copertura completa","pricing.p2.p2":"Versioni social/ads","pricing.p2.p3":"Mini storyboard","pricing.p2.p4":"Backup 60gg","pricing.p2.note":"Perfetto per hotel, charter, property medio-alta.","pricing.book":"Prenota questo",
+    "pricing.p3.title":"Official","pricing.p3.price":"€899","pricing.p3.i1":"Giornata estesa + blue/golden hour","pricing.p3.i2":"1 hero video + 4 reel + cut per ads","pricing.p3.i3":"Script light + storyboard","pricing.p3.i4":"Drone 4K + FPV quando utile","pricing.p3.i5":"Color grading avanzato","pricing.p3.i6":"3 round di revisioni","pricing.p3.i7":"Consegna in 3–7 giorni","pricing.p3.p1":"Crew espandibile","pricing.p3.p2":"A/B test creatività","pricing.p3.p3":"Sottotitoli multilingua","pricing.p3.p4":"Backup 90gg","pricing.p3.note":"Ideale per resort, luxury charter e ville top.",
+    "pricing.cmp1":"4h • 1 reel • Grading base • 5gg","pricing.cmp2":"8h • 1 hero + 2 reel • Drone • 3–5gg • 2 revisioni","pricing.cmp3":"Esteso • 1 hero + 4 reel + ads • Drone/FPV • Pro grading",
+    "about.title":"Chi sono","about.subtitle":"Filmmaker a Tenerife: drone pilot certificato, contenuti che convertono.","about.open":"Apri bio, certificazioni, attrezzatura",
+    "about.bio":"<strong>Andrea Colucci</strong> — storytelling cinematografico, ritmo musicale, montaggi dinamici. Ho aiutato hotel, charter e agenzie a trasformare la percezione in prenotazioni.",
+    "about.c1":"🎓 Certificazioni: <em>UAS A1/A3, A2</em>","about.c2":"🚁 Drone: 4K, D-Log, ND set, low-light","about.c3":"🎥 Camera: 4K 10-bit, profili log, gimbal","about.c4":"🎧 Sound: design + royalty music","about.langs":"Parlo IT • EN • ES — lavoro in loco e con retainer per brand turistici.","about.rename":"Nel settore dal 2016 , con oltre 1 milione di stream su youtoube totali tra progetti personali e collaborati.",
+    "process.title":"Processo di lavoro","process.subtitle":"Semplice, veloce, focalizzato sui risultati.",
+    "process.s1.t":"01 · Brief & Strategia","process.s1.d":"Obiettivi, pubblico, messaggio. Scelta formato e deliverable.","process.s2.t":"02 · Shooting","process.s2.d":"On-site a Tenerife. Drone/FPV quando utile. Pianificazione golden hour.","process.s3.t":"03 · Editing & Grading","process.s3.d":"Ritmo musicale, titolazioni pulite, color pro.","process.s4.t":"04 · Consegna & Varianti","process.s4.d":"Cut per social e ads. A/B test creatività top-performing.",
+    "reviews.title":"Dicono di me","reviews.subtitle":"Clienti reali, risultati misurabili.","reviews.r1.t":"“Prenotazioni dirette ↑ in due settimane. Video emozionale pazzesco.”","reviews.r1.w":"Hotel Costa Adeje","reviews.r2.t":"“Barche al completo nei weekend. I reel brevi funzionano!”","reviews.r2.w":"Captain Blue Charter","reviews.r3.t":"“Villa venduta in 9 giorni. Il video ha fatto la differenza.”","reviews.r3.w":"Agenzia Immobiliare Sur",
+    "faq.title":"FAQ","faq.subtitle":"Riprese, consegna, permessi.","faq.q1.s":"Quanto dura uno shooting?","faq.q1.a":"Da 2 ore a giornata intera, in base al pacchetto e alla location.","faq.q2.s":"Gestisci i permessi drone?","faq.q2.a":"Sì, includo la gestione dei permessi necessari e volo in sicurezza certificata.","faq.q3.s":"Tempi di consegna?","faq.q3.a":"Versione preliminare in 3–5 giorni. Fast track disponibile.","faq.q4.s":"In quali lingue lavori?","faq.q4.a":"Italiano, Inglese, Spagnolo.",
+    "contact.title":"Contattami","contact.subtitle":"Raccontami il tuo progetto: risposta entro 24–48h.","contact.form.nome":"Il tuo nome completo","contact.form.email":"La tua email","contact.form.msg":"Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…","contact.send":"Invia richiesta","contact.or":"Oppure scrivimi su",
+    "footer.privacy":"Privacy","footer.terms":"Termini"
+  },
+
+  /* EN */
+  en: {
+    meta: {
+      title: "Tenerife Video – Tourism, Boats, Real Estate | Andrea Colucci Films",
+      description: "Videomaker in Tenerife: tourist spots, hotels, boat charters and real estate videos. Certified 4K drone.",
+      ogTitle: "Tenerife Video – Tourism, Boats, Real Estate",
+      ogImage: "/media/hero.webp.jpg",
+      orgDescription: "Videomaker in Tenerife for tourism, boats, hotels and real estate. Certified 4K drone."
+    },
+    "nav.home":"Home","nav.portfolio":"Portfolio","nav.services":"Services","nav.pricing":"Pricing",
+    "nav.about":"About","nav.process":"Process","nav.faq":"FAQ","nav.contact":"Contact",
+    "cta.whatsapp":"WhatsApp","cta.quote":"Request Quote",
+    "hero.ribbon":"Certified 4K Drone • Storytelling",
+    "hero.title":`Videos that make you feel <span style="color:var(--accent)">Tenerife</span> before you arrive`,
+    "hero.subtitle":"Tourism, boat charters, hotels and real estate. Agile on-site production, high-impact edits, optimized for socials & ads.",
+    "hero.cta1":"Watch Portfolio ⟶","hero.cta2":"See Packages",
+    "portfolio.title":"Portfolio","portfolio.subtitle":"4 selected clips — autoplay, loop, muted (tap for audio).",
+    "services.title":"Services","services.subtitle":"Tailored video solutions for destinations, businesses and properties.",
+    "services.tourism.title":"Tourism & Hotels","services.tourism.desc":"Emotional spots and always-on content for seasons and OTAs, guided UGC, reel packages.",
+    "services.charter.title":"Boat Charter","services.charter.desc":"Sea days and luxury charters. Drone/FPV, POV and short content that converts.",
+    "services.re.title":"Real Estate","services.re.desc":"Dynamic walkthroughs, cinematic aerials, portal-ready versions.",
+    "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
+    "pricing.title":"Packages","pricing.subtitle":"Indicative prices — tailored quote in 24–48h.","pricing.note":"Retainer discounts available",
+    "pricing.p1.title":"Basic","pricing.p1.price":"€400","pricing.p1.i1":"Half day shoot (max 4h)","pricing.p1.i2":"1 video 30–45s (vertical)","pricing.p1.i3":"Basic color grading","pricing.p1.i4":"Delivery in 5 working days","pricing.p1.p1":"Single location","pricing.p1.p2":"Royalty music","pricing.p1.note":"Ideal for single reel or short launches.",""pricing.ask":"Request",
+    "pricing.popular":"Most chosen","pricing.p2.title":"Intro","pricing.p2.price":"€600","pricing.p2.i1":"Full day (8h) + golden hour","pricing.p2.i2":"1 hero video 60–90s (H or V)","pricing.p2.i3":"+ 2 optimized reels (9:16)","pricing.p2.i4":"4K drone included (standard permits)","pricing.p2.i5":"Motion titles + sound design","pricing.p2.i6":"2 revision rounds","pricing.p2.i7":"Delivery in 3–5 days","pricing.p2.p1":"Comprehensive coverage","pricing.p2.p2":"Social/ads versions","pricing.p2.p3":"Mini storyboard","pricing.p2.p4":"60d backup","pricing.p2.note":"Perfect for hotels, charters, mid-high properties.","pricing.book":"Book this",
+    "pricing.p3.title":"Official","pricing.p3.price":"€899","pricing.p3.i1":"Extended day + blue/golden hour","pricing.p3.i2":"1 hero + 4 reels + ads cut","pricing.p3.i3":"Light script + storyboard","pricing.p3.i4":"4K drone + FPV when useful","pricing.p3.i5":"Advanced color grading","pricing.p3.i6":"3 revision rounds","pricing.p3.i7":"Delivery in 3–7 days","pricing.p3.p1":"Expandable crew","pricing.p3.p2":"Creative A/B testing","pricing.p3.p3":"Multilang subtitles","pricing.p3.p4":"90d backup","pricing.p3.note":"Ideal for resorts, luxury charters and top villas.",
+    "pricing.cmp1":"4h • 1 reel • Basic grading • 5d","pricing.cmp2":"8h • 1 hero + 2 reels • Drone • 3–5d • 2 revisions","pricing.cmp3":"Extended • 1 hero + 4 reels + ads • Drone/FPV • Pro grading",
+    "about.title":"About","about.subtitle":"Filmmaker in Tenerife: certified drone pilot, content that converts.","about.open":"Open bio, certifications, gear",
+    "about.bio":"<strong>Andrea Colucci</strong> — cinematic storytelling, musical pacing, dynamic edits. I helped hotels, charters and agencies turn perception into bookings.",
+    "about.c1":"🎓 Certifications: <em>UAS A1/A3, A2</em>","about.c2":"🚁 Drone: 4K, D-Log, ND set, low-light","about.c3":"🎥 Camera: 4K 10-bit, log profiles, gimbal","about.c4":"🎧 Sound: design + royalty music","about.langs":"I speak IT • EN • ES — on-site work and retainers for tourism brands.","about.rename":"In the industry since 2016, with over 1M total YouTube streams across personal & collab projects.",
+    "process.title":"Work Process","process.subtitle":"Simple, fast, result-focused.",
+    "process.s1.t":"01 · Brief & Strategy","process.s1.d":"Goals, audience, message. Choose format & deliverables.","process.s2.t":"02 · Shooting","process.s2.d":"On-site in Tenerife. Drone/FPV when useful. Golden hour planning.","process.s3.t":"03 · Editing & Grading","process.s3.d":"Musical pacing, clean titles, pro color.","process.s4.t":"04 · Delivery & Variants","process.s4.d":"Cuts for social and ads. A/B test top-performing creative.",
+    "reviews.title":"What clients say","reviews.subtitle":"Real clients, measurable results.",
+    "reviews.r1.t":"“Direct bookings ↑ in two weeks. Amazing emotional video.”","reviews.r1.w":"Hotel Costa Adeje","reviews.r2.t":"“Weekends fully booked. Short reels work!”","reviews.r2.w":"Captain Blue Charter","reviews.r3.t":"“Villa sold in 9 days. Video made the difference.”","reviews.r3.w":"Sur Real Estate Agency",
+    "faq.title":"FAQ","faq.subtitle":"Shooting, delivery, permits.","faq.q1.s":"How long is a shoot?","faq.q1.a":"From 2 hours to a full day, depending on pack and location.","faq.q2.s":"Do you handle drone permits?","faq.q2.a":"Yes, I handle necessary permits and fly certified.","faq.q3.s":"Delivery times?","faq.q3.a":"Preview version in 3–5 days. Fast track available.","faq.q4.s":"Which languages do you work in?","faq.q4.a":"Italian, English, Spanish.",
+    "contact.title":"Contact me","contact.subtitle":"Tell me about your project – reply within 24–48h.","contact.form.nome":"Your full name","contact.form.email":"Your email","contact.form.msg":"Describe location, target, objectives and type of video you want…","contact.send":"Send request","contact.or":"Or write me on",
+    "footer.privacy":"Privacy","footer.terms":"Terms"
+  },
+
+  /* ES */
+  es: {
+    meta: {
+      title: "Vídeo Tenerife – Turismo, Barcos, Real Estate | Andrea Colucci Films",
+      description: "Videomaker en Tenerife: spots turísticos, hoteles, boat charter y real estate. Drone 4K certificado.",
+      ogTitle: "Vídeo Tenerife – Turismo, Barcos, Real Estate",
+      ogImage: "/media/hero.webp.jpg",
+      orgDescription: "Videomaker en Tenerife para turismo, barcos, hoteles y real estate. Drone 4K certificado."
+    },
+    "nav.home":"Inicio","nav.portfolio":"Portfolio","nav.services":"Servicios","nav.pricing":"Precios",
+    "nav.about":"Sobre mí","nav.process":"Proceso","nav.faq":"FAQ","nav.contact":"Contacto",
+    "cta.whatsapp":"WhatsApp","cta.quote":"Solicitar presupuesto",
+    "hero.ribbon":"Drone 4K certificado • Storytelling",
+    "hero.title":`Vídeos que hacen sentir <span style="color:var(--accent)">Tenerife</span> antes de llegar`,
+    "hero.subtitle":"Turismo, Boat Charter, Hotel y Real Estate. Producción ágil en local, montajes de alto impacto, optimizados para social y ads.",
+    "hero.cta1":"Ver Portfolio ⟶","hero.cta2":"Ver paquetes",
+    "portfolio.title":"Portfolio","portfolio.subtitle":"4 clips seleccionados — autoplay, loop, silencioso (tap para audio).",
+    "services.title":"Servicios","services.subtitle":"Soluciones de video a medida para destinos, empresas y propiedades.",
+    "services.tourism.title":"Turismo & Hotel","services.tourism.desc":"Spots emocionales y contenido always-on para temporada y OTAs, UGC guiado, paquetes de reels.",
+    "services.charter.title":"Boat Charter","services.charter.desc":"Días en el mar y charter de lujo. Drone/FPV, POV y microcontenidos que convierten.",
+    "services.re.title":"Real Estate","services.re.desc":"Walkthroughs dinámicos, aéreas cinemáticas, versiones para portales.",
+    "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
+    "pricing.title":"Paquetes","pricing.subtitle":"Precios indicativos — presupuesto a medida en 24–48h.","pricing.note":"Descuentos para retainer mensuales",
+    "pricing.p1.title":"Basic","pricing.p1.price":"€400","pricing.p1.i1":"Medio día de rodaje (max 4h)","pricing.p1.i2":"1 video 30–45s (vertical)","pricing.p1.i3":"Color grading esencial","pricing.p1.i4":"Entrega en 5 días laborables","pricing.p1.p1":"Ubicación única","pricing.p1.p2":"Música royalty","pricing.p1.note":"Ideal para reel único o lanzamientos cortos.",""pricing.ask":"Solicitar",
+    "pricing.popular":"Más elegido","pricing.p2.title":"Intro","pricing.p2.price":"€600","pricing.p2.i1":"Día completo (8h) + golden hour","pricing.p2.i2":"1 hero video 60–90s (H o V)","pricing.p2.i3":"+ 2 reels optimizados (9:16)","pricing.p2.i4":"Drone 4K incluido (permisos estándar)","pricing.p2.i5":"Motion titles + sound design","pricing.p2.i6":"2 rondas de revisión","pricing.p2.i7":"Entrega en 3–5 días","pricing.p2.p1":"Cobertura completa","pricing.p2.p2":"Versiones social/ads","pricing.p2.p3":"Mini storyboard","pricing.p2.p4":"Backup 60d","pricing.p2.note":"Perfecto para hoteles, charter y propiedades medio-altas.","pricing.book":"Reservar este",
+    "pricing.p3.title":"Official","pricing.p3.price":"€899","pricing.p3.i1":"Día extendido + blue/golden hour","pricing.p3.i2":"1 hero + 4 reels + cortes para ads","pricing.p3.i3":"Script ligero + storyboard","pricing.p3.i4":"Drone 4K + FPV cuando sea útil","pricing.p3.i5":"Color grading avanzado","pricing.p3.i6":"3 rondas de revisión","pricing.p3.i7":"Entrega en 3–7 días","pricing.p3.p1":"Equipo ampliable","pricing.p3.p2":"A/B test creativos","pricing.p3.p3":"Subtítulos multilingües","pricing.p3.p4":"Backup 90d","pricing.p3.note":"Ideal para resorts, charter luxury y villas top.",
+    "pricing.cmp1":"4h • 1 reel • Grading base • 5d","pricing.cmp2":"8h • 1 hero + 2 reels • Drone • 3–5d • 2 revisiones","pricing.cmp3":"Extendido • 1 hero + 4 reels + ads • Drone/FPV • Pro grading",
+    "about.title":"Sobre mí","about.subtitle":"Filmmaker en Tenerife: piloto de drone certificado, contenido que convierte.","about.open":"Abrir bio, certificaciones, equipo",
+    "about.bio":"<strong>Andrea Colucci</strong> — storytelling cinematográfico, ritmo musical, montajes dinámicos. He ayudado a hoteles, charters y agencias a transformar percepción en reservas.",
+    "about.c1":"🎓 Certificaciones: <em>UAS A1/A3, A2</em>","about.c2":"🚁 Drone: 4K, D-Log, ND set, low-light","about.c3":"🎥 Cámara: 4K 10-bit, perfiles log, gimbal","about.c4":"🎧 Sonido: diseño + música royalty","about.langs":"Hablo IT • EN • ES — trabajo in situ y con retainer para marcas turísticas.","about.rename":"En el sector desde 2016, con más de 1M de streams en YouTube entre proyectos personales y colaboraciones.",
+    "process.title":"Proceso de trabajo","process.subtitle":"Simple, rápido y orientado a resultados.",
+    "process.s1.t":"01 · Brief & Estrategia","process.s1.d":"Objetivos, público, mensaje. Elección de formato y deliverables.","process.s2.t":"02 · Rodaje","process.s2.d":"On-site en Tenerife. Drone/FPV cuando sea útil. Planificación golden hour.","process.s3.t":"03 · Edición & Grading","process.s3.d":"Ritmo musical, títulos limpios, color pro.","process.s4.t":"04 · Entrega & Variantes","process.s4.d":"Cortes para social y ads. A/B test creatividad top-performing.",
+    "reviews.title":"Lo que dicen","reviews.subtitle":"Clientes reales, resultados medibles.","reviews.r1.t":"«Reservas directas ↑ en dos semanas. Vídeo emocional impresionante.»","reviews.r1.w":"Hotel Costa Adeje","reviews.r2.t":"«Fines de semana completos. ¡Los reels cortos funcionan!»","reviews.r2.w":"Captain Blue Charter","reviews.r3.t":"«Villa vendida en 9 días. El vídeo marcó la diferencia.»","reviews.r3.w":"Agencia Inmobiliaria Sur",
+    "faq.title":"FAQ","faq.subtitle":"Rodaje, entrega, permisos.","faq.q1.s":"¿Cuánto dura un rodaje?","faq.q1.a":"De 2 horas a jornada completa, según paquete y ubicación.","faq.q2.s":"¿Gestionas permisos de drone?","faq.q2.a":"Sí, incluyo la gestión de permisos necesarios y vuelo certificado.","faq.q3.s":"¿Tiempos de entrega?","faq.q3.a":"Versión preliminar en 3–5 días. Fast track disponible.","faq.q4.s":"¿En qué idiomas trabajas?","faq.q4.a":"Italiano, Inglés, Español.",
+    "contact.title":"Contacto","contact.subtitle":"Cuéntame tu proyecto: respuesta en 24–48h.","contact.form.nome":"Tu nombre completo","contact.form.email":"Tu email","contact.form.msg":"Describe ubicación, target, objetivos y tipo de vídeo…","contact.send":"Enviar solicitud","contact.or":"O escríbeme en",
+    "footer.privacy":"Privacidad","footer.terms":"Términos"
+  }
+};
+
+/* helper: resolve nested keys with dots */
+function getNested(obj, path){
+  if(!obj) return null;
+  return path.split('.').reduce((o,k)=> o && o[k] !== undefined ? o[k] : null, obj);
+}
+
+/* apply translations to all elements with data-i18n */
+function applyTranslations(lang){
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS['it'];
+  // elements that should receive innerHTML explicitly (contains markup)
+  const htmlKeys = new Set(['hero.title','about.bio']);
+  // iterate nodes
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    const value = getNested(dict, key);
+    if(value === null) return; // no translation: skip
+    const tag = el.tagName.toLowerCase();
+
+    // handle inputs / textarea placeholders
+    if(tag === 'input' || tag === 'textarea'){
+      el.placeholder = value;
+      return;
+    }
+
+    // attributes override: allow data-i18n-alt / data-i18n-title to set alt/title
+    const altKey = el.getAttribute('data-i18n-alt');
+    if(altKey){
+      const altVal = getNested(dict, altKey);
+      if(altVal) el.alt = altVal;
+    }
+    const titleKey = el.getAttribute('data-i18n-title');
+    if(titleKey){
+      const t = getNested(dict, titleKey);
+      if(t) el.title = el.setAttribute ? el.setAttribute('title', t) : void 0;
+    }
+
+    // set innerHTML when key is in htmlKeys or element has data-i18n-html
+    if(el.hasAttribute('data-i18n-html') || htmlKeys.has(key)){
+      el.innerHTML = value;
+    } else {
+      el.textContent = value;
+    }
+  });
+
+  // update meta tags if present
+  if(dict.meta){
+    if(dict.meta.title) document.title = dict.meta.title;
+    const mdesc = document.querySelector('meta[name="description"]');
+    if(mdesc && dict.meta.description) mdesc.setAttribute('content', dict.meta.description);
+    const ogt = document.querySelector('meta[property="og:title"]');
+    if(ogt && dict.meta.ogTitle) ogt.setAttribute('content', dict.meta.ogTitle);
+    const ogd = document.querySelector('meta[property="og:description"]');
+    if(ogd && dict.meta.description) ogd.setAttribute('content', dict.meta.description);
+    const ogimg = document.querySelector('meta[property="og:image"]');
+    if(ogimg && dict.meta.ogImage) ogimg.setAttribute('content', dict.meta.ogImage);
+  }
+
+  // rebuild FAQ JSON-LD if keys exist in dict
+  try{
+    const faqs = [];
+    ['faq.q1','faq.q2','faq.q3','faq.q4'].forEach(k=>{
+      const q = getNested(dict,k + '.s');
+      const a = getNested(dict,k + '.a');
+      if(q && a) faqs.push({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}});
+    });
+    if(faqs.length){
+      const payload = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs};
+      const el = document.getElementById('faq-jsonld');
+      if(el) el.textContent = JSON.stringify(payload);
+    }
+  }catch(e){ console.warn('JSON-LD rebuild error', e); }
+
+  // set lang attribute on html element
+  document.documentElement.lang = lang;
+}
+
+/* Persist user language and initialize */
+const LANG_BUTTONS = document.querySelectorAll('.lang button');
+function saveLang(l){ localStorage.setItem('tf_lang', l); }
+function loadLang(){ return localStorage.getItem('tf_lang') || (new URLSearchParams(location.search).get('lang')) || (navigator.language||'it').split('-')[0]; }
+
+function setLang(lang){
+  // apply translations
+  applyTranslations(lang);
+  // update active states
+  LANG_BUTTONS.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  saveLang(lang);
+  // push lang to URL (optional)
+  try{ const u = new URL(window.location); u.searchParams.set('lang', lang); history.replaceState({},'',u.toString()); }catch(e){}
+}
+
+/* attach click handlers */
+LANG_BUTTONS.forEach(b => b.addEventListener('click', ()=> setLang(b.dataset.lang)));
+
+/* initialize on load */
+document.addEventListener('DOMContentLoaded', ()=> {
+  const initial = loadLang();
+  const final = ['it','en','es'].includes(initial) ? initial : 'it';
+  setLang(final);
+});
+</script>
 
   <!-- i18n single-page hints -->
   <link rel="alternate" hreflang="it" href="https://tenerifefilm.vercel.app/">

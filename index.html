@@ -1898,7 +1898,167 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .shell{ grid-gap: 0 !important; }
   }
 </style>
-  
+ <!-- === MOBILE ONLY: sidebar hamburger + grid column + micro-CTA footer === -->
+<style id="mobile-hamburger-only">
+@media (max-width: 980px){
+  /* 1) Sidebar come pannello a scomparsa, sopra ai contenuti */
+  .shell{ display:block; }
+  main{ margin:0 !important; }
+
+  /* stato base: sidebar chiusa e fuori dal viewport (in alto) */
+  body:not(.mnav-open) aside{
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    height: auto; max-height: 80vh;
+    transform: translateY(-100%);
+    transition: transform .22s ease;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.88)),
+      url('/media/sidebar-texture.jpg') center/cover no-repeat;
+    box-shadow: 0 16px 36px rgba(0,0,0,.6);
+    z-index: 120;
+    padding: 16px 14px !important;
+  }
+  /* aperta */
+  body.mnav-open aside{
+    transform: translateY(0);
+  }
+  /* backdrop click-to-close */
+  .mnav-backdrop{
+    position: fixed; inset: 0; background: rgba(0,0,0,.55);
+    backdrop-filter: blur(2px);
+    z-index: 110; display: none;
+  }
+  body.mnav-open .mnav-backdrop{ display: block; }
+
+  /* hambuger floating */
+  .mnav-trigger{
+    position: fixed; top: 10px; left: 12px; z-index: 130;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 12px; border-radius: 12px;
+    background: linear-gradient(180deg,#0f131b,#0d121e);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 22px rgba(0,0,0,.35);
+    font-weight: 900;
+  }
+  .mnav-trigger .bars{
+    width: 18px; height: 12px; position: relative;
+  }
+  .mnav-trigger .bars::before,
+  .mnav-trigger .bars::after,
+  .mnav-trigger .bars span{
+    content:""; position:absolute; left:0; right:0; height:2px; background:#e8eef6; border-radius:2px;
+  }
+  .mnav-trigger .bars::before{ top:0 }
+  .mnav-trigger .bars span{ top:5px }
+  .mnav-trigger .bars::after{ bottom:0 }
+
+  /* quando aperto: animazione semplice a "X" */
+  body.mnav-open .mnav-trigger .bars::before{ transform: translateY(5px) rotate(45deg); }
+  body.mnav-open .mnav-trigger .bars::after{ transform: translateY(-5px) rotate(-45deg); }
+  body.mnav-open .mnav-trigger .bars span{ opacity:0; }
+
+  /* 2) Griglie → una colonna pulita */
+  .services{ grid-template-columns: 1fr !important; gap: 14px; }
+  .portfolio-grid{ grid-template-columns: 1fr !important; gap: 14px; }
+  .pricing{ grid-template-columns: 1fr !important; gap: 14px; }
+  .compare{ grid-template-columns: 1fr !important; gap: 10px; }
+  .svc{ min-height: 260px; border-radius: 14px; }
+  .svc .p{ padding: 16px; }
+
+  /* tipografia e spazi */
+  .wrap{ padding: 16px; }
+  .section-title{ font-size: clamp(20px, 6vw, 28px); }
+  .section-sub{ font-size: 0.98rem; }
+  .hero .glass{ padding: 18px; max-width: none; }
+
+  /* 3) CTA micro-footer (in fondo in fondo) */
+  .mobile-cta-bar{
+    position: fixed; left: 0; right: 0; bottom: 8px; z-index: 90;
+    display: flex; justify-content: space-between; gap: 8px;
+    padding: 0 12px;
+    opacity: 1; transform: translateY(0); transition: opacity .2s ease, transform .2s ease;
+  }
+  .mobile-cta-bar.hide{ opacity:0; transform: translateY(14px); pointer-events:none; }
+
+  .mobile-cta-bar .btn{
+    padding: .6rem .8rem; border-radius: 999px;
+    font-weight: 900; font-size: .92rem;
+    box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  }
+  .mobile-cta-bar .btn-wh{ background: linear-gradient(135deg,var(--ok),#78e59e); color: #0a0c12; }
+  .mobile-cta-bar .btn-call{ background: transparent; border: 1px solid var(--border); color: var(--ink); }
+
+  /* nascondi la vecchia sticky CTA mobile se presente */
+  .whats{ display: none !important; }
+
+  /* video: bordo morbido, niente glow pesante su mobile */
+  .vid{ border-radius: 14px; }
+  .vid::after{ box-shadow: none; }
+}
+</style>
+
+<script id="mobile-hamburger-only-js">
+(function(){
+  if (window.matchMedia && !window.matchMedia('(max-width: 980px)').matches) return; // desktop immacolato
+
+  // 1) crea trigger hamburger + backdrop
+  const trigger = document.createElement('button');
+  trigger.className = 'mnav-trigger';
+  trigger.setAttribute('aria-label','Apri menù');
+  trigger.setAttribute('aria-expanded','false');
+  trigger.innerHTML = '<span class="bars"><span></span></span><span>Menu</span>';
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'mnav-backdrop';
+  document.body.appendChild(backdrop);
+  document.body.appendChild(trigger);
+
+  const openNav  = ()=>{ document.body.classList.add('mnav-open');  trigger.setAttribute('aria-expanded','true'); };
+  const closeNav = ()=>{ document.body.classList.remove('mnav-open'); trigger.setAttribute('aria-expanded','false'); };
+
+  trigger.addEventListener('click', ()=> (document.body.classList.contains('mnav-open') ? closeNav() : openNav()));
+  backdrop.addEventListener('click', closeNav);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); }, {passive:true});
+
+  // chiudi quando si clicca un link della nav
+  document.querySelectorAll('aside .snav a').forEach(a=>{
+    a.addEventListener('click', closeNav);
+  });
+
+  // 2) micro footer CTA (in fondo in fondo)
+  const cta = document.createElement('div');
+  cta.className = 'mobile-cta-bar';
+  cta.innerHTML = `
+    <a class="btn btn-call" href="tel:+393910911719" aria-label="Chiama ora">Chiama</a>
+    <a class="btn btn-wh" href="https://wa.me/393910911719" aria-label="Scrivi su WhatsApp">WhatsApp</a>
+  `;
+  document.body.appendChild(cta);
+
+  // auto-hide: sparisce dopo 3s, riappare quando scrolli su (screen pulito)
+  let lastY = window.scrollY, tid=null;
+  const scheduleHide = ()=>{ clearTimeout(tid); tid = setTimeout(()=> cta.classList.add('hide'), 3000); };
+  scheduleHide();
+  window.addEventListener('scroll', ()=>{
+    const y = window.scrollY;
+    const up = y < lastY - 10; // scroll su
+    lastY = y;
+    if (up) cta.classList.remove('hide');
+    else cta.classList.add('hide');
+    scheduleHide();
+  }, {passive:true});
+
+  // 3) assicurati che i video restino puliti su mobile
+  document.querySelectorAll('#portfolio iframe').forEach(ifr=>{
+    ifr.setAttribute('playsinline','1');
+    if(!ifr.getAttribute('allow')) ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
+  });
+})();
+</script>
+<!-- === /MOBILE ONLY === -->
+ 
 </body>
 </html>
 

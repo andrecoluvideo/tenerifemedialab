@@ -2165,6 +2165,40 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })();
 </script>
 <!-- === /PATCH === -->
+<!-- === PATCH: Reviews vertical + rimuovi CTA duplicata nel footer === -->
+<style>
+  /* Forza layout in colonna per le recensioni, anche se nel markup c’è grid a 3 col */
+  #reviews .wrap > div,
+  #reviews .wrap > div[style*="grid-template-columns"]{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  /* Margine e resa delle card coerente */
+  #reviews .card{ border-radius:14px; min-height:120px; }
+</style>
+
+<script>
+(function finalizeReviewsAndCTA(){
+  // 1) Rimuovi CTA duplicata nel footer (lasciamo solo la CTA centrale nella sezione Contatti)
+  const footerCTA = document.querySelector('.footer-cta');  // eventuale CTA che avevamo messo nel footer
+  if (footerCTA) footerCTA.remove();
+
+  // (Difensivo) elimina eventuali CTA flottanti residue
+  ['.mobile-cta-bar','.mobi-fixed-cta','.whats'].forEach(sel=>{
+    document.querySelectorAll(sel).forEach(n => n.remove());
+  });
+
+  // 2) Assicura che il grid delle review sia 1 colonna anche se il markup applica stili inline
+  const revGrid = document.querySelector('#reviews .wrap > div');
+  if (revGrid){
+    revGrid.style.display = 'grid';
+    revGrid.style.gridTemplateColumns = '1fr';
+    revGrid.style.gap = '12px';
+  }
+})();
+</script>
+<!-- === /PATCH === -->
 
 </body>
 </html>

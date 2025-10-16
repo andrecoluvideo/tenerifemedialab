@@ -1898,15 +1898,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .shell{ grid-gap: 0 !important; }
   }
 </style>
-<!-- === MOBILE REWORK: hamburger + accordion + colonne verticali + micro-CTA === -->
-<style id="mobile-rework-only">
+<!-- === MOBILE REWORK vFinal (UNICO BLOCCO) === -->
+<style id="mobile-rework-vfinal">
 @media (max-width: 980px){
-  /* — LAYOUT MOBILE — */
+  /* Layout mobile base */
   .shell{ display:block; }
   main{ margin:0 !important; }
   .wrap{ padding:16px; }
 
-  /* Sidebar a scomparsa (chiusa di default) */
+  /* Sidebar a tendina: chiusa di default, apre dall’alto */
   body:not(.mnav-open) aside{
     position: fixed !important; top:0; left:0; right:0;
     transform: translateY(-100%); transition: transform .22s ease;
@@ -1921,7 +1921,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   .mnav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(2px); z-index:110; display:none; }
   body.mnav-open .mnav-backdrop{ display:block; }
 
-  /* Pulsante hamburger flottante */
+  /* Bottone hamburger flottante */
   .mnav-trigger{
     position: fixed; top:10px; left:12px; z-index:130;
     display:inline-flex; align-items:center; gap:8px;
@@ -1941,10 +1941,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   body.mnav-open .mnav-trigger .bars::after{ transform: translateY(-5px) rotate(-45deg); }
   body.mnav-open .mnav-trigger .bars span{ opacity:0; }
 
-  /* — ACCORDION NELLA SIDEBAR — */
-  /* Nascondi UI lingua “fissa” originale in mobile: la mettiamo nell’accordion */
-  aside .lang{ display:none !important; }
-
+  /* Accordion dentro aside */
   .acc{ margin-top:10px; }
   .acc-btn{
     width:100%; text-align:left; padding:12px 14px; border-radius:12px;
@@ -1953,17 +1950,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   .acc-panel{
     overflow:hidden; max-height:0; transition:max-height .22s ease;
-    border:1px solid var(--border); border-radius:12px; padding:0 0; background:rgba(255,255,255,.03);
+    border:1px solid var(--border); border-radius:12px; padding:0; background:rgba(255,255,255,.03);
   }
-  .acc-panel.open{ padding:8px 8px; }
+  .acc-panel.open{ padding:8px; }
   .acc-panel-inner{ padding:6px; }
 
-  /* Voci nav come prima, ma più “toccatili” */
+  /* Voci nav ergonomiche */
   .snav{ display:flex; flex-direction:column; gap:6px; }
-  .snav a{ padding:12px 12px; border-radius:10px; color:var(--ink); font-weight:800; }
+  .snav a{ padding:12px; border-radius:10px; color:var(--ink); font-weight:800; }
   .snav a:hover, .snav a.active{ background:rgba(255,255,255,.06); }
 
-  /* Lingue dentro accordion */
+  /* Sposta e stilizza la lingua dentro accordion */
+  aside .lang{ display:none !important; }
   .lang-inline{ display:flex; gap:6px; }
   .lang-inline button{
     flex:1; background:transparent; border:1px solid var(--border);
@@ -1971,7 +1969,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   .lang-inline button.active{ border-color:var(--accent); color:#fff; box-shadow:0 0 0 2px rgba(224,123,60,.12) inset; }
 
-  /* — TUTTO IN COLONNA — */
+  /* Tutto in colonna su mobile */
   .services{ grid-template-columns:1fr !important; gap:14px; }
   .portfolio-grid{ grid-template-columns:1fr !important; gap:14px; }
   .pricing{ grid-template-columns:1fr !important; gap:14px; }
@@ -1979,264 +1977,152 @@ document.addEventListener('DOMContentLoaded', ()=>{
   .svc{ min-height:260px; border-radius:14px; }
   .svc .p{ padding:16px; }
 
-  /* DICONO DI ME: 3 quadrati uno sotto l'altro */
-  #reviews .wrap > div[style*="grid-template-columns"]{
-    display:grid !important; grid-template-columns:1fr !important; gap:12px !important;
-  }
+  /* Dicono di me: 3 card in pila */
+  #reviews .wrap > div{ display:grid !important; grid-template-columns:1fr !important; gap:12px !important; }
   #reviews .card{ border-radius:14px; min-height:120px; }
 
-  /* CONTATTI: prima “Dati rapidi”, poi form → 1 colonna */
-  #contatti .wrap > div[style*="grid-template-columns"]{
-    display:grid !important; grid-template-columns:1fr !important; gap:12px !important;
-  }
+  /* Contatti: Dati rapidi sopra, form sotto (1 colonna) */
+  #contatti .wrap > div{ display:grid !important; grid-template-columns:1fr !important; gap:12px !important; }
   #contatti .card{ border-radius:14px; }
   #contatti input, #contatti textarea{ padding:14px !important; font-size:16px; border-radius:12px; }
   #contatti .btn[type="submit"]{ width:100%; }
 
-  /* Tipografia/CTA adeguate al pollice */
+  /* Tipografia / Hero / Video */
   .section-title{ font-size:clamp(20px,6vw,28px); }
   .section-sub{ font-size:.98rem; }
   .hero .glass{ padding:18px; max-width:none; }
-
-  /* Video: bordo morbido, niente glow pesante */
   .vid{ border-radius:14px; }
   .vid::after{ box-shadow:none; }
 
-  /* — MICRO-FOOTER CTA (in fondo, pulito) — */
-  .mobile-cta-bar{
-    position: fixed; left:0; right:0; bottom:8px; z-index:90;
-    display:flex; justify-content:space-between; gap:8px; padding:0 12px;
-    opacity:1; transform:translateY(0); transition:opacity .2s ease, transform .2s ease;
-  }
-  .mobile-cta-bar.hide{ opacity:0; transform:translateY(14px); pointer-events:none; }
-  .mobile-cta-bar .btn{ padding:.6rem .8rem; border-radius:999px; font-weight:900; font-size:.92rem; box-shadow:0 10px 22px rgba(0,0,0,.35); }
-  .mobile-cta-bar .btn-wh{ background:linear-gradient(135deg,var(--ok),#78e59e); color:#0a0c12; }
-  .mobile-cta-bar .btn-call{ background:transparent; border:1px solid var(--border); color:var(--ink); }
-
-  /* rimuovi vecchia sticky CTA se presente */
+  /* Rimuove eventuale sticky CTA vecchia */
   .whats{ display:none !important; }
 }
 </style>
 
-<script id="mobile-rework-only-js">
+<script id="mobile-rework-vfinal-js">
 (function(){
-  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return; // desktop intatto
+  // Guard: evita doppi rework se qualche script vecchio è rimasto
+  if (window.__MOB_MENU_READY) return;
+  window.__MOB_MENU_READY = true;
 
-  // = HAMBURGER + BACKDROP =
+  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return; // Desktop intatto
+
+  // Hamburger + backdrop
   const trigger = document.createElement('button');
   trigger.className = 'mnav-trigger';
   trigger.setAttribute('aria-label','Apri menù'); trigger.setAttribute('aria-expanded','false');
   trigger.innerHTML = '<span class="bars"><span></span></span><span>Menu</span>';
   const backdrop = document.createElement('div'); backdrop.className = 'mnav-backdrop';
   document.body.appendChild(backdrop); document.body.appendChild(trigger);
+
   const openNav = ()=>{ document.body.classList.add('mnav-open');  trigger.setAttribute('aria-expanded','true'); };
   const closeNav= ()=>{ document.body.classList.remove('mnav-open'); trigger.setAttribute('aria-expanded','false'); };
   trigger.addEventListener('click', ()=> (document.body.classList.contains('mnav-open')? closeNav() : openNav()));
   backdrop.addEventListener('click', closeNav);
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); }, {passive:true});
 
-  // = ACCORDION: crea sezioni “Navigazione” e “Lingua” dentro aside =
+  // Costruisci accordion dentro l’aside usando contenuti esistenti, con fallback
   const aside = document.querySelector('aside');
-  if(aside){
-    const snav = aside.querySelector('.snav');
-    const langBtns = aside.querySelectorAll('.lang button');
-    // Contenitore accordion
-    const accWrap = document.createElement('div'); accWrap.className = 'acc'; 
-    // Sezione 1: Navigazione
-    const btnNav = document.createElement('button'); btnNav.className='acc-btn'; btnNav.textContent='Navigazione';
-    const panelNav = document.createElement('div'); panelNav.className='acc-panel';
-    const innerNav = document.createElement('div'); innerNav.className='acc-panel-inner';
-    if(snav) innerNav.appendChild(snav); panelNav.appendChild(innerNav);
-    // Sezione 2: Lingua
-    const btnLang = document.createElement('button'); btnLang.className='acc-btn'; btnLang.textContent='Lingua';
-    const panelLang = document.createElement('div'); panelLang.className='acc-panel';
-    const innerLang = document.createElement('div'); innerLang.className='acc-panel-inner';
-    const langBox = document.createElement('div'); langBox.className='lang-inline';
-    langBtns.forEach(b=> langBox.appendChild(b));
-    innerLang.appendChild(langBox); panelLang.appendChild(innerLang);
-    // Monta
-    accWrap.appendChild(btnNav); accWrap.appendChild(panelNav);
-    accWrap.appendChild(btnLang); accWrap.appendChild(panelLang);
-    aside.appendChild(accWrap);
+  if(!aside) return;
 
-    // Toggle altezza (max-height auto-calcolata)
-    const togglePanel = (btn, panel)=>{
-      const open = panel.classList.contains('open');
-      if(open){
-        panel.style.maxHeight = '0px';
-        panel.classList.remove('open');
-      }else{
-        panel.classList.add('open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      }
-    };
-    // Apri Navigazione di default per comodità
-    togglePanel(btnNav, panelNav);
-    // Bind
-    btnNav.addEventListener('click', ()=> togglePanel(btnNav, panelNav));
-    btnLang.addEventListener('click', ()=> togglePanel(btnLang, panelLang));
+  // 1) NAVIGAZIONE
+  const accWrap = document.createElement('div'); accWrap.className = 'acc';
 
-    // Chiudi menù quando si clicca una voce
-    innerNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeNav));
+  const btnNav = document.createElement('button'); btnNav.className='acc-btn';
+  btnNav.textContent = 'Navigazione';
+  const panelNav = document.createElement('div'); panelNav.className='acc-panel';
+  const innerNav = document.createElement('div'); innerNav.className='acc-panel-inner';
+
+  // Prendi la nav esistente, se c’è; altrimenti costruisci link da zero
+  const existingNav = aside.querySelector('.snav');
+  if (existingNav) {
+    innerNav.appendChild(existingNav);
+  } else {
+    const list = document.createElement('div'); list.className = 'snav';
+    const T = (window.TRANSLATIONS||{}); const cur = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
+    const D = T[cur] || {};
+    const lbl = (k,fb)=> D[k] || fb;
+    [
+      {href:'#home',      key:'nav.home',     fb:'Home'},
+      {href:'#servizi',   key:'nav.services', fb:'Servizi'},
+      {href:'#portfolio', key:'nav.portfolio',fb:'Portfolio'},
+      {href:'#prezzi',    key:'nav.pricing',  fb:'Prezzi'},
+      {href:'#chi-sono',  key:'nav.about',    fb:'Chi sono'},
+      {href:'#processo',  key:'nav.process',  fb:'Processo'},
+      {href:'#faq',       key:'nav.faq',      fb:'FAQ'},
+      {href:'#contatti',  key:'nav.contact',  fb:'Contatti'},
+    ].forEach(({href,key,fb})=>{
+      const a = document.createElement('a'); a.className='slink'; a.href=href; a.textContent = lbl(key,fb);
+      a.addEventListener('click', closeNav);
+      list.appendChild(a);
+    });
+    innerNav.appendChild(list);
+  }
+  panelNav.appendChild(innerNav);
+
+  // 2) LINGUA (sposta i tre bottoni dentro accordion; se non ci sono, ricrea)
+  const btnLang = document.createElement('button'); btnLang.className='acc-btn';
+  btnLang.textContent = 'Lingua';
+  const panelLang = document.createElement('div'); panelLang.className='acc-panel';
+  const innerLang = document.createElement('div'); innerLang.className='acc-panel-inner';
+
+  const langHolder = document.createElement('div'); langHolder.className='lang-inline';
+  const nativeLangBtns = aside.querySelectorAll('.lang button');
+  if (nativeLangBtns && nativeLangBtns.length) {
+    nativeLangBtns.forEach(b=> langHolder.appendChild(b));
+  } else {
+    const cur = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
+    ['it','en','es'].forEach(code=>{
+      const b = document.createElement('button'); b.type='button'; b.dataset.lang=code; b.textContent=code.toUpperCase();
+      if(code===cur) b.classList.add('active');
+      b.addEventListener('click', ()=>{
+        try{ window.setLang ? setLang(code) : document.documentElement.lang = code; }catch(_){}
+        langHolder.querySelectorAll('button').forEach(x=> x.classList.toggle('active', x===b));
+      });
+      langHolder.appendChild(b);
+    });
+  }
+  innerLang.appendChild(langHolder); panelLang.appendChild(innerLang);
+
+  // Monta tutto in aside (alla fine, per non rompere l’header brand)
+  accWrap.appendChild(btnNav);  accWrap.appendChild(panelNav);
+  accWrap.appendChild(btnLang); accWrap.appendChild(panelLang);
+  aside.appendChild(accWrap);
+
+  // Toggle accordion + apri Navigazione di default
+  function toggle(panel){
+    const open = panel.classList.contains('open');
+    if(open){ panel.style.maxHeight='0px'; panel.classList.remove('open'); }
+    else { panel.classList.add('open'); panel.style.maxHeight = panel.scrollHeight + 'px'; }
+  }
+  toggle(panelNav);
+  btnNav.addEventListener('click', ()=> toggle(panelNav));
+  btnLang.addEventListener('click', ()=> toggle(panelLang));
+
+  // Backdrop in DOM (se mancava)
+  if(!document.querySelector('.mnav-backdrop')){
+    const bd = document.createElement('div'); bd.className='mnav-backdrop';
+    document.body.appendChild(bd); bd.addEventListener('click', closeNav);
   }
 
-  // = MICRO CTA FOOTER =
-  const cta = document.createElement('div');
-  cta.className = 'mobile-cta-bar';
-  cta.innerHTML = `
-    <a class="btn btn-call" href="tel:+393910911719" aria-label="Chiama ora">Chiama</a>
-    <a class="btn btn-wh" href="https://wa.me/393910911719" aria-label="Scrivi su WhatsApp">WhatsApp</a>
-  `;
-  document.body.appendChild(cta);
-  let lastY = window.scrollY, tid=null;
-  const scheduleHide = ()=>{ clearTimeout(tid); tid = setTimeout(()=> cta.classList.add('hide'), 2500); };
-  scheduleHide();
-  window.addEventListener('scroll', ()=>{
-    const y = window.scrollY; const up = y < lastY - 8; lastY = y;
-    if (up) cta.classList.remove('hide'); else cta.classList.add('hide');
-    scheduleHide();
-  }, {passive:true});
-
-  // = STACK FORZATO su sezioni critiche anche se avevano inline styles =
-  // Dicono di me (3 quadrati in colonna) e Contatti (Dati rapidi → Form)
-  try{
-    // Reviews
-    const revGrid = document.querySelector('#reviews .wrap > div[style*="grid-template-columns"]');
-    if(revGrid){ revGrid.style.gridTemplateColumns = '1fr'; }
-    // Contatti
-    const contactGrid = document.querySelector('#contatti .wrap > div[style*="grid-template-columns"]');
-    if(contactGrid){ contactGrid.style.gridTemplateColumns = '1fr'; }
-    // Metti "Dati rapidi" PRIMA del form (ordine verticale)
-    const cards = document.querySelectorAll('#contatti .wrap .card');
-    if(cards.length === 2){
-      const first = cards[0], second = cards[1];
-      // Se la prima è il form, inverti
-      const isFormFirst = first.querySelector('form') !== null;
-      if(isFormFirst){
-        contactGrid.insertBefore(second, first); // porta “Dati rapidi” sopra
-      }
-    }
-  }catch(_){}
-
-  // Miglioramenti piccoli ai video su mobile
+  // Miglioramenti video su mobile
   document.querySelectorAll('#portfolio iframe').forEach(ifr=>{
     ifr.setAttribute('playsinline','1');
     if(!ifr.getAttribute('allow')) ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
   });
-})();
-</script>
-<!-- === /MOBILE REWORK === -->
-<script>
-(function fixMobileMenu(){
-  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return;
 
-  const aside = document.querySelector('aside');
-  if(!aside) return;
-
-  // Trova pannelli dell'accordion aggiunti dal rework:
-  const accBtns = aside.querySelectorAll('.acc-btn');
-  const navBtn = accBtns[0];
-  const langBtn = accBtns[1];
-  const navPanel = navBtn ? navBtn.nextElementSibling : null;
-  const langPanel = langBtn ? langBtn.nextElementSibling : null;
-
-  // ---------- NAVIGAZIONE: ricostruisci se vuota ----------
-  const panelHasLinks = !!(navPanel && navPanel.querySelector('a'));
-  if (!panelHasLinks && navPanel) {
-    const links = [
-      { href:'#home',       key:'nav.home',     fallback:'Home' },
-      { href:'#servizi',    key:'nav.services', fallback:'Servizi' },
-      { href:'#portfolio',  key:'nav.portfolio',fallback:'Portfolio' },
-      { href:'#prezzi',     key:'nav.pricing',  fallback:'Prezzi' },
-      { href:'#chi-sono',   key:'nav.about',    fallback:'Chi sono' },
-      { href:'#processo',   key:'nav.process',  fallback:'Processo' },
-      { href:'#faq',        key:'nav.faq',      fallback:'FAQ' },
-      { href:'#contatti',   key:'nav.contact',  fallback:'Contatti' },
-    ];
-
-    const lang = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
-    const dict = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
-
-    const list = document.createElement('div');
-    list.className = 'snav';
-    links.forEach(({href,key,fallback})=>{
-      const a = document.createElement('a');
-      a.className = 'slink';
-      a.href = href;
-      a.textContent = dict[key] || fallback;
-      list.appendChild(a);
-    });
-
-    const inner = document.createElement('div');
-    inner.className = 'acc-panel-inner';
-    inner.appendChild(list);
-
-    navPanel.innerHTML = '';
-    navPanel.appendChild(inner);
-    navPanel.classList.add('open');
-    requestAnimationFrame(()=>{ navPanel.style.maxHeight = navPanel.scrollHeight + 'px'; });
-
-    // Chiudi menù quando si clicca una voce
-    inner.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        document.body.classList.remove('mnav-open');
-        const trg = document.querySelector('.mnav-trigger');
-        if(trg) trg.setAttribute('aria-expanded','false');
-      });
-    });
-  }
-
-  // ---------- LINGUA: ricostruisci se vuota ----------
-  const panelHasLangs = !!(langPanel && langPanel.querySelector('button'));
-  if (!panelHasLangs && langPanel) {
-    const current = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
-    const langs = ['it','en','es'];
-
-    const box = document.createElement('div');
-    box.className = 'lang-inline';
-    langs.forEach(code=>{
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.dataset.lang = code;
-      b.textContent = code.toUpperCase();
-      if (code === current) b.classList.add('active');
-      b.addEventListener('click', ()=>{
-        try{ window.setLang ? setLang(code) : null; }catch(_){}
-      });
-      box.appendChild(b);
-    });
-
-    const inner = document.createElement('div');
-    inner.className = 'acc-panel-inner';
-    inner.appendChild(box);
-
-    langPanel.innerHTML = '';
-    langPanel.appendChild(inner);
-    langPanel.classList.add('open');
-    requestAnimationFrame(()=>{ langPanel.style.maxHeight = langPanel.scrollHeight + 'px'; });
-  }
-
-  // ---------- Safety: se i bottoni accordion esistono ma non aprono, bind fallback ----------
-  function bindAccordion(btn, panel){
-    if(!btn || !panel) return;
-    btn.addEventListener('click', ()=>{
-      const open = panel.classList.contains('open');
-      if(open){
-        panel.style.maxHeight = '0px';
-        panel.classList.remove('open');
-      }else{
-        panel.classList.add('open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
+  // Stack forzato Contatti: “Dati rapidi” sopra al form se invertiti
+  try{
+    const grid = document.querySelector('#contatti .wrap > div');
+    if(grid){
+      const cards = grid.querySelectorAll('.card');
+      if(cards.length===2){
+        const firstIsForm = !!cards[0].querySelector('form');
+        if(firstIsForm) grid.insertBefore(cards[1], cards[0]);
       }
-    });
-  }
-  bindAccordion(navBtn, navPanel);
-  bindAccordion(langBtn, langPanel);
+    }
+  }catch(_){}
 })();
 </script>
+<!-- === /MOBILE REWORK vFinal === -->
 
- 
-</body>
-</html>
-
-<!-- PARTE 5 / 5 - FINE -->

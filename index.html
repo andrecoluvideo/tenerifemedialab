@@ -1898,137 +1898,189 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .shell{ grid-gap: 0 !important; }
   }
 </style>
- <!-- === MOBILE ONLY: sidebar hamburger + grid column + micro-CTA footer === -->
-<style id="mobile-hamburger-only">
+<!-- === MOBILE REWORK: hamburger + accordion + colonne verticali + micro-CTA === -->
+<style id="mobile-rework-only">
 @media (max-width: 980px){
-  /* 1) Sidebar come pannello a scomparsa, sopra ai contenuti */
+  /* — LAYOUT MOBILE — */
   .shell{ display:block; }
   main{ margin:0 !important; }
+  .wrap{ padding:16px; }
 
-  /* stato base: sidebar chiusa e fuori dal viewport (in alto) */
+  /* Sidebar a scomparsa (chiusa di default) */
   body:not(.mnav-open) aside{
-    position: fixed !important;
-    top: 0; left: 0; right: 0;
-    height: auto; max-height: 80vh;
-    transform: translateY(-100%);
-    transition: transform .22s ease;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+    position: fixed !important; top:0; left:0; right:0;
+    transform: translateY(-100%); transition: transform .22s ease;
+    max-height: 80vh; overflow:auto;
+    padding:16px 14px !important; border-bottom:1px solid var(--border);
     background:
       linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.88)),
       url('/media/sidebar-texture.jpg') center/cover no-repeat;
-    box-shadow: 0 16px 36px rgba(0,0,0,.6);
-    z-index: 120;
-    padding: 16px 14px !important;
+    box-shadow:0 16px 36px rgba(0,0,0,.6); z-index:120;
   }
-  /* aperta */
-  body.mnav-open aside{
-    transform: translateY(0);
-  }
-  /* backdrop click-to-close */
-  .mnav-backdrop{
-    position: fixed; inset: 0; background: rgba(0,0,0,.55);
-    backdrop-filter: blur(2px);
-    z-index: 110; display: none;
-  }
-  body.mnav-open .mnav-backdrop{ display: block; }
+  body.mnav-open aside{ transform: translateY(0); }
+  .mnav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(2px); z-index:110; display:none; }
+  body.mnav-open .mnav-backdrop{ display:block; }
 
-  /* hambuger floating */
+  /* Pulsante hamburger flottante */
   .mnav-trigger{
-    position: fixed; top: 10px; left: 12px; z-index: 130;
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 12px; border-radius: 12px;
-    background: linear-gradient(180deg,#0f131b,#0d121e);
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 22px rgba(0,0,0,.35);
-    font-weight: 900;
+    position: fixed; top:10px; left:12px; z-index:130;
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 12px; border-radius:12px;
+    background:linear-gradient(180deg,#0f131b,#0d121e);
+    border:1px solid var(--border); box-shadow:0 8px 22px rgba(0,0,0,.35);
+    font-weight:900;
   }
-  .mnav-trigger .bars{
-    width: 18px; height: 12px; position: relative;
-  }
+  .mnav-trigger .bars{ width:18px; height:12px; position:relative; }
   .mnav-trigger .bars::before,
   .mnav-trigger .bars::after,
   .mnav-trigger .bars span{
     content:""; position:absolute; left:0; right:0; height:2px; background:#e8eef6; border-radius:2px;
   }
-  .mnav-trigger .bars::before{ top:0 }
-  .mnav-trigger .bars span{ top:5px }
-  .mnav-trigger .bars::after{ bottom:0 }
-
-  /* quando aperto: animazione semplice a "X" */
+  .mnav-trigger .bars::before{ top:0 } .mnav-trigger .bars span{ top:5px } .mnav-trigger .bars::after{ bottom:0 }
   body.mnav-open .mnav-trigger .bars::before{ transform: translateY(5px) rotate(45deg); }
   body.mnav-open .mnav-trigger .bars::after{ transform: translateY(-5px) rotate(-45deg); }
   body.mnav-open .mnav-trigger .bars span{ opacity:0; }
 
-  /* 2) Griglie → una colonna pulita */
-  .services{ grid-template-columns: 1fr !important; gap: 14px; }
-  .portfolio-grid{ grid-template-columns: 1fr !important; gap: 14px; }
-  .pricing{ grid-template-columns: 1fr !important; gap: 14px; }
-  .compare{ grid-template-columns: 1fr !important; gap: 10px; }
-  .svc{ min-height: 260px; border-radius: 14px; }
-  .svc .p{ padding: 16px; }
+  /* — ACCORDION NELLA SIDEBAR — */
+  /* Nascondi UI lingua “fissa” originale in mobile: la mettiamo nell’accordion */
+  aside .lang{ display:none !important; }
 
-  /* tipografia e spazi */
-  .wrap{ padding: 16px; }
-  .section-title{ font-size: clamp(20px, 6vw, 28px); }
-  .section-sub{ font-size: 0.98rem; }
-  .hero .glass{ padding: 18px; max-width: none; }
+  .acc{ margin-top:10px; }
+  .acc-btn{
+    width:100%; text-align:left; padding:12px 14px; border-radius:12px;
+    background:rgba(255,255,255,.06); border:1px solid var(--border); color:var(--ink);
+    font-weight:900; letter-spacing:.2px; margin-bottom:8px;
+  }
+  .acc-panel{
+    overflow:hidden; max-height:0; transition:max-height .22s ease;
+    border:1px solid var(--border); border-radius:12px; padding:0 0; background:rgba(255,255,255,.03);
+  }
+  .acc-panel.open{ padding:8px 8px; }
+  .acc-panel-inner{ padding:6px; }
 
-  /* 3) CTA micro-footer (in fondo in fondo) */
+  /* Voci nav come prima, ma più “toccatili” */
+  .snav{ display:flex; flex-direction:column; gap:6px; }
+  .snav a{ padding:12px 12px; border-radius:10px; color:var(--ink); font-weight:800; }
+  .snav a:hover, .snav a.active{ background:rgba(255,255,255,.06); }
+
+  /* Lingue dentro accordion */
+  .lang-inline{ display:flex; gap:6px; }
+  .lang-inline button{
+    flex:1; background:transparent; border:1px solid var(--border);
+    color:#d7dee9; padding:.55rem; border-radius:10px; font-weight:800;
+  }
+  .lang-inline button.active{ border-color:var(--accent); color:#fff; box-shadow:0 0 0 2px rgba(224,123,60,.12) inset; }
+
+  /* — TUTTO IN COLONNA — */
+  .services{ grid-template-columns:1fr !important; gap:14px; }
+  .portfolio-grid{ grid-template-columns:1fr !important; gap:14px; }
+  .pricing{ grid-template-columns:1fr !important; gap:14px; }
+  .compare{ grid-template-columns:1fr !important; gap:10px; }
+  .svc{ min-height:260px; border-radius:14px; }
+  .svc .p{ padding:16px; }
+
+  /* DICONO DI ME: 3 quadrati uno sotto l'altro */
+  #reviews .wrap > div[style*="grid-template-columns"]{
+    display:grid !important; grid-template-columns:1fr !important; gap:12px !important;
+  }
+  #reviews .card{ border-radius:14px; min-height:120px; }
+
+  /* CONTATTI: prima “Dati rapidi”, poi form → 1 colonna */
+  #contatti .wrap > div[style*="grid-template-columns"]{
+    display:grid !important; grid-template-columns:1fr !important; gap:12px !important;
+  }
+  #contatti .card{ border-radius:14px; }
+  #contatti input, #contatti textarea{ padding:14px !important; font-size:16px; border-radius:12px; }
+  #contatti .btn[type="submit"]{ width:100%; }
+
+  /* Tipografia/CTA adeguate al pollice */
+  .section-title{ font-size:clamp(20px,6vw,28px); }
+  .section-sub{ font-size:.98rem; }
+  .hero .glass{ padding:18px; max-width:none; }
+
+  /* Video: bordo morbido, niente glow pesante */
+  .vid{ border-radius:14px; }
+  .vid::after{ box-shadow:none; }
+
+  /* — MICRO-FOOTER CTA (in fondo, pulito) — */
   .mobile-cta-bar{
-    position: fixed; left: 0; right: 0; bottom: 8px; z-index: 90;
-    display: flex; justify-content: space-between; gap: 8px;
-    padding: 0 12px;
-    opacity: 1; transform: translateY(0); transition: opacity .2s ease, transform .2s ease;
+    position: fixed; left:0; right:0; bottom:8px; z-index:90;
+    display:flex; justify-content:space-between; gap:8px; padding:0 12px;
+    opacity:1; transform:translateY(0); transition:opacity .2s ease, transform .2s ease;
   }
-  .mobile-cta-bar.hide{ opacity:0; transform: translateY(14px); pointer-events:none; }
+  .mobile-cta-bar.hide{ opacity:0; transform:translateY(14px); pointer-events:none; }
+  .mobile-cta-bar .btn{ padding:.6rem .8rem; border-radius:999px; font-weight:900; font-size:.92rem; box-shadow:0 10px 22px rgba(0,0,0,.35); }
+  .mobile-cta-bar .btn-wh{ background:linear-gradient(135deg,var(--ok),#78e59e); color:#0a0c12; }
+  .mobile-cta-bar .btn-call{ background:transparent; border:1px solid var(--border); color:var(--ink); }
 
-  .mobile-cta-bar .btn{
-    padding: .6rem .8rem; border-radius: 999px;
-    font-weight: 900; font-size: .92rem;
-    box-shadow: 0 10px 22px rgba(0,0,0,.35);
-  }
-  .mobile-cta-bar .btn-wh{ background: linear-gradient(135deg,var(--ok),#78e59e); color: #0a0c12; }
-  .mobile-cta-bar .btn-call{ background: transparent; border: 1px solid var(--border); color: var(--ink); }
-
-  /* nascondi la vecchia sticky CTA mobile se presente */
-  .whats{ display: none !important; }
-
-  /* video: bordo morbido, niente glow pesante su mobile */
-  .vid{ border-radius: 14px; }
-  .vid::after{ box-shadow: none; }
+  /* rimuovi vecchia sticky CTA se presente */
+  .whats{ display:none !important; }
 }
 </style>
 
-<script id="mobile-hamburger-only-js">
+<script id="mobile-rework-only-js">
 (function(){
-  if (window.matchMedia && !window.matchMedia('(max-width: 980px)').matches) return; // desktop immacolato
+  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return; // desktop intatto
 
-  // 1) crea trigger hamburger + backdrop
+  // = HAMBURGER + BACKDROP =
   const trigger = document.createElement('button');
   trigger.className = 'mnav-trigger';
-  trigger.setAttribute('aria-label','Apri menù');
-  trigger.setAttribute('aria-expanded','false');
+  trigger.setAttribute('aria-label','Apri menù'); trigger.setAttribute('aria-expanded','false');
   trigger.innerHTML = '<span class="bars"><span></span></span><span>Menu</span>';
-
-  const backdrop = document.createElement('div');
-  backdrop.className = 'mnav-backdrop';
-  document.body.appendChild(backdrop);
-  document.body.appendChild(trigger);
-
-  const openNav  = ()=>{ document.body.classList.add('mnav-open');  trigger.setAttribute('aria-expanded','true'); };
-  const closeNav = ()=>{ document.body.classList.remove('mnav-open'); trigger.setAttribute('aria-expanded','false'); };
-
-  trigger.addEventListener('click', ()=> (document.body.classList.contains('mnav-open') ? closeNav() : openNav()));
+  const backdrop = document.createElement('div'); backdrop.className = 'mnav-backdrop';
+  document.body.appendChild(backdrop); document.body.appendChild(trigger);
+  const openNav = ()=>{ document.body.classList.add('mnav-open');  trigger.setAttribute('aria-expanded','true'); };
+  const closeNav= ()=>{ document.body.classList.remove('mnav-open'); trigger.setAttribute('aria-expanded','false'); };
+  trigger.addEventListener('click', ()=> (document.body.classList.contains('mnav-open')? closeNav() : openNav()));
   backdrop.addEventListener('click', closeNav);
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); }, {passive:true});
 
-  // chiudi quando si clicca un link della nav
-  document.querySelectorAll('aside .snav a').forEach(a=>{
-    a.addEventListener('click', closeNav);
-  });
+  // = ACCORDION: crea sezioni “Navigazione” e “Lingua” dentro aside =
+  const aside = document.querySelector('aside');
+  if(aside){
+    const snav = aside.querySelector('.snav');
+    const langBtns = aside.querySelectorAll('.lang button');
+    // Contenitore accordion
+    const accWrap = document.createElement('div'); accWrap.className = 'acc'; 
+    // Sezione 1: Navigazione
+    const btnNav = document.createElement('button'); btnNav.className='acc-btn'; btnNav.textContent='Navigazione';
+    const panelNav = document.createElement('div'); panelNav.className='acc-panel';
+    const innerNav = document.createElement('div'); innerNav.className='acc-panel-inner';
+    if(snav) innerNav.appendChild(snav); panelNav.appendChild(innerNav);
+    // Sezione 2: Lingua
+    const btnLang = document.createElement('button'); btnLang.className='acc-btn'; btnLang.textContent='Lingua';
+    const panelLang = document.createElement('div'); panelLang.className='acc-panel';
+    const innerLang = document.createElement('div'); innerLang.className='acc-panel-inner';
+    const langBox = document.createElement('div'); langBox.className='lang-inline';
+    langBtns.forEach(b=> langBox.appendChild(b));
+    innerLang.appendChild(langBox); panelLang.appendChild(innerLang);
+    // Monta
+    accWrap.appendChild(btnNav); accWrap.appendChild(panelNav);
+    accWrap.appendChild(btnLang); accWrap.appendChild(panelLang);
+    aside.appendChild(accWrap);
 
-  // 2) micro footer CTA (in fondo in fondo)
+    // Toggle altezza (max-height auto-calcolata)
+    const togglePanel = (btn, panel)=>{
+      const open = panel.classList.contains('open');
+      if(open){
+        panel.style.maxHeight = '0px';
+        panel.classList.remove('open');
+      }else{
+        panel.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    };
+    // Apri Navigazione di default per comodità
+    togglePanel(btnNav, panelNav);
+    // Bind
+    btnNav.addEventListener('click', ()=> togglePanel(btnNav, panelNav));
+    btnLang.addEventListener('click', ()=> togglePanel(btnLang, panelLang));
+
+    // Chiudi menù quando si clicca una voce
+    innerNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeNav));
+  }
+
+  // = MICRO CTA FOOTER =
   const cta = document.createElement('div');
   cta.className = 'mobile-cta-bar';
   cta.innerHTML = `
@@ -2036,28 +2088,45 @@ document.addEventListener('DOMContentLoaded', ()=>{
     <a class="btn btn-wh" href="https://wa.me/393910911719" aria-label="Scrivi su WhatsApp">WhatsApp</a>
   `;
   document.body.appendChild(cta);
-
-  // auto-hide: sparisce dopo 3s, riappare quando scrolli su (screen pulito)
   let lastY = window.scrollY, tid=null;
-  const scheduleHide = ()=>{ clearTimeout(tid); tid = setTimeout(()=> cta.classList.add('hide'), 3000); };
+  const scheduleHide = ()=>{ clearTimeout(tid); tid = setTimeout(()=> cta.classList.add('hide'), 2500); };
   scheduleHide();
   window.addEventListener('scroll', ()=>{
-    const y = window.scrollY;
-    const up = y < lastY - 10; // scroll su
-    lastY = y;
-    if (up) cta.classList.remove('hide');
-    else cta.classList.add('hide');
+    const y = window.scrollY; const up = y < lastY - 8; lastY = y;
+    if (up) cta.classList.remove('hide'); else cta.classList.add('hide');
     scheduleHide();
   }, {passive:true});
 
-  // 3) assicurati che i video restino puliti su mobile
+  // = STACK FORZATO su sezioni critiche anche se avevano inline styles =
+  // Dicono di me (3 quadrati in colonna) e Contatti (Dati rapidi → Form)
+  try{
+    // Reviews
+    const revGrid = document.querySelector('#reviews .wrap > div[style*="grid-template-columns"]');
+    if(revGrid){ revGrid.style.gridTemplateColumns = '1fr'; }
+    // Contatti
+    const contactGrid = document.querySelector('#contatti .wrap > div[style*="grid-template-columns"]');
+    if(contactGrid){ contactGrid.style.gridTemplateColumns = '1fr'; }
+    // Metti "Dati rapidi" PRIMA del form (ordine verticale)
+    const cards = document.querySelectorAll('#contatti .wrap .card');
+    if(cards.length === 2){
+      const first = cards[0], second = cards[1];
+      // Se la prima è il form, inverti
+      const isFormFirst = first.querySelector('form') !== null;
+      if(isFormFirst){
+        contactGrid.insertBefore(second, first); // porta “Dati rapidi” sopra
+      }
+    }
+  }catch(_){}
+
+  // Miglioramenti piccoli ai video su mobile
   document.querySelectorAll('#portfolio iframe').forEach(ifr=>{
     ifr.setAttribute('playsinline','1');
     if(!ifr.getAttribute('allow')) ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
   });
 })();
 </script>
-<!-- === /MOBILE ONLY === -->
+<!-- === /MOBILE REWORK === -->
+
  
 </body>
 </html>

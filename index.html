@@ -2199,6 +2199,61 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })();
 </script>
 <!-- === /PATCH === -->
+<!-- === PATCH MOBILE-ONLY "Chi sono": terza foto solo su mobile === -->
+<style>
+  /* Stile solo mobile per uniformare le tile immagine */
+  @media (max-width:980px){
+    #chi-sono .about-col .tile{ height:160px; }
+  }
+</style>
+
+<script>
+(function aboutThirdImageMobileOnly(){
+  const mq = window.matchMedia('(max-width: 980px)');
+  const SECTION_ID = '#chi-sono';
+  const MOBILE_FLAG = 'data-mobile-only';
+
+  function ensureThirdOnMobile(){
+    const section = document.querySelector(SECTION_ID);
+    if(!section) return;
+
+    // contenitore colonna immagini (quello con 2 div da 200px)
+    const aboutCol = section.querySelector('details > div > div:nth-child(2)');
+    if(!aboutCol) return;
+
+    aboutCol.classList.add('about-col');
+
+    // marca le 2 tile esistenti per coerenza
+    aboutCol.querySelectorAll('div[role="img"]').forEach(t => t.classList.add('tile'));
+
+    if(mq.matches){
+      // MOBILE: se mancano 3 tile, aggiungi la terza
+      const tiles = aboutCol.querySelectorAll('div[role="img"]');
+      const already = aboutCol.querySelector(`[${MOBILE_FLAG}]`);
+      if(tiles.length < 3 && !already){
+        const third = document.createElement('div');
+        third.className = 'tile';
+        third.setAttribute('role','img');
+        third.setAttribute(MOBILE_FLAG,'true');
+        third.setAttribute('aria-label','About image 3');
+        third.setAttribute('data-i18n-alt','about.img3.alt'); // opzionale se aggiungi la chiave i18n
+        third.style.cssText = "height:160px;background:url('/media/about-1.jpg') center/cover no-repeat";
+        aboutCol.appendChild(third);
+      }
+    } else {
+      // DESKTOP: rimuovi l’eventuale terza tile mobile-only
+      const extra = aboutCol.querySelector(`[${MOBILE_FLAG}]`);
+      if(extra) extra.remove();
+    }
+  }
+
+  // run all’avvio + su resize/orientamento
+  ensureThirdOnMobile();
+  mq.addEventListener ? mq.addEventListener('change', ensureThirdOnMobile)
+                      : window.addEventListener('resize', ensureThirdOnMobile, {passive:true});
+})();
+</script>
+<!-- === /PATCH MOBILE-ONLY === -->
 
 </body>
 </html>

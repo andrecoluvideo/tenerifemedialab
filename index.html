@@ -1898,10 +1898,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .shell{ grid-gap: 0 !important; }
   }
 </style>
-<!-- ============ MOBILE OVERLAY MENU (drop-in, desktop intatto) ============ -->
+<!-- ============ MOBILE OVERLAY MENU (finale, desktop intatto) ============ -->
 <style>
 @media (max-width: 980px){
-  /* Nascondi l'aside originale su mobile per evitare doppio menu */
+  /* Nascondi il vecchio aside */
   aside{ display:none !important; }
 
   /* Bottone hamburger */
@@ -1940,7 +1940,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   .mobi-overlay.is-open .mobi-sheet{ transform:translateY(0); }
 
-  /* Sezioni / lingue */
+  /* Sezioni / Lingue */
   .mobi-accordion-btn{
     width:100%; text-align:left; padding:12px 14px; border-radius:12px;
     background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
@@ -1965,29 +1965,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   .mobi-lang button.active{ border-color:#e07b3c; color:#fff; box-shadow:0 0 0 2px rgba(224,123,60,.12) inset; }
 
-  /* CTA dentro il menu */
-  .mobi-cta{
-    display:flex; gap:8px; margin:10px 0 6px 0; flex-wrap:wrap;
-  }
-  .mobi-cta .btn{ display:inline-flex; align-items:center; justify-content:center; padding:.75rem 1rem; border-radius:12px; font-weight:900; }
-  .mobi-cta .btn-wh{ background:linear-gradient(135deg,#f6c85f,#f9e3a3); color:#2b1d0f; border:1px solid rgba(255,255,255,.12); }
-  .mobi-cta .btn-qt{ background:transparent; color:#eef2f6; border:1px solid rgba(255,255,255,.18); }
+  /* Contatti in colonna */
+  #contatti .wrap > div{ display:grid !important; grid-template-columns:1fr !important; gap:12px !important; }
+  #contatti .card{ border-radius:14px; }
+  #contatti input, #contatti textarea{ padding:14px !important; font-size:16px; border-radius:12px; }
+  #contatti .btn[type="submit"]{ width:100%; }
 
-  /* Blocca lo scroll dello sfondo solo quando il menu è aperto */
+  /* CTA in fondo (non sticky) */
+  .contact-cta{
+    margin-top:40px; display:flex; flex-direction:column; gap:10px;
+    text-align:center;
+  }
+  .contact-cta .btn{
+    display:inline-flex; justify-content:center; align-items:center;
+    padding:.9rem 1.2rem; border-radius:12px; font-weight:900;
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .contact-cta .btn-wh{ background:linear-gradient(135deg,#f6c85f,#f9e3a3); color:#2b1d0f; }
+  .contact-cta .btn-call{ background:transparent; color:#eef2f6; }
+
   html.mobi-open, body.mobi-open{ overflow:hidden !important; }
 }
 </style>
 
+<!-- MENU MOBILE -->
 <div class="mobi-overlay" id="mobiOverlay" aria-hidden="true">
   <div class="mobi-backdrop" id="mobiBackdrop"></div>
   <nav class="mobi-sheet" role="navigation" aria-label="Menu mobile">
-    <!-- CTA in alto -->
-    <div class="mobi-cta">
-      <a class="btn btn-wh" href="https://wa.me/393910911719" aria-label="Scrivimi su WhatsApp">WhatsApp</a>
-      <a class="btn btn-qt" href="#contatti" aria-label="Richiedi preventivo">Richiedi preventivo</a>
-    </div>
-
-    <!-- SEZIONI -->
     <button class="mobi-accordion-btn" type="button" id="mobiNavBtn">Sezioni</button>
     <div class="mobi-accordion-panel" id="mobiNavPanel">
       <div class="mobi-panel-inner">
@@ -2004,7 +2008,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
       </div>
     </div>
 
-    <!-- LINGUA -->
     <button class="mobi-accordion-btn" type="button" id="mobiLangBtn">Lingua</button>
     <div class="mobi-accordion-panel" id="mobiLangPanel">
       <div class="mobi-panel-inner">
@@ -2024,7 +2027,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 <script>
 (function(){
-  // Solo mobile
   if (!window.matchMedia || !window.matchMedia('(max-width:980px)').matches) return;
 
   const html = document.documentElement;
@@ -2041,9 +2043,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     html.classList.add('mobi-open');
     trigger.classList.add('mobi-open');
     trigger.setAttribute('aria-expanded','true');
-    // Apri subito entrambe le sezioni
-    openPanel(navPanel);
-    openPanel(langPanel);
+    openPanel(navPanel); openPanel(langPanel);
   }
   function closeMenu(){
     overlay.classList.remove('is-open');
@@ -2071,12 +2071,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
   navBtn.addEventListener('click', ()=> togglePanel(navPanel));
   langBtn.addEventListener('click', ()=> togglePanel(langPanel));
 
-  // Chiudi il menu al click su una voce/CTA
   overlay.querySelectorAll('a, [data-lang]').forEach(el=>{
     el.addEventListener('click', ()=> { if(el.tagName==='A') closeMenu(); });
   });
 
-  // Lingue: usa setLang se disponibile; altrimenti modifica ?lang=
+  // Lingue
   const cur = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
   langPanel.querySelectorAll('[data-lang]').forEach(b=>{
     if(b.dataset.lang===cur) b.classList.add('active');
@@ -2095,10 +2094,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
-  // Previeni che lo sheet “sfondi” lo scroll
-  const sheet = overlay.querySelector('.mobi-sheet');
-  sheet.style.overscrollBehavior = 'contain';
+  // Forza colonna contatti
+  const grid = document.querySelector('#contatti .wrap > div');
+  if(grid){
+    const cards = grid.querySelectorAll('.card');
+    if(cards.length===2){
+      const firstIsForm = !!cards[0].querySelector('form');
+      if(firstIsForm) grid.insertBefore(cards[1], cards[0]);
+    }
+    // Aggiungi CTA in fondo
+    if(!grid.querySelector('.contact-cta')){
+      const cta = document.createElement('div');
+      cta.className = 'contact-cta';
+      cta.innerHTML = `
+        <a class="btn btn-wh" href="https://wa.me/393910911719" aria-label="WhatsApp">Scrivimi su WhatsApp</a>
+        <a class="btn btn-call" href="tel:+393910911719" aria-label="Chiama ora">Chiama ora</a>
+        <a class="btn btn-call" href="#contatti" aria-label="Richiedi preventivo">Richiedi preventivo</a>
+      `;
+      grid.appendChild(cta);
+    }
+  }
 })();
 </script>
 <!-- ============ /MOBILE OVERLAY MENU ============ -->
+
 

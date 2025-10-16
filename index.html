@@ -1341,25 +1341,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
       /* =========================================================================
          MOBILE-FIRST: smooth scroll ancorato con offset + preferenze utente
          ========================================================================= */
-      (function smoothAnchors(){
-        const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-        document.addEventListener('click', e=>{
-          const a = e.target.closest('a[href^="#"]');
-          if(!a) return;
-          const id = a.getAttribute('href');
-          if(!id || id === '#') return;
-          const target = document.querySelector(id);
-          if(!target) return;
-          e.preventDefault();
-          const rect = target.getBoundingClientRect();
-          const y = window.scrollY + rect.top - 8; // piccolo offset
-          window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
-          // focus management
-          target.setAttribute('tabindex','-1');
-          target.focus({preventScroll:true});
-          setTimeout(()=> target.removeAttribute('tabindex'), 600);
-        });
-      })();
+      <script>
+(function smoothAnchors(){
+  const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  document.addEventListener('click', e=>{
+    const a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    const id = a.getAttribute('href');
+    if(!id || id === '#') return;
+    const target = document.querySelector(id);
+    if(!target) return;
+
+    e.preventDefault();
+    const rect = target.getBoundingClientRect();
+    const y = window.scrollY + rect.top - 8; // piccolo offset
+    window.scrollTo({ top: y, behavior: prefersReduced ? 'auto' : 'smooth' });
+
+    // focus management (👉 queste 3 righe sostituiscono la riga troncata)
+    target.setAttribute('tabindex','-1');
+    target.focus({ preventScroll: true });
+    setTimeout(()=> target.removeAttribute('tabindex'), 600);
+  });
+})();
+</script>
+
 
       /* =========================================================================
          FORM: validazione leggera + UI errori + safeguard mobile keyboards
@@ -2182,6 +2187,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
       .vid iframe{ display:block; filter:none }
       [data-reveal]{ opacity:1; transform:none }
       #cookieBanner{ display:flex }
+      <style>
+  /* Elimina il gap tra aside (menu sinistro) e main su desktop */
+  @media (min-width: 981px){
+    .shell{ column-gap: 0 !important; }
+    main{ padding-left: 0 !important; }
+    main .panel{ margin-left: 0 !important; }
+    main .panel > .wrap{ padding-left: 0 !important; }
+  }
+</style>
+
     </style>
     <div style="padding:18px;max-width:960px;margin:0 auto">
       <h3>JavaScript disabilitato</h3>

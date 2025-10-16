@@ -2117,5 +2117,54 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })();
 </script>
 <!-- ============ /MOBILE OVERLAY MENU ============ -->
+<!-- === PATCH: CTA SOLO NEL FOOTER (no bottoni flottanti) === -->
+<style>
+  /* Nascondi qualunque CTA flottante residua */
+  .whats,
+  .mobile-cta-bar,
+  .mobi-fixed-cta { display:none !important; }
 
+  /* CTA nel footer: di default nascosta, visibile su mobile */
+  .footer-cta{ display:none; }
+  @media (max-width:980px){
+    .footer-cta{
+      display:flex; flex-direction:column; gap:10px; margin:18px 0 10px;
+      text-align:center;
+    }
+    .footer-cta .btn{
+      display:inline-flex; justify-content:center; align-items:center;
+      padding:.9rem 1.2rem; border-radius:12px; font-weight:900;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .footer-cta .btn-wh{ background:linear-gradient(135deg,#f6c85f,#f9e3a3); color:#2b1d0f; }
+    .footer-cta .btn-call{ background:transparent; color:#eef2f6; }
+  }
+</style>
 
+<script>
+(function placeFooterCTA(){
+  // 1) rimuovi eventuali CTA flottanti lasciate in giro
+  ['.whats','.mobile-cta-bar','.mobi-fixed-cta'].forEach(sel=>{
+    document.querySelectorAll(sel).forEach(el=> el.remove());
+  });
+
+  // 2) inserisci le CTA nel footer, sopra il blocco con ©/Privacy
+  const footer = document.querySelector('footer .wrap');
+  if(!footer || footer.querySelector('.footer-cta')) return;
+
+  const cta = document.createElement('div');
+  cta.className = 'footer-cta';
+  cta.innerHTML = `
+    <a class="btn btn-wh" href="https://wa.me/393910911719" aria-label="WhatsApp">Scrivimi su WhatsApp</a>
+    <a class="btn btn-call" href="tel:+393910911719" aria-label="Chiama ora">Chiama ora</a>
+    <a class="btn btn-call" href="#contatti" aria-label="Richiedi preventivo">Richiedi preventivo</a>
+  `;
+
+  // Mettila come primissimo elemento dentro il footer, così sta sopra a ©/Privacy
+  footer.insertBefore(cta, footer.firstChild);
+})();
+</script>
+<!-- === /PATCH === -->
+
+</body>
+</html>

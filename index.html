@@ -2126,6 +2126,114 @@ document.addEventListener('DOMContentLoaded', ()=>{
 })();
 </script>
 <!-- === /MOBILE REWORK === -->
+<script>
+(function fixMobileMenu(){
+  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return;
+
+  const aside = document.querySelector('aside');
+  if(!aside) return;
+
+  // Trova pannelli dell'accordion aggiunti dal rework:
+  const accBtns = aside.querySelectorAll('.acc-btn');
+  const navBtn = accBtns[0];
+  const langBtn = accBtns[1];
+  const navPanel = navBtn ? navBtn.nextElementSibling : null;
+  const langPanel = langBtn ? langBtn.nextElementSibling : null;
+
+  // ---------- NAVIGAZIONE: ricostruisci se vuota ----------
+  const panelHasLinks = !!(navPanel && navPanel.querySelector('a'));
+  if (!panelHasLinks && navPanel) {
+    const links = [
+      { href:'#home',       key:'nav.home',     fallback:'Home' },
+      { href:'#servizi',    key:'nav.services', fallback:'Servizi' },
+      { href:'#portfolio',  key:'nav.portfolio',fallback:'Portfolio' },
+      { href:'#prezzi',     key:'nav.pricing',  fallback:'Prezzi' },
+      { href:'#chi-sono',   key:'nav.about',    fallback:'Chi sono' },
+      { href:'#processo',   key:'nav.process',  fallback:'Processo' },
+      { href:'#faq',        key:'nav.faq',      fallback:'FAQ' },
+      { href:'#contatti',   key:'nav.contact',  fallback:'Contatti' },
+    ];
+
+    const lang = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
+    const dict = (window.TRANSLATIONS && window.TRANSLATIONS[lang]) || {};
+
+    const list = document.createElement('div');
+    list.className = 'snav';
+    links.forEach(({href,key,fallback})=>{
+      const a = document.createElement('a');
+      a.className = 'slink';
+      a.href = href;
+      a.textContent = dict[key] || fallback;
+      list.appendChild(a);
+    });
+
+    const inner = document.createElement('div');
+    inner.className = 'acc-panel-inner';
+    inner.appendChild(list);
+
+    navPanel.innerHTML = '';
+    navPanel.appendChild(inner);
+    navPanel.classList.add('open');
+    requestAnimationFrame(()=>{ navPanel.style.maxHeight = navPanel.scrollHeight + 'px'; });
+
+    // Chiudi menù quando si clicca una voce
+    inner.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        document.body.classList.remove('mnav-open');
+        const trg = document.querySelector('.mnav-trigger');
+        if(trg) trg.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  // ---------- LINGUA: ricostruisci se vuota ----------
+  const panelHasLangs = !!(langPanel && langPanel.querySelector('button'));
+  if (!panelHasLangs && langPanel) {
+    const current = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
+    const langs = ['it','en','es'];
+
+    const box = document.createElement('div');
+    box.className = 'lang-inline';
+    langs.forEach(code=>{
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.dataset.lang = code;
+      b.textContent = code.toUpperCase();
+      if (code === current) b.classList.add('active');
+      b.addEventListener('click', ()=>{
+        try{ window.setLang ? setLang(code) : null; }catch(_){}
+      });
+      box.appendChild(b);
+    });
+
+    const inner = document.createElement('div');
+    inner.className = 'acc-panel-inner';
+    inner.appendChild(box);
+
+    langPanel.innerHTML = '';
+    langPanel.appendChild(inner);
+    langPanel.classList.add('open');
+    requestAnimationFrame(()=>{ langPanel.style.maxHeight = langPanel.scrollHeight + 'px'; });
+  }
+
+  // ---------- Safety: se i bottoni accordion esistono ma non aprono, bind fallback ----------
+  function bindAccordion(btn, panel){
+    if(!btn || !panel) return;
+    btn.addEventListener('click', ()=>{
+      const open = panel.classList.contains('open');
+      if(open){
+        panel.style.maxHeight = '0px';
+        panel.classList.remove('open');
+      }else{
+        panel.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  }
+  bindAccordion(navBtn, navPanel);
+  bindAccordion(langBtn, langPanel);
+})();
+</script>
 
  
 </body>

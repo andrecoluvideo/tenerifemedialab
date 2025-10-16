@@ -1898,15 +1898,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     .shell{ grid-gap: 0 !important; }
   }
 </style>
-<!-- === MOBILE REWORK vFinal (UNICO BLOCCO) === -->
-<style id="mobile-rework-vfinal">
+<!-- === MOBILE PACK (UNICO BLOCCO) — Desktop untouched === -->
+<style id="mobile-pack">
 @media (max-width: 980px){
-  /* Layout mobile base */
+  /* Reset layout in colonna */
   .shell{ display:block; }
   main{ margin:0 !important; }
   .wrap{ padding:16px; }
 
-  /* Sidebar a tendina: chiusa di default, apre dall’alto */
+  /* — Sidebar a tendina dall’alto — */
   body:not(.mnav-open) aside{
     position: fixed !important; top:0; left:0; right:0;
     transform: translateY(-100%); transition: transform .22s ease;
@@ -1915,15 +1915,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
     background:
       linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.88)),
       url('/media/sidebar-texture.jpg') center/cover no-repeat;
-    box-shadow:0 16px 36px rgba(0,0,0,.6); z-index:120;
+    box-shadow:0 16px 36px rgba(0,0,0,.6);
+    z-index: 10010 !important;  /* sopra tutto */
+    filter: none !important; -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
+    pointer-events: auto !important;
   }
   body.mnav-open aside{ transform: translateY(0); }
-  .mnav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(2px); z-index:110; display:none; }
+  .mnav-backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,.55);
+    backdrop-filter:blur(2px);
+    z-index: 10000; display:none;
+  }
   body.mnav-open .mnav-backdrop{ display:block; }
+  body.mnav-open{ overflow:hidden !important; touch-action:none; }
 
-  /* Bottone hamburger flottante */
+  /* — Hamburger — */
   .mnav-trigger{
-    position: fixed; top:10px; left:12px; z-index:130;
+    position: fixed; top:10px; left:12px; z-index:10020;
     display:inline-flex; align-items:center; gap:8px;
     padding:10px 12px; border-radius:12px;
     background:linear-gradient(180deg,#0f131b,#0d121e);
@@ -1941,7 +1949,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   body.mnav-open .mnav-trigger .bars::after{ transform: translateY(-5px) rotate(-45deg); }
   body.mnav-open .mnav-trigger .bars span{ opacity:0; }
 
-  /* Accordion dentro aside */
+  /* — Accordion nel menu — */
+  aside .lang{ display:none !important; } /* spostiamo i bottoni lingua dentro l’accordion */
   .acc{ margin-top:10px; }
   .acc-btn{
     width:100%; text-align:left; padding:12px 14px; border-radius:12px;
@@ -1955,59 +1964,53 @@ document.addEventListener('DOMContentLoaded', ()=>{
   .acc-panel.open{ padding:8px; }
   .acc-panel-inner{ padding:6px; }
 
-  /* Voci nav ergonomiche */
   .snav{ display:flex; flex-direction:column; gap:6px; }
   .snav a{ padding:12px; border-radius:10px; color:var(--ink); font-weight:800; }
   .snav a:hover, .snav a.active{ background:rgba(255,255,255,.06); }
 
-  /* Sposta e stilizza la lingua dentro accordion */
-  aside .lang{ display:none !important; }
   .lang-inline{ display:flex; gap:6px; }
   .lang-inline button{
     flex:1; background:transparent; border:1px solid var(--border);
-    color:#d7dee9; padding:.55rem; border-radius:10px; font-weight:800;
+    color:#d7dee9; padding:.55rem; border-radius:10px; font-weight:800; min-width:44px;
   }
   .lang-inline button.active{ border-color:var(--accent); color:#fff; box-shadow:0 0 0 2px rgba(224,123,60,.12) inset; }
 
-  /* Tutto in colonna su mobile */
+  /* — Stack colonne: servizi/portfolio/prezzi/reviews/contatti — */
   .services{ grid-template-columns:1fr !important; gap:14px; }
   .portfolio-grid{ grid-template-columns:1fr !important; gap:14px; }
   .pricing{ grid-template-columns:1fr !important; gap:14px; }
   .compare{ grid-template-columns:1fr !important; gap:10px; }
+  #reviews .wrap > div{ display:grid !important; grid-template-columns:1fr !important; gap:12px !important; }
   .svc{ min-height:260px; border-radius:14px; }
   .svc .p{ padding:16px; }
+  .vid{ border-radius:14px; } .vid::after{ box-shadow:none; }
+  .section-title{ font-size:clamp(20px,6vw,28px); }
+  .section-sub{ font-size:.98rem; }
+  .hero .glass{ padding:18px; max-width:none; }
 
-  /* Dicono di me: 3 card in pila */
-  #reviews .wrap > div{ display:grid !important; grid-template-columns:1fr !important; gap:12px !important; }
-  #reviews .card{ border-radius:14px; min-height:120px; }
-
-  /* Contatti: Dati rapidi sopra, form sotto (1 colonna) */
+  /* Contatti: Dati rapidi sopra, form sotto, input comodi da toccare */
   #contatti .wrap > div{ display:grid !important; grid-template-columns:1fr !important; gap:12px !important; }
   #contatti .card{ border-radius:14px; }
   #contatti input, #contatti textarea{ padding:14px !important; font-size:16px; border-radius:12px; }
   #contatti .btn[type="submit"]{ width:100%; }
 
-  /* Tipografia / Hero / Video */
-  .section-title{ font-size:clamp(20px,6vw,28px); }
-  .section-sub{ font-size:.98rem; }
-  .hero .glass{ padding:18px; max-width:none; }
-  .vid{ border-radius:14px; }
-  .vid::after{ box-shadow:none; }
+  /* Disattiva overlay/click-blocker da sezioni sottostanti */
+  .panel::before, .panel::after{ pointer-events:none !important; }
 
-  /* Rimuove eventuale sticky CTA vecchia */
+  /* Rimuovi eventuali vecchie CTA sticky */
   .whats{ display:none !important; }
 }
 </style>
 
-<script id="mobile-rework-vfinal-js">
+<script id="mobile-pack-js">
 (function(){
-  // Guard: evita doppi rework se qualche script vecchio è rimasto
+  // Evita doppie inizializzazioni se erano rimasti altri script
   if (window.__MOB_MENU_READY) return;
   window.__MOB_MENU_READY = true;
 
-  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return; // Desktop intatto
+  if (!window.matchMedia || !window.matchMedia('(max-width: 980px)').matches) return; // desktop untouched
 
-  // Hamburger + backdrop
+  /* === HAMBURGER + BACKDROP === */
   const trigger = document.createElement('button');
   trigger.className = 'mnav-trigger';
   trigger.setAttribute('aria-label','Apri menù'); trigger.setAttribute('aria-expanded','false');
@@ -2021,27 +2024,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
   backdrop.addEventListener('click', closeNav);
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); }, {passive:true});
 
-  // Costruisci accordion dentro l’aside usando contenuti esistenti, con fallback
+  /* === COSTRUISCI MENU DENTRO ASIDE: NAV + LINGUA (con fallback) === */
   const aside = document.querySelector('aside');
   if(!aside) return;
 
-  // 1) NAVIGAZIONE
+  // Wrapper accordion
   const accWrap = document.createElement('div'); accWrap.className = 'acc';
 
-  const btnNav = document.createElement('button'); btnNav.className='acc-btn';
-  btnNav.textContent = 'Navigazione';
+  // 1) NAVIGAZIONE
+  const btnNav = document.createElement('button'); btnNav.className='acc-btn'; btnNav.textContent='Navigazione';
   const panelNav = document.createElement('div'); panelNav.className='acc-panel';
   const innerNav = document.createElement('div'); innerNav.className='acc-panel-inner';
 
-  // Prendi la nav esistente, se c’è; altrimenti costruisci link da zero
   const existingNav = aside.querySelector('.snav');
   if (existingNav) {
     innerNav.appendChild(existingNav);
   } else {
-    const list = document.createElement('div'); list.className = 'snav';
     const T = (window.TRANSLATIONS||{}); const cur = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
-    const D = T[cur] || {};
-    const lbl = (k,fb)=> D[k] || fb;
+    const D = T[cur] || {}; const L = (k,fb)=> D[k] || fb;
+    const list = document.createElement('div'); list.className='snav';
     [
       {href:'#home',      key:'nav.home',     fb:'Home'},
       {href:'#servizi',   key:'nav.services', fb:'Servizi'},
@@ -2052,7 +2053,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       {href:'#faq',       key:'nav.faq',      fb:'FAQ'},
       {href:'#contatti',  key:'nav.contact',  fb:'Contatti'},
     ].forEach(({href,key,fb})=>{
-      const a = document.createElement('a'); a.className='slink'; a.href=href; a.textContent = lbl(key,fb);
+      const a = document.createElement('a'); a.className='slink'; a.href=href; a.textContent=L(key,fb);
       a.addEventListener('click', closeNav);
       list.appendChild(a);
     });
@@ -2060,36 +2061,36 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
   panelNav.appendChild(innerNav);
 
-  // 2) LINGUA (sposta i tre bottoni dentro accordion; se non ci sono, ricrea)
-  const btnLang = document.createElement('button'); btnLang.className='acc-btn';
-  btnLang.textContent = 'Lingua';
+  // 2) LINGUA
+  const btnLang = document.createElement('button'); btnLang.className='acc-btn'; btnLang.textContent='Lingua';
   const panelLang = document.createElement('div'); panelLang.className='acc-panel';
   const innerLang = document.createElement('div'); innerLang.className='acc-panel-inner';
 
-  const langHolder = document.createElement('div'); langHolder.className='lang-inline';
+  const langBox = document.createElement('div'); langBox.className='lang-inline';
   const nativeLangBtns = aside.querySelectorAll('.lang button');
   if (nativeLangBtns && nativeLangBtns.length) {
-    nativeLangBtns.forEach(b=> langHolder.appendChild(b));
+    nativeLangBtns.forEach(b=> langBox.appendChild(b));
   } else {
-    const cur = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
+    const current = (localStorage.getItem('tf_lang') || document.documentElement.lang || 'it').slice(0,2);
     ['it','en','es'].forEach(code=>{
       const b = document.createElement('button'); b.type='button'; b.dataset.lang=code; b.textContent=code.toUpperCase();
-      if(code===cur) b.classList.add('active');
+      if(code===current) b.classList.add('active');
       b.addEventListener('click', ()=>{
         try{ window.setLang ? setLang(code) : document.documentElement.lang = code; }catch(_){}
-        langHolder.querySelectorAll('button').forEach(x=> x.classList.toggle('active', x===b));
+        localStorage.setItem('tf_lang', code);
+        langBox.querySelectorAll('button').forEach(x=> x.classList.toggle('active', x===b));
       });
-      langHolder.appendChild(b);
+      langBox.appendChild(b);
     });
   }
-  innerLang.appendChild(langHolder); panelLang.appendChild(innerLang);
+  innerLang.appendChild(langBox); panelLang.appendChild(innerLang);
 
-  // Monta tutto in aside (alla fine, per non rompere l’header brand)
+  // Monta in fondo all'aside (sotto il brand)
   accWrap.appendChild(btnNav);  accWrap.appendChild(panelNav);
   accWrap.appendChild(btnLang); accWrap.appendChild(panelLang);
   aside.appendChild(accWrap);
 
-  // Toggle accordion + apri Navigazione di default
+  // Toggle pannelli + apri Navigazione di default
   function toggle(panel){
     const open = panel.classList.contains('open');
     if(open){ panel.style.maxHeight='0px'; panel.classList.remove('open'); }
@@ -2099,19 +2100,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
   btnNav.addEventListener('click', ()=> toggle(panelNav));
   btnLang.addEventListener('click', ()=> toggle(panelLang));
 
-  // Backdrop in DOM (se mancava)
-  if(!document.querySelector('.mnav-backdrop')){
-    const bd = document.createElement('div'); bd.className='mnav-backdrop';
-    document.body.appendChild(bd); bd.addEventListener('click', closeNav);
-  }
+  // Link nav: chiudi menù al click
+  innerNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeNav));
 
-  // Miglioramenti video su mobile
+  /* === Migliorie video su mobile === */
   document.querySelectorAll('#portfolio iframe').forEach(ifr=>{
     ifr.setAttribute('playsinline','1');
     if(!ifr.getAttribute('allow')) ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
   });
 
-  // Stack forzato Contatti: “Dati rapidi” sopra al form se invertiti
+  /* === Contatti: ordina “Dati rapidi” sopra al form se invertiti === */
   try{
     const grid = document.querySelector('#contatti .wrap > div');
     if(grid){
@@ -2122,7 +2120,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     }
   }catch(_){}
+
+  /* === Hardening anti “menu sfocato/non cliccabile” === */
+  // z-index corretti anche su resize/rotate
+  const lift = ()=>{
+    const a = document.querySelector('aside'); if(a) a.style.zIndex = 10010;
+    const bd = document.querySelector('.mnav-backdrop'); if(bd) bd.style.zIndex = 10000;
+  };
+  lift(); window.addEventListener('resize', lift, {passive:true});
+
+  // evita che pseudo-elementi di pannelli blocchino click
+  document.querySelectorAll('.panel').forEach(p=>{
+    p.style.pointerEvents = 'auto';
+  });
 })();
 </script>
-<!-- === /MOBILE REWORK vFinal === -->
+<!-- === /MOBILE PACK === -->
+
 

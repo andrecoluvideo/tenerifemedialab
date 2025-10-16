@@ -2203,6 +2203,39 @@ document.addEventListener('DOMContentLoaded', ()=>{
       <p>Per un’esperienza completa con traduzioni, portfolio e moduli interattivi, abilita JavaScript nel tuo browser.</p>
     </div>
   </noscript>
+<style>
+  /* Desktop: azzera OGNI spazio tra aside (menu) e main */
+  @media (min-width: 981px){
+    .shell{
+      gap: 0 !important;
+      grid-gap: 0 !important;          /* vecchie sintassi */
+      column-gap: 0 !important;
+      grid-column-gap: 0 !important;
+      row-gap: 0 !important;
+      grid-row-gap: 0 !important;
+      padding-right: 0 !important;     /* difesa extra */
+    }
+    .shell > aside{
+      margin-right: 0 !important;
+      padding-right: 0 !important;     /* se il menu aggiunge spazio */
+    }
+    .shell > main{
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+    .shell > main .panel{
+      margin-left: 0 !important;
+    }
+    .shell > main .panel > .wrap{
+      padding-left: 0 !important;
+    }
+  }
+
+  /* Safari vecchi: assicurati che il gap sia zero comunque */
+  @supports (display: grid){
+    .shell{ grid-gap: 0 !important; }
+  }
+</style>
 
 </body>
 </html>

@@ -525,13 +525,13 @@
     </details>
 
     <div style="margin-top:14px" class="section-sub">
-      <strong data-i18n="about.rename">Nel settore dal 2016 , con oltre 1 milione di stream su youtoube totali tra progetti personali e collaborati.</strong>
+      <strong data-i18n="about.rename">Nel settore dal 2016, con oltre 1 milione di stream su YouTube totali tra progetti personali e collaborazioni.</strong>
     </div>
 
     <!-- micro CTA sotto bio -->
     <div class="cta-row" style="margin-top:16px">
-      <a href="#portfolio" class="btn" aria-label="Vai al portfolio" data-i18n="cta.viewPortfolio" data-i18n-aria-label="cta.viewPortfolio.aria">Portfolio</a>
-      <a href="#contatti" class="btn btn-outline" aria-label="Vai ai contatti" data-i18n="cta.letsTalk" data-i18n-aria-label="cta.letsTalk.aria">Parliamone</a>
+      <a href="#portfolio" class="btn" aria-label="Vai al portfolio" data-i18n="about.cta.portfolio">Portfolio</a>
+      <a href="#contatti" class="btn btn-outline" aria-label="Vai ai contatti" data-i18n="about.cta.talk">Parliamone</a>
     </div>
   </div>
 </section>
@@ -571,8 +571,8 @@
 
     <!-- mini CTA -->
     <div class="cta-row" style="margin-top:16px">
-      <a href="#prezzi" class="btn btn-outline" data-i18n="cta.viewPackages">Vedi pacchetti</a>
-      <a href="#contatti" class="btn" data-i18n="cta.requestPlan">Richiedi un piano</a>
+      <a href="#prezzi" class="btn btn-outline" data-i18n="process.cta.packages">Vedi pacchetti</a>
+      <a href="#contatti" class="btn" data-i18n="process.cta.plan">Richiedi un piano</a>
     </div>
   </div>
 </section>
@@ -665,22 +665,22 @@
       <div class="card" data-reveal>
         <div class="p">
           <!-- Form con honeypot anti-spam e attributi ARIA -->
-          <form action="https://formspree.io/f/your-id" method="POST" novalidate aria-label="Modulo contatti" data-i18n-aria-label="contact.form.aria">
+          <form action="https://formspree.io/f/your-id" method="POST" novalidate aria-label="Modulo contatti">
             <!-- Honeypot -->
             <input type="text" name="_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
             <!-- Nome -->
-            <label for="in_nome" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.form.nome.label">Nome</label>
-            <input id="in_nome" type="text" name="nome" data-i18n-placeholder="contact.form.nome.ph" placeholder="Il tuo nome completo" required
+            <label for="in_nome" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.label.name">Nome</label>
+            <input id="in_nome" type="text" name="nome" data-i18n="contact.form.nome" placeholder="Il tuo nome completo" required
                    style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%"
                    aria-required="true" aria-invalid="false" autocomplete="name">
             <!-- Email -->
-            <label for="in_email" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.form.email.label">Email</label>
-            <input id="in_email" type="email" name="email" data-i18n-placeholder="contact.form.email.ph" placeholder="La tua email" required
+            <label for="in_email" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.label.email">Email</label>
+            <input id="in_email" type="email" name="email" data-i18n="contact.form.email" placeholder="La tua email" required
                    style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%"
                    aria-required="true" aria-invalid="false" inputmode="email" autocomplete="email">
             <!-- Messaggio -->
-            <label for="in_msg" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.form.msg.label">Messaggio</label>
-            <textarea id="in_msg" name="messaggio" data-i18n-placeholder="contact.form.msg.ph" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required
+            <label for="in_msg" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.label.message">Messaggio</label>
+            <textarea id="in_msg" name="messaggio" data-i18n="contact.form.msg" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required
                       style="background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;min-height:160px;font-size:1rem;width:100%"
                       aria-required="true" aria-invalid="false"></textarea>
             <!-- Consenso -->
@@ -691,7 +691,7 @@
             <!-- Submit -->
             <button class="btn" type="submit" data-i18n="contact.send" style="margin-top:12px;width:100%">Invia richiesta</button>
             <!-- Helper -->
-            <p class="section-sub" style="margin-top:10px;font-size:.9rem" data-i18n-html="contact.helper">Compilando il modulo accetti la nostra <a href="/privacy.html">Privacy Policy</a>.</p>
+            <p class="section-sub" style="margin-top:10px;font-size:.9rem" data-i18n="contact.privacyNote">Compilando il modulo accetti la nostra <a href="/privacy.html">Privacy Policy</a>.</p>
           </form>
 
           <p class="section-sub" style="margin-top:14px;text-align:center">
@@ -714,9 +714,9 @@
           </ul>
           <!-- micro trust -->
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-            <span class="chip" data-i18n="contact.taxinfo">P.IVA / CF su richiesta</span>
-            <span class="chip" data-i18n="contact.einvoice">Fatturazione elettronica</span>
-            <span class="chip" data-i18n="contact.contracts">Contratto e liberatorie</span>
+            <span class="chip" data-i18n="contact.legal1">P.IVA / CF su richiesta</span>
+            <span class="chip" data-i18n="contact.legal2">Fatturazione elettronica</span>
+            <span class="chip" data-i18n="contact.legal3">Contratto e liberatorie</span>
           </div>
         </div>
       </div>
@@ -727,7 +727,7 @@
 <!-- FOOTER -->
 <footer class="panel" role="contentinfo">
   <div class="wrap" style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center">
-    <div>© <span id="year2"></span> <span data-i18n="footer.copy">Andrea Colucci Films — Tenerife</span></div>
+    <div>© <span id="year2"></span> Andrea Colucci Films — Tenerife</div>
     <div style="display:flex;gap:10px;align-items:center">
       <a class="chip" href="/privacy.html" data-i18n="footer.privacy">Privacy</a>
       <a class="chip" href="/terms.html" data-i18n="footer.terms">Termini</a>
@@ -785,16 +785,10 @@
 </noscript>
 <!-- PARTE 2 / 5 - FINE -->
 
-
-
-<!-- PARTE 3 / 5 - INIZIO (≥300 righe) -->
-
-<!-- I18N + UI SCRIPT -->
+<!-- PARTE 3 / 5 - I18N + UI SCRIPT (AGGIORNATA) -->
 <script>
 /* =========================================================================
    TRANSLATIONS (IT / EN / ES)
-   - Chiavi annidate + piatte → robustezza i18n
-   - Meta/OG dinamici per SEO
    ========================================================================= */
 const TRANSLATIONS = {
   it: {
@@ -806,27 +800,33 @@ const TRANSLATIONS = {
     },
     "brand.name": "Andrea Colucci Films",
     "brand.loc": "Tenerife • Canary Islands",
+
+    /* NAV & CTA */
     "nav.home":"Home","nav.portfolio":"Portfolio","nav.services":"Servizi","nav.pricing":"Prezzi","nav.about":"Chi sono","nav.process":"Processo","nav.faq":"FAQ","nav.contact":"Contatti",
     "cta.whatsapp":"WhatsApp","cta.quote":"Richiedi preventivo","cta.call":"Chiama ora",
+
+    /* HERO */
     "hero.ribbon":"Drone 4K certificato • Storytelling",
     "hero.title":"Video che fanno vivere <span style=\"color:var(--accent)\">Tenerife</span> prima ancora di arrivarci",
     "hero.subtitle":"Turismo, Boat Charter, Hotel e Real Estate. Produzione agile in loco, montaggi ad alto impatto, ottimizzati per social e ads.",
     "hero.cta1":"Guarda Portfolio ⟶","hero.cta2":"Scopri i pacchetti",
-    "portfolio.title":"Portfolio","portfolio.subtitle":"4 clip selezionate — autoplay, loop, silenziose (tap per audio).",
 
-    "services.title":"Servizi","services.subtitle":"Soluzioni video su misura per destinazioni, aziende e proprietà.",
-    "services.tourism.title":"Turismo & Hotel","services.tourism.desc":"Spot emozionali e contenuti always-on per stagioni e OTA, UGC guidato, pacchetti reel.",
-    "services.charter.title":"Boat Charter","services.charter.desc":"Giornate in mare e luxury charter. Drone/FPV, POV e micro-contenuti che convertono.",
-    "services.re.title":"Real Estate","services.re.desc":"Walkthrough dinamici, aeree cinematiche, versioni per portali e annunci.",
-    "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
-    "services.tags.fpv":"FPV","services.tags.reelpack":"Reel Pack","services.tags.walkthrough":"Walkthrough","services.tags.aerial":"Aerial","services.tags.portal":"Portal-Ready",
-
-    /* Value strip */
+    /* VALUE STRIP */
     "value.v1.t":"📈 Conversione","value.v1.d":"Script leggeri e call-to-action integrate per aumentare lead e prenotazioni.",
     "value.v2.t":"⚡️ Velocità","value.v2.d":"Consegna in 3–5 giorni grazie a workflow ottimizzato e proxy smart.",
     "value.v3.t":"🎯 Target","value.v3.d":"Cut su misura per social e ads (9:16, 1:1, 16:9) con A/B test creativo.",
     "value.v4.t":"🛡️ Permessi","value.v4.d":"Gestione permessi droni e sicurezza certificata inclusa dove necessario.",
 
+    /* SERVICES */
+    "services.title":"Servizi","services.subtitle":"Soluzioni video su misura per destinazioni, aziende e proprietà.",
+    "services.tourism.title":"Turismo & Hotel","services.tourism.desc":"Spot emozionali e contenuti always-on per stagioni e OTA, UGC guidato, pacchetti reel.",
+    "services.charter.title":"Boat Charter","services.charter.desc":"Giornate in mare e luxury charter. Drone/FPV, POV e micro-contenuti che convertono.",
+    "services.re.title":"Real Estate","services.re.desc":"Walkthrough dinamici, aeree cinematiche, versioni per portali e annunci.",
+    "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
+    "services.tags.fpv":"FPV","services.tags.reel":"Reel Pack",
+    "services.tags.walkthrough":"Walkthrough","services.tags.aerial":"Aerial","services.tags.portal":"Portal-Ready",
+
+    /* PRICING */
     "pricing.title":"Pacchetti","pricing.subtitle":"Prezzi indicativi — preventivo su misura in 24–48h.","pricing.note":"Sconti per retainer mensili",
     "pricing.p1.title":"Basic","pricing.p1.price":"€400","pricing.p1.i1":"Mezza giornata riprese (max 4h)","pricing.p1.i2":"1 video 30–45s (verticale)","pricing.p1.i3":"Color grading essenziale","pricing.p1.i4":"Consegna in 5 giorni lavorativi","pricing.p1.p1":"Location singola","pricing.p1.p2":"Musica royalty","pricing.p1.note":"Ideale per reel singolo o lanci lampo.",
     "pricing.popular":"Più scelto","pricing.p2.title":"Intro","pricing.p2.price":"€600","pricing.p2.i1":"Giornata intera (8h) + golden hour","pricing.p2.i2":"1 hero video 60–90s (H o V)","pricing.p2.i3":"+ 2 reel ottimizzati (9:16)","pricing.p2.i4":"Drone 4K incluso (permessi standard)","pricing.p2.i5":"Motion titles + sound design","pricing.p2.i6":"2 round di revisioni","pricing.p2.i7":"Consegna in 3–5 giorni","pricing.p2.p1":"Copertura completa","pricing.p2.p2":"Versioni social/ads","pricing.p2.p3":"Mini storyboard","pricing.p2.p4":"Backup 60gg","pricing.p2.note":"Perfetto per hotel, charter, property medio-alta.",
@@ -836,7 +836,7 @@ const TRANSLATIONS = {
     "pricing.cmp3":"Esteso • 1 hero + 4 reel + ads • Drone/FPV • Pro grading",
     "pricing.book":"Prenota questo","pricing.ask":"Prenota questo",
 
-    // About
+    /* ABOUT */
     "about.title":"Chi sono","about.subtitle":"Filmmaker a Tenerife: drone pilot certificato, contenuti che convertono.","about.open":"Apri bio, certificazioni, attrezzatura",
     "about.bio":"<strong>Andrea Colucci</strong> — storytelling cinematografico, ritmo musicale, montaggi dinamici. Ho aiutato hotel, charter e agenzie a trasformare la percezione in prenotazioni.",
     "about.c1":"🎓 Certificazioni: <em>UAS A1/A3, A2</em>","about.c2":"🚁 Drone: 4K, D-Log, ND set, low-light",
@@ -844,8 +844,9 @@ const TRANSLATIONS = {
     "about.langs":"Parlo IT • EN • ES — lavoro in loco e con retainer per brand turistici.",
     "about.rename":"Nel settore dal 2016, con oltre 1 milione di stream su YouTube totali tra progetti personali e collaborazioni.",
     "about.img1.alt":"Immagine about 1","about.img2.alt":"Immagine about 2",
+    "about.cta.portfolio":"Portfolio","about.cta.talk":"Parliamone",
 
-    // Process (nested + flat)
+    /* PROCESS */
     process: {
       title:"Processo di lavoro", subtitle:"Semplice, veloce, focalizzato sui risultati.",
       s1:{ t:"01 · Brief & Strategia", d:"Obiettivi, pubblico, messaggio. Scelta formato e deliverable." },
@@ -857,23 +858,38 @@ const TRANSLATIONS = {
     "process.s2.t":"02 · Shooting","process.s2.d":"On-site a Tenerife. Drone/FPV quando utile. Pianificazione golden hour.",
     "process.s3.t":"03 · Editing & Grading","process.s3.d":"Ritmo musicale, titolazioni pulite, color pro.",
     "process.s4.t":"04 · Consegna & Varianti","process.s4.d":"Cut per social e ads. A/B test creatività top-performing.",
+    "process.cta.packages":"Vedi pacchetti","process.cta.plan":"Richiedi un piano",
 
-    // Reviews, FAQ, Contact, footer, cookie...
+    /* REVIEWS */
     "reviews.title":"Dicono di me","reviews.subtitle":"Clienti reali, risultati misurabili.",
     "reviews.r1.t":"“Prenotazioni dirette ↑ in due settimane. Video emozionale pazzesco.”","reviews.r1.w":"Hotel Costa Adeje","reviews.r1.img.alt":"Logo Hotel Costa Adeje",
     "reviews.r2.t":"“Barche al completo nei weekend. I reel brevi funzionano!”","reviews.r2.w":"Captain Blue Charter","reviews.r2.img.alt":"Logo Captain Blue Charter",
     "reviews.r3.t":"“Villa venduta in 9 giorni. Il video ha fatto la differenza.”","reviews.r3.w":"Agenzia Immobiliare Sur","reviews.r3.img.alt":"Logo Agenzia Sur",
+
+    /* FAQ */
     "faq.title":"FAQ","faq.subtitle":"Riprese, consegna, permessi.",
     "faq.q1.s":"Quanto dura uno shooting?","faq.q1.a":"Da 2 ore a giornata intera, in base al pacchetto e alla location.",
     "faq.q2.s":"Gestisci i permessi drone?","faq.q2.a":"Sì, includo la gestione dei permessi necessari e volo in sicurezza certificata.",
     "faq.q3.s":"Tempi di consegna?","faq.q3.a":"Versione preliminare in 3–5 giorni. Fast track disponibile.",
     "faq.q4.s":"In quali lingue lavori?","faq.q4.a":"Italiano, Inglese, Spagnolo.",
+
+    /* CONTACT */
     "contact.title":"Contattami","contact.subtitle":"Raccontami il tuo progetto: risposta entro 24–48h.",
-    "contact.form.nome":"Il tuo nome completo","contact.form.email":"La tua email","contact.form.msg":"Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…","contact.send":"Invia richiesta","contact.or":"Oppure scrivimi su",
-    "contact.quick":"Dati rapidi","contact.addr":"📍 Tenerife, Isole Canarie","contact.roles":"🎥 Film Maker · Drone Pilot · AI Maker","contact.langs":"🗣 IT · EN · ES",
+    "contact.label.name":"Nome","contact.label.email":"Email","contact.label.message":"Messaggio",
+    "contact.form.nome":"Il tuo nome completo","contact.form.email":"La tua email","contact.form.msg":"Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…",
+    "contact.consent":"Acconsento al trattamento dati per rispondere alla richiesta.",
+    "contact.send":"Invia richiesta","contact.or":"Oppure scrivimi su",
+    "contact.privacyNote":"Compilando il modulo accetti la nostra <a href=\"/privacy.html\">Privacy Policy</a>.",
+    "contact.quick":"Dati rapidi","contact.addr":"📍 Tenerife, Isole Canarie",
+    "contact.roles":"🎥 Film Maker · Drone Pilot · AI Maker","contact.langs":"🗣 IT · EN · ES",
+    "contact.legal1":"P.IVA / CF su richiesta","contact.legal2":"Fatturazione elettronica","contact.legal3":"Contratto e liberatorie",
+
+    /* FOOTER & COOKIE */
     "footer.privacy":"Privacy","footer.terms":"Termini","footer.manageCookies":"Gestisci cookie",
     "cookie.title":"Usiamo cookie per migliorare l'esperienza","cookie.desc":"Accetta i cookie per attivare video, analytics e funzionalità avanzate. Puoi cambiare la scelta dopo.",
-    "cookie.manage":"Gestisci","cookie.accept":"Accetta tutto","cookie.modalTitle":"Gestione cookie","cookie.modalDesc":"Seleziona quali cookie vuoi abilitare. I video possono essere bloccati fino al consenso.","cookie.necessary":"Necessary","cookie.marketing":"Marketing / Video","cookie.analytics":"Analytics","cookie.cancel":"Annulla","cookie.saved":"Preferenze salvate"
+    "cookie.manage":"Gestisci","cookie.accept":"Accetta tutto","cookie.modalTitle":"Gestione cookie","cookie.modalDesc":"Seleziona quali cookie vuoi abilitare. I video possono essere bloccati fino al consenso.",
+    "cookie.necessary":"Necessary","cookie.marketing":"Marketing / Video","cookie.analytics":"Analytics","cookie.cancel":"Annulla","cookie.save":"Salva e chiudi",
+    "cookie.saved":"Preferenze salvate"
   },
 
   /* ============================= ENGLISH ============================= */
@@ -885,26 +901,27 @@ const TRANSLATIONS = {
       ogImage: "/media/hero.webp.jpg"
     },
     "brand.name":"Andrea Colucci Films","brand.loc":"Tenerife • Canary Islands",
+
     "nav.home":"Home","nav.portfolio":"Portfolio","nav.services":"Services","nav.pricing":"Pricing","nav.about":"About","nav.process":"Process","nav.faq":"FAQ","nav.contact":"Contact",
     "cta.whatsapp":"WhatsApp","cta.quote":"Request Quote","cta.call":"Call now",
+
     "hero.ribbon":"Certified 4K Drone • Storytelling",
     "hero.title":"Videos that make you feel <span style=\"color:var(--accent)\">Tenerife</span> before you arrive",
     "hero.subtitle":"Tourism, boat charters, hotels and real estate. Agile on-site production, high-impact edits, optimized for socials & ads.",
     "hero.cta1":"Watch Portfolio ⟶","hero.cta2":"See Packages",
-    "portfolio.title":"Portfolio","portfolio.subtitle":"4 selected clips — autoplay, loop, muted (tap for audio).",
+
+    "value.v1.t":"📈 Conversion","value.v1.d":"Light scripts and built-in CTAs to increase leads and bookings.",
+    "value.v2.t":"⚡️ Speed","value.v2.d":"Delivery in 3–5 days thanks to an optimized workflow and smart proxies.",
+    "value.v3.t":"🎯 Targeting","value.v3.d":"Tailored cuts for social & ads (9:16, 1:1, 16:9) with creative A/B testing.",
+    "value.v4.t":"🛡️ Permits","value.v4.d":"Drone permits handled and certified safety included where needed.",
 
     "services.title":"Services","services.subtitle":"Tailored video solutions for destinations, businesses and properties.",
     "services.tourism.title":"Tourism & Hotels","services.tourism.desc":"Emotional spots and always-on content for seasons and OTAs, guided UGC, reel packages.",
     "services.charter.title":"Boat Charter","services.charter.desc":"Sea days and luxury charters. Drone/FPV, POV and short content that converts.",
     "services.re.title":"Real Estate","services.re.desc":"Dynamic walkthroughs, cinematic aerials, portal-ready versions.",
     "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
-    "services.tags.fpv":"FPV","services.tags.reelpack":"Reel Pack","services.tags.walkthrough":"Walkthrough","services.tags.aerial":"Aerial","services.tags.portal":"Portal-Ready",
-
-    /* Value strip */
-    "value.v1.t":"📈 Conversion","value.v1.d":"Light scripts and built-in CTAs to increase leads and bookings.",
-    "value.v2.t":"⚡️ Speed","value.v2.d":"Delivery in 3–5 days thanks to an optimized workflow and smart proxies.",
-    "value.v3.t":"🎯 Targeting","value.v3.d":"Tailored cuts for social & ads (9:16, 1:1, 16:9) with creative A/B testing.",
-    "value.v4.t":"🛡️ Permits","value.v4.d":"Drone permits handled and certified safety included where needed.",
+    "services.tags.fpv":"FPV","services.tags.reel":"Reel Pack",
+    "services.tags.walkthrough":"Walkthrough","services.tags.aerial":"Aerial","services.tags.portal":"Portal-Ready",
 
     "pricing.title":"Packages","pricing.subtitle":"Indicative prices — tailored quote in 24–48h.","pricing.note":"Retainer discounts available",
     "pricing.p1.title":"Basic","pricing.p1.price":"€400","pricing.p1.i1":"Half day shoot (max 4h)","pricing.p1.i2":"1 video 30–45s (vertical)","pricing.p1.i3":"Basic color grading","pricing.p1.i4":"Delivery in 5 working days","pricing.p1.p1":"Single location","pricing.p1.p2":"Royalty music","pricing.p1.note":"Ideal for single reel or short launches.",
@@ -919,6 +936,8 @@ const TRANSLATIONS = {
     "about.bio":"<strong>Andrea Colucci</strong> — cinematic storytelling, musical pacing, dynamic edits. I helped hotels, charters and agencies turn perception into bookings.",
     "about.langs":"I speak IT • EN • ES — I work on-site and on retainers for travel brands.",
     "about.rename":"In the field since 2016, with 1M+ total YouTube streams across personal and collaboration projects.",
+    "about.img1.alt":"About image 1","about.img2.alt":"About image 2",
+    "about.cta.portfolio":"Portfolio","about.cta.talk":"Let’s talk",
 
     process: {
       title:"Work Process", subtitle:"Simple, fast, result-focused.",
@@ -931,6 +950,7 @@ const TRANSLATIONS = {
     "process.s2.t":"02 · Shooting","process.s2.d":"On-site in Tenerife. Drone/FPV when useful. Golden hour planning.",
     "process.s3.t":"03 · Editing & Grading","process.s3.d":"Musical pacing, clean titles, pro color.",
     "process.s4.t":"04 · Delivery & Variants","process.s4.d":"Cuts for social and ads. A/B test top-performing creative.",
+    "process.cta.packages":"See Packages","process.cta.plan":"Request a plan",
 
     "reviews.title":"What clients say","reviews.subtitle":"Real clients, measurable results.",
     "reviews.r1.t":"“Direct bookings ↑ in two weeks. Amazing emotional video.”","reviews.r1.w":"Hotel Costa Adeje",
@@ -944,12 +964,20 @@ const TRANSLATIONS = {
     "faq.q4.s":"Which languages do you work in?","faq.q4.a":"Italian, English, Spanish.",
 
     "contact.title":"Contact me","contact.subtitle":"Tell me about your project – reply within 24–48h.",
-    "contact.form.nome":"Your full name","contact.form.email":"Your email","contact.form.msg":"Describe location, target, objectives and type of video you want…","contact.send":"Send request","contact.or":"Or write me on",
-    "contact.quick":"Quick facts","contact.addr":"📍 Tenerife, Canary Islands","contact.roles":"🎥 Filmmaker · Drone Pilot · AI Maker","contact.langs":"🗣 IT · EN · ES",
+    "contact.label.name":"Name","contact.label.email":"Email","contact.label.message":"Message",
+    "contact.form.nome":"Your full name","contact.form.email":"Your email","contact.form.msg":"Describe location, target, objectives and type of video you want…",
+    "contact.consent":"I consent to the processing of my data to answer this request.",
+    "contact.send":"Send request","contact.or":"Or write me on",
+    "contact.privacyNote":"By submitting the form you accept our <a href=\"/privacy.html\">Privacy Policy</a>.",
+    "contact.quick":"Quick facts","contact.addr":"📍 Tenerife, Canary Islands",
+    "contact.roles":"🎥 Filmmaker · Drone Pilot · AI Maker","contact.langs":"🗣 IT · EN · ES",
+    "contact.legal1":"VAT / Tax ID on request","contact.legal2":"Electronic invoicing","contact.legal3":"Contract & releases",
 
     "footer.privacy":"Privacy","footer.terms":"Terms","footer.manageCookies":"Manage cookies",
     "cookie.title":"We use cookies to improve experience","cookie.desc":"Accept cookies to enable videos, analytics and advanced features. You can change your choice later.",
-    "cookie.manage":"Manage","cookie.accept":"Accept all","cookie.modalTitle":"Cookie settings","cookie.modalDesc":"Choose which cookies to enable. Videos can be blocked until consent.","cookie.necessary":"Necessary","cookie.marketing":"Marketing / Video","cookie.analytics":"Analytics","cookie.cancel":"Cancel","cookie.saved":"Preferences saved"
+    "cookie.manage":"Manage","cookie.accept":"Accept all","cookie.modalTitle":"Cookie settings","cookie.modalDesc":"Choose which cookies to enable. Videos can be blocked until consent.",
+    "cookie.necessary":"Necessary","cookie.marketing":"Marketing / Video","cookie.analytics":"Analytics","cookie.cancel":"Cancel","cookie.save":"Save & close",
+    "cookie.saved":"Preferences saved"
   },
 
   /* ============================= SPANISH ============================ */
@@ -961,26 +989,27 @@ const TRANSLATIONS = {
       ogImage: "/media/hero.webp.jpg"
     },
     "brand.name":"Andrea Colucci Films","brand.loc":"Tenerife • Canary Islands",
+
     "nav.home":"Inicio","nav.portfolio":"Portfolio","nav.services":"Servicios","nav.pricing":"Precios","nav.about":"Sobre mí","nav.process":"Proceso","nav.faq":"FAQ","nav.contact":"Contacto",
     "cta.whatsapp":"WhatsApp","cta.quote":"Solicitar presupuesto","cta.call":"Llamar ahora",
+
     "hero.ribbon":"Drone 4K certificado • Storytelling",
     "hero.title":"Vídeos que hacen sentir <span style=\"color:var(--accent)\">Tenerife</span> antes de llegar",
     "hero.subtitle":"Turismo, Boat Charter, Hotel y Real Estate. Producción ágil en local, montajes de alto impacto, optimizados para social y ads.",
     "hero.cta1":"Ver Portfolio ⟶","hero.cta2":"Ver paquetes",
-    "portfolio.title":"Portfolio","portfolio.subtitle":"4 clips seleccionados — autoplay, loop, silencioso (tap para audio).",
+
+    "value.v1.t":"📈 Conversión","value.v1.d":"Guiones ligeros y CTAs integradas para aumentar leads y reservas.",
+    "value.v2.t":"⚡️ Velocidad","value.v2.d":"Entrega en 3–5 días gracias a un flujo optimizado y proxies inteligentes.",
+    "value.v3.t":"🎯 Segmentación","value.v3.d":"Cortes a medida para social y ads (9:16, 1:1, 16:9) con A/B testing creativo.",
+    "value.v4.t":"🛡️ Permisos","value.v4.d":"Gestión de permisos de dron y seguridad certificada donde sea necesario.",
 
     "services.title":"Servicios","services.subtitle":"Soluciones de video a medida para destinos, empresas y propiedades.",
     "services.tourism.title":"Turismo & Hotel","services.tourism.desc":"Spots emocionales y contenido always-on para temporada y OTAs, UGC guiado, paquetes de reels.",
     "services.charter.title":"Boat Charter","services.charter.desc":"Días en el mar y charter de lujo. Drone/FPV, POV y microcontenidos que convierten.",
     "services.re.title":"Real Estate","services.re.desc":"Walkthroughs dinámicos, aéreas cinemáticas, versiones para portales.",
     "services.tags.story":"Storytelling","services.tags.social":"Social","services.tags.ads":"Ads","services.tags.drone":"Drone 4K",
-    "services.tags.fpv":"FPV","services.tags.reelpack":"Reel Pack","services.tags.walkthrough":"Walkthrough","services.tags.aerial":"Aerial","services.tags.portal":"Listo para portales",
-
-    /* Value strip */
-    "value.v1.t":"📈 Conversión","value.v1.d":"Guiones ligeros y CTAs integradas para aumentar leads y reservas.",
-    "value.v2.t":"⚡️ Velocidad","value.v2.d":"Entrega en 3–5 días gracias a un flujo optimizado y proxies inteligentes.",
-    "value.v3.t":"🎯 Público objetivo","value.v3.d":"Cortes a medida para social y ads (9:16, 1:1, 16:9) con A/B testing creativo.",
-    "value.v4.t":"🛡️ Permisos","value.v4.d":"Gestión de permisos de dron y seguridad certificada cuando sea necesario.",
+    "services.tags.fpv":"FPV","services.tags.reel":"Paquete de Reels",
+    "services.tags.walkthrough":"Walkthrough","services.tags.aerial":"Aéreas","services.tags.portal":"Listo para portal",
 
     "pricing.title":"Paquetes","pricing.subtitle":"Precios indicativos — presupuesto a medida en 24–48h.","pricing.note":"Descuentos para retainer mensuales",
     "pricing.p1.title":"Basic","pricing.p1.price":"€400","pricing.p1.i1":"Medio día de rodaje (max 4h)","pricing.p1.i2":"1 video 30–45s (vertical)","pricing.p1.i3":"Color grading esencial","pricing.p1.i4":"Entrega en 5 días laborables","pricing.p1.p1":"Ubicación única","pricing.p1.p2":"Música royalty","pricing.p1.note":"Ideal para reel único o lanzamientos cortos.",
@@ -998,9 +1027,11 @@ const TRANSLATIONS = {
       s3:{ t:"03 · Edición & Grading", d:"Ritmo musical, títulos limpios, color pro." },
       s4:{ t:"04 · Entrega & Variantes", d:"Cortes para social y ads. A/B test creatividad top-performing." }
     },
-    "process.s1.t":"02 · Rodaje","process.s1.d":"On-site en Tenerife. Drone/FPV cuando sea útil. Planificación golden hour.",
+    "process.s1.t":"01 · Brief & Estrategia","process.s1.d":"Objetivos, público, mensaje. Elección de formato y deliverables.",
+    "process.s2.t":"02 · Rodaje","process.s2.d":"On-site en Tenerife. Drone/FPV cuando sea útil. Planificación golden hour.",
     "process.s3.t":"03 · Edición & Grading","process.s3.d":"Ritmo musical, títulos limpios, color pro.",
     "process.s4.t":"04 · Entrega & Variantes","process.s4.d":"Cortes para social y ads. A/B test creatividad top-performing.",
+    "process.cta.packages":"Ver paquetes","process.cta.plan":"Solicitar un plan",
 
     "reviews.title":"Opiniones","reviews.subtitle":"Clientes reales, resultados medibles.",
     "reviews.r1.t":"“Reservas directas ↑ en dos semanas. Vídeo emocional increíble.”","reviews.r1.w":"Hotel Costa Adeje",
@@ -1014,19 +1045,25 @@ const TRANSLATIONS = {
     "faq.q4.s":"¿En qué idiomas trabajas?","faq.q4.a":"Italiano, Inglés, Español.",
 
     "contact.title":"Contáctame","contact.subtitle":"Cuéntame tu proyecto: respuesta en 24–48h.",
-    "contact.form.nome":"Tu nombre completo","contact.form.email":"Tu email","contact.form.msg":"Describe ubicación, target, objetivos y el tipo de vídeo que quieres…","contact.send":"Enviar solicitud","contact.or":"O escríbeme por",
-    "contact.quick":"Datos rápidos","contact.addr":"📍 Tenerife, Islas Canarias","contact.roles":"🎥 Film Maker · Drone Pilot · AI Maker","contact.langs":"🗣 IT · EN · ES",
+    "contact.label.name":"Nombre","contact.label.email":"Email","contact.label.message":"Mensaje",
+    "contact.form.nome":"Tu nombre completo","contact.form.email":"Tu email","contact.form.msg":"Describe ubicación, target, objetivos y el tipo de vídeo que quieres…",
+    "contact.consent":"Consiento el tratamiento de datos para responder a la solicitud.",
+    "contact.send":"Enviar solicitud","contact.or":"O escríbeme por",
+    "contact.privacyNote":"Al enviar aceptas nuestra <a href=\"/privacy.html\">Política de Privacidad</a>.",
+    "contact.quick":"Datos rápidos","contact.addr":"📍 Tenerife, Islas Canarias",
+    "contact.roles":"🎥 Filmmaker · Drone Pilot · AI Maker","contact.langs":"🗣 IT · EN · ES",
+    "contact.legal1":"NIF/CIF bajo petición","contact.legal2":"Facturación electrónica","contact.legal3":"Contrato y cesiones",
 
     "footer.privacy":"Privacidad","footer.terms":"Términos","footer.manageCookies":"Gestionar cookies",
     "cookie.title":"Usamos cookies para mejorar la experiencia","cookie.desc":"Acepta cookies para activar videos, analytics y funcionalidades avanzadas. Puedes cambiar la elección más tarde.",
     "cookie.manage":"Gestionar","cookie.accept":"Aceptar todo","cookie.modalTitle":"Gestión de cookies","cookie.modalDesc":"Selecciona qué cookies quieres habilitar. Los videos pueden bloquearse hasta el consentimiento.",
-    "cookie.necessary":"Necessary","cookie.marketing":"Marketing / Video","cookie.analytics":"Analytics","cookie.cancel":"Cancelar","cookie.saved":"Preferencias guardadas"
+    "cookie.necessary":"Necessary","cookie.marketing":"Marketing / Video","cookie.analytics":"Analytics","cookie.cancel":"Cancelar","cookie.save":"Guardar y cerrar",
+    "cookie.saved":"Preferencias guardadas"
   }
 };
 
 /* =========================================================================
    Helper: getNested
-   - Risolve chiavi piatte ('process.s1.t') e oggetti annidati (process.s1.t)
    ========================================================================= */
 function getNested(obj, path){
   if(!obj) return null;
@@ -1035,15 +1072,12 @@ function getNested(obj, path){
 }
 
 /* =========================================================================
-   Apply translations to DOM
-   - innerHTML vs textContent (data-i18n-html o markup presente)
-   - placeholders per input/textarea
-   - supporto a data-i18n-alt / title / aria (alt → aria-label se role="img")
-   - aggiorna meta/OG e ricostruisce JSON-LD FAQ
+   Apply translations to DOM (+ meta/OG + FAQ JSON-LD)
    ========================================================================= */
 function applyTranslations(lang){
   const dict = TRANSLATIONS[lang] || TRANSLATIONS['it'];
   if(!dict) return;
+
   const htmlKeys = new Set(['hero.title','about.bio']);
 
   document.querySelectorAll('[data-i18n]').forEach(el=>{
@@ -1054,11 +1088,9 @@ function applyTranslations(lang){
 
     const tag = el.tagName.toLowerCase();
 
-    // Inputs & Textareas → placeholder
     if(tag === 'input' || tag === 'textarea'){
       el.placeholder = value;
     } else {
-      // innerHTML se markup
       if(el.hasAttribute('data-i18n-html') || htmlKeys.has(key) || /<[^>]+>/.test(value)){
         el.innerHTML = value;
       } else {
@@ -1066,18 +1098,13 @@ function applyTranslations(lang){
       }
     }
 
-    // alt/title/aria collegati
     const altKey = el.getAttribute('data-i18n-alt');
     if(altKey){
       const altVal = getNested(dict, altKey);
       if(altVal){
-        if(el.getAttribute('role') === 'img'){
-          el.setAttribute('aria-label', altVal);
-        } else if('alt' in el){
-          el.alt = altVal;
-        } else {
-          el.setAttribute('title', altVal);
-        }
+        if(el.getAttribute('role') === 'img'){ el.setAttribute('aria-label', altVal); }
+        else if('alt' in el){ el.alt = altVal; }
+        else{ el.setAttribute('title', altVal); }
       }
     }
     const titleKey = el.getAttribute('data-i18n-title');
@@ -1114,27 +1141,24 @@ function applyTranslations(lang){
     }
   }catch(e){ console.warn('JSON-LD rebuild error', e); }
 
-  // <html lang="..">
   document.documentElement.lang = lang;
 }
 
 /* =========================================================================
    Lingua: persistenza / UI
-   - Priorità URL ?lang= → localStorage → navigator
    ========================================================================= */
 function saveLang(l){ try{ localStorage.setItem('tf_lang', l); }catch(e){} }
 function loadLang(){
   try{
-    const fromUrl = (new URLSearchParams(location.search).get('lang'));
-    if(fromUrl) return fromUrl;
-    const fromLS = localStorage.getItem('tf_lang');
-    if(fromLS) return fromLS;
+    const urlL = (new URLSearchParams(location.search).get('lang'));
+    if(urlL) return urlL;
+    const lsL = localStorage.getItem('tf_lang');
+    if(lsL) return lsL;
     return (navigator.language||'it').split('-')[0];
   }catch(e){
     return (navigator.language||'it').split('-')[0];
   }
 }
-
 function setLang(lang){
   if(!TRANSLATIONS[lang]) lang = 'it';
   applyTranslations(lang);
@@ -1144,14 +1168,12 @@ function setLang(lang){
     b.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
   saveLang(lang);
-  // Aggiorna URL senza reload
   try{
     const u = new URL(window.location);
     u.searchParams.set('lang', lang);
     history.replaceState({},'',u.toString());
   }catch(e){}
 }
-
 function attachLangHandlers(){
   document.querySelectorAll('.lang button').forEach(b => {
     b.addEventListener('click', ()=> setLang(b.dataset.lang));
@@ -1160,38 +1182,26 @@ function attachLangHandlers(){
 
 /* =========================================================================
    COOKIE CONSENT
-   - tf_cookie_consents_v1 in localStorage
-   - Se marketing=true → abilita video (data-src → src)
    ========================================================================= */
 function openCookieModal(){
   const m = document.getElementById('cookieModalBackdrop');
   if(m) m.style.display='flex';
 }
-
 function enableMarketingEmbeds(){
-  document.querySelectorAll('.vid').forEach(box=>{
-    box.classList.remove('blocked');
-  });
-  document.querySelectorAll('iframe[data-src]').forEach(ifr => {
-    if(!ifr.src) ifr.src = ifr.dataset.src;
-  });
+  document.querySelectorAll('.vid').forEach(box=> box.classList.remove('blocked'));
+  document.querySelectorAll('iframe[data-src]').forEach(ifr => { if(!ifr.src) ifr.src = ifr.dataset.src; });
 }
-
 function setCookieConsent(obj){
   try{
     localStorage.setItem('tf_cookie_consents_v1', JSON.stringify(obj));
     const banner = document.getElementById('cookieBanner');
     if(banner) banner.style.display='none';
-
     if(obj.marketing){ enableMarketingEmbeds(); }
-
-    // messaggio di conferma localizzato
     const lang = (localStorage.getItem('tf_lang') || new URLSearchParams(location.search).get('lang') || 'it');
     const saved = (TRANSLATIONS[lang] && (TRANSLATIONS[lang]['cookie.saved'])) || 'Preferenze salvate';
     try{ alert(saved); }catch(e){}
   }catch(e){ console.warn(e); }
 }
-
 function saveCookieModal(){
   const marketing = !!document.getElementById('ck_marketing')?.checked;
   const analytics = !!document.getElementById('ck_analytics')?.checked;
@@ -1201,9 +1211,8 @@ function saveCookieModal(){
 }
 
 /* =========================================================================
-   Utils
+   Utils: Vimeo postMessage safe
    ========================================================================= */
-// Vimeo safe postMessage
 function vimeoCmd(iframe, method){
   try{
     if(!iframe?.contentWindow) return;
@@ -1213,13 +1222,6 @@ function vimeoCmd(iframe, method){
 
 /* =========================================================================
    DOMContentLoaded
-   - init lingua
-   - anno footer
-   - cookie banner
-   - reveal animation
-   - scrollspy
-   - Vimeo autoplay intelligente (play/pause al 40% visibilità)
-   - lazy-preload immagini hero su connessioni veloci
    ========================================================================= */
 document.addEventListener('DOMContentLoaded', ()=>{
   // Lingua
@@ -1228,14 +1230,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const final = ['it','en','es'].includes(initial) ? initial : 'it';
   setLang(final);
 
-  // Anno
+  // Anno footer
   const Y = new Date().getFullYear();
   const y1 = document.getElementById('year');
   const y2 = document.getElementById('year2');
   if(y1) y1.textContent = Y;
   if(y2) y2.textContent = Y;
 
-  // Cookie banner & sync stato modale
+  // Cookie banner & stato
   try{
     const cons = JSON.parse(localStorage.getItem('tf_cookie_consents_v1') || '{}');
     const banner = document.getElementById('cookieBanner');
@@ -1244,17 +1246,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
     } else {
       if(banner) banner.style.display='flex';
     }
-    // sync check
     const ckM = document.getElementById('ck_marketing');
     const ckA = document.getElementById('ck_analytics');
     if(ckM) ckM.checked = !!cons.marketing;
     if(ckA) ckA.checked = !!cons.analytics;
-
-    // se già marketing=true all'avvio → abilita subito i video
     if(cons && cons.marketing){ enableMarketingEmbeds(); }
   }catch(e){ console.warn(e); }
 
-  // Reveal animation
+  // Reveal
   const rev = document.querySelectorAll('[data-reveal]');
   try{
     const obs = new IntersectionObserver(entries=>{
@@ -1266,11 +1265,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
     }, {threshold:.15});
     rev.forEach(el=>obs.observe(el));
-  }catch(e){
-    rev.forEach(el=>el.classList.add('revealed'));
-  }
+  }catch(e){ rev.forEach(el=>el.classList.add('revealed')); }
 
-  // Scrollspy (attiva link nella sidebar in base alla sezione visibile)
+  // Scrollspy
   try{
     const sections = [...document.querySelectorAll('main section[id]')];
     const links = [...document.querySelectorAll('.snav .slink')];
@@ -1285,20 +1282,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
     sections.forEach(s=>spy.observe(s));
   }catch(e){}
 
-  // Vimeo play/pause quando la card è visibile almeno al 40%
+  // Vimeo play/pause al 40% visibilità
   try{
     const vimeoIframes = [...document.querySelectorAll('#portfolio iframe[src], #portfolio iframe[data-src]')];
     const playObs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         const ifr = e.target;
-        if(!ifr.src) return; // se bloccato (niente src) non inviamo messaggi
+        if(!ifr.src) return;
         e.isIntersecting ? vimeoCmd(ifr,'play') : vimeoCmd(ifr,'pause');
       });
     },{threshold:.4});
     vimeoIframes.forEach(i=>playObs.observe(i));
   }catch(e){}
 
-  // Preload condizionale immagini (connessioni buone)
+  // Preload condizionale immagini
   try{
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const ok = !conn || (conn.downlink && conn.downlink > 1.8);

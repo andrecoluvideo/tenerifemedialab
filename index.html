@@ -1844,28 +1844,27 @@ document.addEventListener('DOMContentLoaded', ()=>{
     </main>
   </div> <!-- /.shell -->
 
-  <!-- NOSCRIPT FALLBACK MINIMO (lingua IT) -->
-  <noscript>
-    <style>
-      .vid iframe{ display:block; filter:none }
-      [data-reveal]{ opacity:1; transform:none }
-      #cookieBanner{ display:flex }
-      <style>
-  /* Elimina il gap tra aside (menu sinistro) e main su desktop */
-  @media (min-width: 981px){
-    .shell{ column-gap: 0 !important; }
-    main{ padding-left: 0 !important; }
-    main .panel{ margin-left: 0 !important; }
-    main .panel > .wrap{ padding-left: 0 !important; }
-  }
-</style>
+ <!-- NOSCRIPT FALLBACK MINIMO (lingua IT) -->
+<noscript>
+  <style>
+    .vid iframe{ display:block; filter:none }
+    [data-reveal]{ opacity:1; transform:none }
+    #cookieBanner{ display:flex }
 
-    </style>
-    <div style="padding:18px;max-width:960px;margin:0 auto">
-      <h3>JavaScript disabilitato</h3>
-      <p>Per un’esperienza completa con traduzioni, portfolio e moduli interattivi, abilita JavaScript nel tuo browser.</p>
-    </div>
-  </noscript>
+    /* Elimina il gap tra aside (menu sinistro) e main su desktop */
+    @media (min-width: 981px){
+      .shell{ column-gap: 0 !important; }
+      main{ padding-left: 0 !important; }
+      main .panel{ margin-left: 0 !important; }
+      main .panel > .wrap{ padding-left: 0 !important; }
+    }
+  </style>
+
+  <div style="padding:18px;max-width:960px;margin:0 auto">
+    <h3>JavaScript disabilitato</h3>
+    <p>Per un’esperienza completa con traduzioni, portfolio e moduli interattivi, abilita JavaScript nel tuo browser.</p>
+  </div>
+</noscript>
 <style>
   /* Desktop: azzera OGNI spazio tra aside (menu) e main */
   @media (min-width: 981px){
@@ -2264,6 +2263,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   });
 </script>
+<style>
+  @media (min-width: 981px){
+    .mobi-overlay, #mobiOverlay,
+    .mobi-menu-btn, #mobiTrigger { display: none !important; }
+  }
+</style>
 
 </body>
 </html>

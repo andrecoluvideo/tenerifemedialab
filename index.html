@@ -529,8 +529,8 @@
 
     <!-- micro CTA sotto bio -->
     <div class="cta-row" style="margin-top:16px">
-      <a href="#portfolio" class="btn" aria-label="Vai al portfolio">Portfolio</a>
-      <a href="#contatti" class="btn btn-outline" aria-label="Vai ai contatti">Parliamone</a>
+      <a href="#portfolio" class="btn" aria-label="Vai al portfolio" data-i18n="cta.viewPortfolio" data-i18n-aria-label="cta.viewPortfolio.aria">Portfolio</a>
+      <a href="#contatti" class="btn btn-outline" aria-label="Vai ai contatti" data-i18n="cta.letsTalk" data-i18n-aria-label="cta.letsTalk.aria">Parliamone</a>
     </div>
   </div>
 </section>
@@ -570,8 +570,8 @@
 
     <!-- mini CTA -->
     <div class="cta-row" style="margin-top:16px">
-      <a href="#prezzi" class="btn btn-outline">Vedi pacchetti</a>
-      <a href="#contatti" class="btn">Richiedi un piano</a>
+      <a href="#prezzi" class="btn btn-outline" data-i18n="cta.viewPackages">Vedi pacchetti</a>
+      <a href="#contatti" class="btn" data-i18n="cta.requestPlan">Richiedi un piano</a>
     </div>
   </div>
 </section>
@@ -664,33 +664,33 @@
       <div class="card" data-reveal>
         <div class="p">
           <!-- Form con honeypot anti-spam e attributi ARIA -->
-          <form action="https://formspree.io/f/your-id" method="POST" novalidate aria-label="Modulo contatti">
+          <form action="https://formspree.io/f/your-id" method="POST" novalidate aria-label="Modulo contatti" data-i18n-aria-label="contact.form.aria">
             <!-- Honeypot -->
             <input type="text" name="_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
             <!-- Nome -->
-            <label for="in_nome" class="section-sub" style="display:block;margin-bottom:6px">Nome</label>
-            <input id="in_nome" type="text" name="nome" data-i18n="contact.form.nome" placeholder="Il tuo nome completo" required
+            <label for="in_nome" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.form.nome.label">Nome</label>
+            <input id="in_nome" type="text" name="nome" data-i18n-placeholder="contact.form.nome.ph" placeholder="Il tuo nome completo" required
                    style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%"
                    aria-required="true" aria-invalid="false" autocomplete="name">
             <!-- Email -->
-            <label for="in_email" class="section-sub" style="display:block;margin-bottom:6px">Email</label>
-            <input id="in_email" type="email" name="email" data-i18n="contact.form.email" placeholder="La tua email" required
+            <label for="in_email" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.form.email.label">Email</label>
+            <input id="in_email" type="email" name="email" data-i18n-placeholder="contact.form.email.ph" placeholder="La tua email" required
                    style="margin-bottom:10px;background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;font-size:1rem;width:100%"
                    aria-required="true" aria-invalid="false" inputmode="email" autocomplete="email">
             <!-- Messaggio -->
-            <label for="in_msg" class="section-sub" style="display:block;margin-bottom:6px">Messaggio</label>
-            <textarea id="in_msg" name="messaggio" data-i18n="contact.form.msg" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required
+            <label for="in_msg" class="section-sub" style="display:block;margin-bottom:6px" data-i18n="contact.form.msg.label">Messaggio</label>
+            <textarea id="in_msg" name="messaggio" data-i18n-placeholder="contact.form.msg.ph" placeholder="Descrivi location, target, obiettivi e tipo di video che vuoi realizzare…" required
                       style="background:#0f131b;border:1px solid var(--border);color:var(--ink);padding:1rem;border-radius:12px;min-height:160px;font-size:1rem;width:100%"
                       aria-required="true" aria-invalid="false"></textarea>
             <!-- Consenso -->
             <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
               <input type="checkbox" id="in_privacy" name="privacy" required aria-required="true">
-              <label for="in_privacy" class="section-sub">Acconsento al trattamento dati per rispondere alla richiesta.</label>
+              <label for="in_privacy" class="section-sub" data-i18n="contact.consent">Acconsento al trattamento dati per rispondere alla richiesta.</label>
             </div>
             <!-- Submit -->
             <button class="btn" type="submit" data-i18n="contact.send" style="margin-top:12px;width:100%">Invia richiesta</button>
             <!-- Helper -->
-            <p class="section-sub" style="margin-top:10px;font-size:.9rem">Compilando il modulo accetti la nostra <a href="/privacy.html">Privacy Policy</a>.</p>
+            <p class="section-sub" style="margin-top:10px;font-size:.9rem" data-i18n-html="contact.helper">Compilando il modulo accetti la nostra <a href="/privacy.html">Privacy Policy</a>.</p>
           </form>
 
           <p class="section-sub" style="margin-top:14px;text-align:center">
@@ -713,9 +713,9 @@
           </ul>
           <!-- micro trust -->
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-            <span class="chip">P.IVA / CF su richiesta</span>
-            <span class="chip">Fatturazione elettronica</span>
-            <span class="chip">Contratto e liberatorie</span>
+            <span class="chip" data-i18n="contact.taxinfo">P.IVA / CF su richiesta</span>
+            <span class="chip" data-i18n="contact.einvoice">Fatturazione elettronica</span>
+            <span class="chip" data-i18n="contact.contracts">Contratto e liberatorie</span>
           </div>
         </div>
       </div>
@@ -726,7 +726,7 @@
 <!-- FOOTER -->
 <footer class="panel" role="contentinfo">
   <div class="wrap" style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center">
-    <div>© <span id="year2"></span> Andrea Colucci Films — Tenerife</div>
+    <div>© <span id="year2"></span> <span data-i18n="footer.copy">Andrea Colucci Films — Tenerife</span></div>
     <div style="display:flex;gap:10px;align-items:center">
       <a class="chip" href="/privacy.html" data-i18n="footer.privacy">Privacy</a>
       <a class="chip" href="/terms.html" data-i18n="footer.terms">Termini</a>
@@ -769,7 +769,7 @@
     </div>
     <div style="display:flex;gap:10px;justify-content:flex-end">
       <button class="btn btn-outline" onclick="document.getElementById('cookieModalBackdrop').style.display='none'" data-i18n="cookie.cancel">Annulla</button>
-      <button class="btn" onclick="saveCookieModal()">Salva e chiudi</button>
+      <button class="btn" onclick="saveCookieModal()" data-i18n="cookie.save">Salva e chiudi</button>
     </div>
   </div>
 </div>
@@ -783,6 +783,7 @@
   </style>
 </noscript>
 <!-- PARTE 2 / 5 - FINE -->
+
 
 
 <!-- PARTE 3 / 5 - INIZIO (≥300 righe) -->

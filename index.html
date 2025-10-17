@@ -1161,19 +1161,31 @@ function loadLang(){
 }
 function setLang(lang){
   if(!TRANSLATIONS[lang]) lang = 'it';
+
+  // 🔹 Salva posizione scroll prima del cambio lingua
+  const scrollY = window.scrollY || window.pageYOffset;
+
   applyTranslations(lang);
+
+  // 🔹 Aggiorna pulsanti lingua
   document.querySelectorAll('.lang button').forEach(b => {
     const active = b.dataset.lang === lang;
     b.classList.toggle('active', active);
     b.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
+
+  // 🔹 Salva e aggiorna URL
   saveLang(lang);
-  try{
+  try {
     const u = new URL(window.location);
     u.searchParams.set('lang', lang);
-    history.replaceState({},'',u.toString());
-  }catch(e){}
+    history.replaceState({}, '', u.toString());
+  } catch(e){}
+
+  // 🔹 Ripristina posizione scroll (evita salto in cima)
+  window.scrollTo(0, scrollY);
 }
+
 function attachLangHandlers(){
   document.querySelectorAll('.lang button').forEach(b => {
     b.addEventListener('click', ()=> setLang(b.dataset.lang));
